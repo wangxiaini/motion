@@ -1,0 +1,139 @@
+body {
+  width: 750px;
+  margin: auto;
+}
+body .header {
+  height: 208px;
+  background: #de3121;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+body .header .money {
+  margin-top: 20px;
+}
+body .header .money li {
+  box-sizing: border-box;
+  float: left;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  width: 50%;
+}
+body .header .money li p {
+  text-align: center;
+  line-height: 54px;
+}
+body .header .money li .per {
+  font-size: 36px;
+}
+body .header .money #border {
+  border-left: 2px solid #e73121;
+}
+body .header .title {
+  margin-top: 20px;
+}
+body .header .title li {
+  color: white;
+  font-size: 32px;
+  width: 50%;
+  float: left;
+  text-align: center;
+  height: 60px;
+}
+body .header .title .active {
+  padding-bottom: 18px;
+  border-bottom: 10px solid white;
+}
+body .heart-list1 {
+  width: 690px;
+  margin: auto;
+  padding-top: 208px;
+}
+body .heart-list1 li {
+  height: 100px;
+  border-bottom: 2px solid #dbdbdb;
+  padding: 10px 0;
+}
+body .heart-list1 li p {
+  float: left;
+  font-size: 30px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body .heart-list1 li .img {
+  width: 20%;
+  height: 100px;
+}
+body .heart-list1 li .img img {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin-top: 5px;
+}
+body .heart-list1 li .name {
+  width: 30%;
+  line-height: 100px;
+  height: 100px;
+}
+body .heart-list1 li .money {
+  width: 47%;
+  line-height: 100px;
+  text-align: left;
+  padding-left: 3%;
+}
+body .heart-list2 {
+  width: 690px;
+  margin: auto;
+}
+body .heart-list2 h2 {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 100px;
+  background: url(/foundation/images/heart.png) no-repeat left center;
+  padding-left: 70px;
+  border-bottom: 2px solid #dbdbdb;
+}
+body .heart-list2 li .img {
+  width: 18%;
+}
+body .heart-list2 li .img img {
+  border-radius: 50%;
+}
+body .heart-list2 li .name {
+  width: 21%;
+  line-height: 100px;
+}
+body .heart-list2 li .rank {
+  width: 19%;
+  color: #e73121;
+  border-radius: 4px;
+  border: 2px solid #e73121;
+  box-sizing: border-box;
+  line-height: 40px;
+  margin-top: 28px;
+}
+body .heart-list2 li .money {
+  width: 35%;
+  line-height: 100px;
+}
+.hint {
+  font-size: 28px;
+  text-align: center;
+  color: #e73121;
+  line-height: 100px;
+}
+.nodate-tops {
+  top: 310px;
+  height: 100px;
+}
+.nullData,
+.getData {
+  font-size: 26px;
+  color: #999999;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+}

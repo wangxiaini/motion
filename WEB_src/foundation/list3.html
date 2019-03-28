@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title>青少年足球关爱计划</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/foundation/css/list-all.css">
+  <style>
+    .p1{
+      height: 270px;
+    }
+    .p2{
+      height: 230px;
+    }
+    .header{
+      height: 460px;
+      background: url('/foundation/images/list3.jpg');
+    }
+  </style>
+</head>
+<body>
+  <div id="list3">
+    <header class="header">
+      <div class="btn">筹款中</div>
+    </header>
+    <h1>青少年足球关爱计划</h1>
+    <div class="ac-bg"></div>
+    <div class="intro">
+      <div class="title">项目介绍</div>
+      <p class="p1">
+          为让更多贫困地区孩子有机会接触足球，培养兴趣，享受足球运动带来的快乐和健康，中国足球发展基金会发起设立青少年足球关爱计划公益项目（简称关爱计划）。重点是向经济欠发达地区的幼儿园和中小学校，捐赠足球等耗材和装备，使经济欠发达地区的青少年能够参与足球运动，获得快乐、自信和荣誉感，培养团队合作与共赢精神。
+      </p>
+      <p class="p2">
+          中国足球发展基金会2017年推出关爱计划公益项目，向社会公开募捐资金。企事业单位、足球俱乐部和个人均可捐资，捐款数量不限，捐款时请注明关爱计划项目，捐款将用于购买国内知名品牌的足球、球门等耗材及球衣、球鞋等装备。本项目也接受足球、球衣、球鞋等物资捐赠。
+      </p>
+    </div>
+    <div class="ac-bg"></div>
+    <div class="water">
+      <div class="title">爱心流水</div>
+      <div class="hint" v-show='hasShow'>暂无数据~</div>
+    <div class="listbox" ref='listbox'>
+      <ul class="list1" ref='height' v-cloak>
+        <li v-for='(v,i) in list'>
+          <span class="list-name">{{v.u_name}}</span>
+          <span class="list-money">捐了<i>{{Number(v.money)/100}}元</i></span>
+          <span class="list-timer">{{v.donation_time}}</span>
+        </li>
+      </ul>
+      <ul class="list2" v-cloak ref='list2'>
+        <li v-for='(v,i) in list'>
+          <span class="list-name">{{v.u_name}}</span>
+          <span class="list-money">捐了<i>{{Number(v.money)/100}}元</i></span>
+          <span class="list-timer">{{v.donation_time}}</span>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <a href="/CESADefault.aspx?foundation=detail" class="all">查看更多爱心流水</a>
+    <div class="sub" @click='clickShow'>我要捐款</div>
+    <div class="mask" v-show='hasShowMsk' @click.self='maskClick' v-cloak>
+    <div class="mask-box">
+      <div class="mask-header">
+        <span>
+            捐款信息
+        </span>
+      </div>
+      <div class="money-box">
+        <div class="mask-money clearfix">
+          <div class="left"></div>
+          <div class="right">
+            <span id="sp1" @click='totalClick(0)' :class="allShow1?'active':''">{{selectMoney1}}元</span>
+            <span @click='totalClick(1)' :class="allShow2?'active':''">{{selectMoney2}}元</span>
+            <span id="sp3" @click='totalClick(2)' :class="allShow3?'active':''">{{selectMoney3}}元</span>
+          </div>
+        </div>
+        <div class="all-money clearfix">
+          <div class="left">
+            捐款金额：
+          </div>
+          <div class="right">
+            <input type="number" v-model='totalAll' @click='totalClick("all")' placeholder="其他金额">
+            <span>元</span>
+          </div>
+        </div>
+        <div class="mask-name clearfix">
+            <div class="left">
+                姓名：
+            </div>
+            <div class="right">
+              <input type="text" v-model='u_name'>
+            </div>
+        </div>
+        <div class="mask-pro clearfix">
+            <div class="left">
+              项目名称：
+            </div>
+            <div class="right">
+              青少年足球关爱计划
+            </div>
+        </div>
+        <div class="mask-nimi clearfix">
+          <div class="clearfix">
+              <input type="checkbox" v-model='anmi'>
+              <span>匿名捐款</span>
+          </div>
+          <p>捐款名单中不在显示您的微信头像和昵称</p>
+        </div>
+      </div>
+      <div class="arrow"></div>
+    </div>
+    <div class="alert_tips" :class="tips ? 'alert_sport' :''">{{tips}}</div>
+    <div class="submint" @click='submint'>我要捐款</div>
+  </div>
+  </div>
+  <script src="/common/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/common.js"></script>
+  <script src="/common/js/axios.min.js"></script>
+  <script src="/common/js/vue.js"></script>
+  <script src="/foundation/js/list-all.js"></script>
+  <script>
+  var list1 = new Vue ({
+      el: '#list3',
+      data: {
+        list: [],
+        ulH: 0,
+        ul: null,
+        ul2:null,
+        ulbox: null,
+        hasShowMsk: false,
+        setTips,
+        tips:'',
+        number: 0,
+        u_name: '',
+        total: PRICE_LOVE1,
+        pro_name: '',
+        anmi: 0,
+        totalAll: '',
+        fund: 0,
+        totals: 0,
+        selectMoney1:PRICE_LOVE1,
+        selectMoney2:PRICE_LOVE2,
+        selectMoney3:PRICE_LOVE3,
+        totalShow: false,
+        allShow1: true,
+        allShow2: false,
+        allShow3: false,
+        hasShow: false,
+        setTips,
+        tips:''
+      },
+      created () {
+        GetDonationList(3,1,50)
+      },
+      mounted () {
+        this.ul = this.$refs.height
+        this.ul2 = this.$refs.list2
+        this.ulbox = this.$refs.listbox
+        setInterval (roll,20) 
+      },
+      methods: {
+        totalClick (v) {
+          if(v == 0){
+            this.allShow1 = true
+            this.allShow2 = false
+            this.allShow3 = false
+            this.total = this.selectMoney1
+            this.totalAll = ''
+          }else if(v == 1){
+            this.allShow1 = false
+            this.allShow2 = true
+            this.allShow3 = false
+            this.total = this.selectMoney2
+            this.totalAll = ''
+          }else if(v == 2){
+            this.allShow1 = false
+            this.allShow2 = false
+            this.allShow3 = true
+            this.total = this.selectMoney3
+            this.totalAll = ''
+          } else if(v=='all'){
+            this.totalShow = true
+            this.allShow1 = false
+            this.allShow2 = false
+            this.allShow3 = false
+            this.total = null
+          }
+        },
+        submint() {
+          if(this.anmi == true) this.anmi = 1
+          else this.anmi = 0
+          this.pro_name = '青少年足球关爱计划'
+          if(this.total === null && (!this.totalAll)){
+            this.setTips('金额不能填写非法字符或为空')    
+            return
+          }
+          if(this.total === null && this.totalAll < 0.01){
+            this.setTips('金额不能小于0.01')    
+            return
+          }
+          if(this.total === null && this.totalAll >= 99999999){
+            this.setTips('金额不能大于8位数')    
+            return
+          }
+          this.totals = !this.total ? this.totalAll : this.total
+          SubmissionDonations(ACTIVE_ID,(this.totals)*100,this.pro_name,this.u_name,3,this.anmi)
+        },
+        maskClick () {
+          this.hasShowMsk = false
+        },
+        clickShow () {
+          this.hasShowMsk = true
+        },
+      }
+    })
+  </script>
+</body>
+</html> 

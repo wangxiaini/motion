@@ -1,0 +1,181 @@
+#signInfo .project-desc{
+    position: relative;
+    padding: 25px;
+}
+#signInfo .project-desc .enter-icon{
+    background: url("/images/icon-more.png") no-repeat;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-15px);
+    width: 30px;
+    height: 40px;
+}
+#signInfo .project-desc .pro-img{
+    float: left;
+    width: 130px;
+    height: 130px;
+}
+#signInfo .project-desc .pro-desc{
+    padding-left: 25px;
+    float: left;
+    width: calc(100% - 155px);
+}
+#signInfo .project-desc .pro-desc >p:first-child{
+    color: #000000 !important;
+    word-break: normal;
+}
+#signInfo .project-desc .pro-desc >p{
+    color: #8a8a8a;
+    font-size: 26px;
+    line-height: 41px;
+}
+#signInfo .pro-details{
+    line-height: 85px;
+}
+#signInfo .pro-details .det-p{
+    padding: 0 25px;
+    border-top: 2px solid #EAEAE7;
+}
+#signInfo .pro-details p .payment{
+    float: right;
+}
+#signInfo .pro-details .det-p{
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+#signInfo .pro-details .det-p:first-child>p>span{
+    font-size: 28px;
+}
+#signInfo .pro-details .det-p:first-child>p>span:first-child{
+    color: #a2a2a2;
+}
+#signInfo .pro-details .det-p:first-child>p>span:last-child{
+    color: #d94565;
+}
+img{
+    background: #e8e9e9;
+}
+#signInfo .team-info{
+    border-top: 22px solid #EAEAE7;
+    overflow: hidden;
+}
+#signInfo .team-info .team-title{
+    line-height: 90px;
+    font-size: 28px;
+    border-bottom: 2px solid #EAEAE7;
+    padding: 0 25px;
+}
+#signInfo .team-info .team-desc p{
+    font-size: 28px;
+    line-height: 46px;
+    float: left;
+    height: 46px;
+}
+#signInfo .team-info .team-desc{
+    padding: 0 25px;
+    margin:20px 0;
+    color: #8a8a8a;
+}
+
+#signInfo .team-info .team-desc p:nth-of-type(odd){
+    width: 30%;
+}
+#signInfo .team-info .team-desc p:nth-of-type(even){
+    width: 70%;
+}
+.item-group{
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+#signInfo{
+    width: 750px;
+    height: 100%;
+    margin: 0 auto;
+}
+#signInfo .count-wrapper{
+    width: 100%;
+    height: 40px;
+    background: #ffddee;
+}
+#signInfo .count-wrapper >p{
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+}
+#signInfo .payment-tips{
+    overflow: hidden;
+    background: #f6f6f6;
+    border-bottom: 22px solid #EAEAE7;
+    width: 100%;
+    height: 216px;
+}
+#signInfo .cancel{
+    background: url("/images/icon-cancel.png") no-repeat;
+    background-size: 100%;
+    margin: 20px auto 0;
+    width: 130px;
+    height: 130px;
+}
+#signInfo .payment-tips .sign-cancel{
+    text-align: center;
+    line-height: 70px;
+    font-size: 34px;
+}
+#signInfo .choice-btn-wrap{
+    box-sizing: border-box;
+    padding: 61px 47px;
+    width: 100%;
+    height: 200px;
+}
+#signInfo .choice-btn-wrap .choice-btn{
+    color: #ffffff;
+    float: left;
+    text-align: center;
+    line-height: 75px;
+    font-size: 34px;
+    border-radius: 10px;
+    width: 298px;
+    height: 75px;
+}
+.pay-btn{
+    background: #9A9690;
+}
+.cancel-btn{
+    margin-left: 56px;
+    background: #FC0B00;
+}
+.download-btn{
+    margin-left: 50%;
+    transform: translateX(-149px);
+    background: #e33021;
+}
+#signInfo{
+    width: 750px;
+    height: 100%;
+    margin: 0 auto;
+}
+#signInfo .count-wrapper{
+    width: 100%;
+    height: 40px;
+    background: #ffddee;
+}
+#signInfo .count-wrapper >p{
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+}
+#signInfo .payment-tips{
+    width: 100%;
+    height: 216px;
+    background: #f6f6f6;
+    border-bottom: 22px solid #EAEAE7;
+}
+#signInfo .payment-tips >p{
+    text-align: center;
+    line-height: 216px;
+    font-size: 34px;
+}
+.time-color{
+    color: #e13964;
+}

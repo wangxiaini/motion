@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>填写订单</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/signin/css/Settlement.css?v=2018112101">
+</head>
+<body>
+<div id="app">
+    <div class="main">
+        <ul class="list">
+            <li class="item">
+                <span>收货人：</span>
+                <input type="text" v-model="user" maxlength="32">
+            </li>
+            <li class="item">
+                <span>联系方式：</span>
+                <input type="text" v-model="phone" maxlength="32">
+            </li>
+            <li class="item">
+                <span>所在省份：</span>
+                <div class="icon-pos selects">
+                    <select v-model="selectProv">
+                        <option v-for="(item,index) in provs"
+                                :value="item" :key="index" v-text="item">
+                        </option>
+                    </select>
+                    <i class="icon-select"></i>
+                </div>
+            </li>
+            <li class="item">
+                <span>详细地址：</span>
+                <input type="text" placeholder="街道、楼牌号等" v-model="address" maxlength="64">
+            </li>
+
+        </ul>
+        <div class="pro-info">
+           <div class="clearfix" style="margin: 40px 20px;">
+               <div class="pro-img">
+                   <img v-cloak :src="product_img" alt="">
+               </div>
+               <div class="pro-right">
+                    <span v-text="product_desc"></span>
+                   <div>
+                       <p v-cloak>¥{{price}}</p>
+                       <div class="btn">
+                           <span @click="reduce" :class="count=='1' ? 'gray_Active' : ''">-</span>
+                           <span><input type="tel" v-model="count" class="count" @blur="checkCount"></span>
+                           <span @click="add" :class="count=='999' ? 'gray_Active' : ''">+</span>
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <span  v-cloak>合计：¥{{price}}</span>
+        <div class="buybtn" @click="payProduct()">去结算</div>
+    </div>
+    <div class="alert_tips" :class="tips?'alert_sport':''"  v-cloak>{{tips}}</div>
+    <div class="mask" v-cloak v-show="price_default">
+        <div class="alert_tips2">
+            <p  v-cloak>{{tips2}}</p>
+            <div class="end-btn" @click="closeMask">确认</div>
+        </div>
+    </div>
+</div>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js"></script>
+<script src="/signin/js/Settelement.js?v=20181121"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+[
+  [
+    {
+      "PK1": "<i class='left'>大连前卫</i> <span class='red'>6:5</span> <i class='right'>中国金融体育协会</i>",
+      "PK2": "<i class='left'>中国航空体协足球队</i> <span class='red'>7:0</span> <i class='right'>开滦集团</i>",
+      "PK3": "<i class='left'>中国电子体</i> <span class='red'>1:0</span> <i class='right'>内蒙古包钢集团</i>",
+      "PK4": "<i class='left'>上汽通用五菱宝骏汽</i> <span class='red'>5:0</span> <i class='right'>中建集团</i>",
+      "timer1": "10:00",
+      "timer2": "13:30",
+      "timer3": "15:00",
+      "timer4": "16:30",
+      "group": "11人制-行业组",
+      "addr": "1号场地",
+      "id": 5
+    },{
+      "PK1": "<i class='left'>东风 Honda</i> <span class='red'>4:0</span> <i class='right'>深圳蛇口联</i>",
+      "PK2": "<i class='left'>大连湾职工联</i> <span class='red'>3:0</span> <i class='right'>武汉·中国车都联</i>",
+      "PK3": "<i class='left'>湖北教职工</i> <span class='red'>2:2</span> <i class='right'>解优人才网</i>",
+      "PK4": "<i class='left'>内蒙古水利厅</i> <span class='red'>1:2</span> <i class='right'>广西河池建荣消防</i>",
+      "timer1": "10:00",
+      "timer2": "13:30",
+      "timer3": "15:00",
+      "timer4": "16:30",
+      "group": "11人制-社会组",
+      "addr": "2号场地",
+      "id": 5
+    },{
+      "PK1": "<i class='left'>上海火车头</i> <span class='red'>8:0</span> <i class='right'>南航沈阳基地</i>",
+      "PK2": "<i class='left'>本钢集团</i> <span class='red'>0:3</span> <i class='right'>大连前卫</i>",
+      "PK3": "<i class='left'>中国石油</i> <span class='red'>1:7</span> <i class='right'>天津前卫</i>",
+      "PK4": "<i class='left'>中煤平朔集</i> <span class='red'>1:8</span> <i class='right'>中国电信江苏公司</i>",
+      "timer1": "10:00",
+      "timer2": "13:30",
+      "timer3": "15:00",
+      "timer4": "16:30",
+      "group": "5人制-行业组",
+      "addr": "3号场地",
+      "id": 5
+    },{
+      "PK1": "<i class='left'>电子体协十四所</i> <span class='red'>0:6</span> <i class='right'>大连高新区</i>",
+      "PK2": "<i class='left'>河南前卫</i> <span class='red'>1:3</span> <i class='right'>内蒙古司法厅</i>",
+      "PK3": "<i class='left'>铁科院</i> <span class='red'>2:0</span> <i class='right'>沈阳富环体育</i>",
+      "PK4": "<i class='left'>北京大成律师</i> <span class='red'>2:4</span> <i class='right'>广汽集团</i>",
+      "timer1": "10:00",
+      "timer2": "13:30",
+      "timer3": "15:00",
+      "timer4": "16:30",
+      "group": "5人制-社会组",
+      "addr": "4号场地",
+      "id": 5
+    }
+  ],[
+    {
+      "PK1": "<i class='left'>中国金融体育协会</i> <span class='red'>3:0</span> <i class='right'>开滦集团</i>",
+      "PK2": "<i class='left'>内蒙古包钢集团</i> <span class='red'>1:2</span> <i class='right'>中建集团</i>",
+      "PK3": "<i class='left'>大连前卫</i> <span class='red'>0:3</span> <i class='right'>中国航空体协足球队</i>",
+      "PK4": "<i class='left'>中国电子体协</i> <span class='red'>0:3</span> <i class='right'>上汽通用五菱宝骏汽车</i>",
+      "timer1": "10:00",
+      "timer2": "13:30",
+      "timer3": "15:00",
+      "timer4": "16:30",
+      "group": "11人制-行业组",
+      "addr": "1号场地",
+      "id": 5
+    },{
+      "PK1": "<i class='left'>深圳蛇口联</i> <span class='red'>1:3</span> <i class='right'>武汉·中国车都联</i>",
+      "PK2": "<i class='left'>解优人才网</i> <span class='red'>3:0</span> <i class='right'>内蒙古水利厅</i>",
+      "PK3": "<i class='left'>东风 Honda</i> <span class='red'>5:4</span> <i class='right'>大连湾职工联</i>",
+      "PK4": "<i class='left'>湖北教职工</i> <span class='red'>3:4</span> <i class='right'>广西河池建荣消防</i>",
+      "timer1": "10:00",
+      "timer2": "13:30",
+      "timer3": "15:00",
+      "timer4": "16:30",
+      "group": "11人制-社会组",
+      "addr": "2号场地",
+      "id": 5
+    },{
+      "PK1": "<i class='left'>南航沈阳基地</i> <span class='red'>1:3</span> <i class='right'>本钢集团</i>",
+      "PK2": "<i class='left'>中国石油</i> <span class='red'>8:1</span> <i class='right'>中煤平朔集团</i>",
+      "PK3": "<i class='left'>上海火车头</i> <span class='red'>2:0</span> <i class='right'>大连前卫</i>",
+      "PK4": "<i class='left'>天津前卫</i> <span class='red'>6:1</span> <i class='right'>中国电信江苏公司</i>",
+      "timer1": "10:00",
+      "timer2": "13:30",
+      "timer3": "15:00",
+      "timer4": "16:30",
+      "group": "5人制-行业组",
+      "addr": "3号场地",
+      "id": 5
+    },{
+      "PK1": "<i class='left'>电子体协十四</i> <span class='red'>2:4</span> <i class='right'>河南前卫</i>",
+      "PK2": "<i class='left'>沈阳富环体育</i> <span class='red'>1:3</span> <i class='right'>北京大成律师所</i>",
+      "PK3": "<i class='left'>大连高新区</i> <span class='red'>4:3</span> <i class='right'>内蒙古司法厅</i>",
+      "PK4": "<i class='left'>铁科院</i> <span class='red'>3:13</span> <i class='right'>广汽集团</i>",
+      "timer1": "10:00",
+      "timer2": "13:30",
+      "timer3": "15:00",
+      "timer4": "16:30",
+      "group": "5人制-社会组",
+      "addr": "4号场地",
+      "id": 5
+    }
+  ],[
+    {
+      "PK1": "<i class='left'>开滦集团</i> <span class='red'>4:6</span> <i class='right'>内蒙古包钢集团</i>",
+      "PK2": "<i class='left'>中国金融体育协会</i> <span class='red'>4:6</span> <i class='right'>中建集团</i>",
+      "PK3": "<i class='left'>大连前卫</i> <span class='red'>1:0</span><i class='right'>中国电子体协</i>",
+      "PK4": "<i class='left'>中国航空体协足球队</i> <span class='red'>0:3</span> <i class='right'>上汽通用五菱宝骏汽车</i>",
+      "timer1": "09:00",
+      "timer2": "10:30",
+      "timer3": "14:00",
+      "timer4": "15:30",
+      "group": "11人制-行业组",
+      "addr": "1号场地",
+      "id": 5
+    },{
+      "PK1": "<i class='left'>深圳蛇口联</i> <span class='red'>1:0</span> <i class='right'>内蒙古水利厅</i>",
+      "PK2": "<i class='left'>武汉·中国车都联</i> <span class='red'>0:4</span> <i class='right'>解优人才网</i>",
+      "PK3": "<i class='left'>大连湾职工联</i> <span class='red'>3:0</span> <i class='right'>湖北教职工</i>",
+      "PK4": "<i class='left'>东风 Honda</i> <span class='red'>2:1</span> <i class='right'>广西河池建荣消防</i>",
+      "timer1": "09:00",
+      "timer2": "10:30",
+      "timer3": "14:00",
+      "timer4": "15:30",
+      "group": "11人制-社会组",
+      "addr": "2号场地",
+      "id": 5
+    },{
+      "PK1": "<i class='left'>南航沈阳基地</i> <span class='red'>2:2</span> <i class='right'>中煤平朔集团</i>",
+      "PK2": "<i class='left'>本钢集团</i> <span class='red'>4:2</span> <i class='right'>中国石油</i>",
+      "PK3": "<i class='left'>大连前卫</i> <span class='red'>3:2</span> <i class='right'>中国电信江苏公司</i>",
+      "PK4": "<i class='left'>上海火车头</i> <span class='red'>0:3</span> <i class='right'>天津前卫</i>",
+      "timer1": "09:00",
+      "timer2": "10:30",
+      "timer3": "14:00",
+      "timer4": "15:30",
+      "group": "5人制-行业组",
+      "addr": "3号场地",
+      "id": 5
+    },{
+      "PK1": "<i class='left'>电子体协十四所</i> <span class='red'>2:2</span> <i class='right'>沈阳富环体育</i>",
+      "PK2": "<i class='left'>河南前卫</i> <span class='red'>2:4</span> <i class='right'>北京大成律师所</i>",
+      "PK3": "<i class='left'>内蒙古司法厅</i> <span class='red'>4:0</span> <i class='right'>铁科院</i>",
+      "PK4": "<i class='left'>大连高新区</i> <span class='red'>1:4</span> <i class='right'>广汽集团</i>",
+      "timer1": "09:00",
+      "timer2": "10:30",
+      "timer3": "14:00",
+      "timer4": "15:30",
+      "group": "5人制-社会组",
+      "addr": "4号场地",
+      "id": 5
+    }
+  ]
+]

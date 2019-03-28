@@ -1,0 +1,23 @@
+
+body .navs {
+  line-height: 81px ;
+  padding: 0 25px;
+  height: 88px;
+  border-bottom: 2px solid #e8e9e9;
+  display: flex;
+  width: 750px;
+  margin: auto;
+}
+body .navs li {
+  font-size: 34px;
+  flex: 1;
+  text-align: center;
+  float: left;
+}
+body .navs li a{
+  display: inline-block;
+}
+body .navs .active {
+  color: #e33021;
+  border-bottom: 4px solid #e33021;
+}

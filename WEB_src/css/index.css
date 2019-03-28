@@ -1,0 +1,231 @@
+.swiper-container {
+  width: 750px;
+  height: 440px;
+  margin: auto !important;
+  background: #4e4d4d;
+}
+.swiper-container #rollImgs {
+  width: 750px;
+  height: 440px;
+}
+.swiper-container #rollImgs .swiper-slide {
+  width: 750px;
+  height: 440px;
+}
+.swiper-container #rollImgs .swiper-slide img {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 750px;
+  margin: auto;
+  background: white;
+}
+body .index-box {
+  padding-bottom: 98px;
+}
+body .index-box .ser-header {
+  width: 670px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 99;
+}
+body .index-box .ser-header .ser-header-int {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .index-box .ser-header .ser-header-int input[type="search"] {
+  margin-top: 19px;
+  width: 560px;
+  display: inline-block;
+  height: 62px;
+  border-radius: 31px;
+  border: 1px solid #e8eae9;
+  border-left: none;
+  -webkit-appearance: none;
+  /*清除ios默认圆角*/
+  padding-left: 120px;
+  outline: none;
+  font-size: 28px;
+  background: rgba(255, 255, 255, 0.8) url('/images/ser-search-icon.png') no-repeat 80px center;
+}
+body .index-box .ser-header .ser-header-int input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+body .index-box .ser-header .ser-header-int input[type=search]::-webkit-search-cancel-button:after {
+  position: absolute;
+  content: 'x';
+  left: 25%;
+  top: -12%;
+  font-size: 20px;
+  color: #666;
+}
+body .index-box .nav {
+  height: 184px;
+  width: 100%;
+  background: #f2f5f5;
+  margin: auto;
+  display: flex;
+}
+body .index-box .nav a {
+  display: inline-block;
+  flex: 1;
+}
+body .index-box .nav a .icon {
+  width: 80px;
+  height: 80px;
+  background: url('/images/icons2.png') no-repeat;
+  background-position: -6px 0;
+  margin-top: 30px;
+  transform: translate(-50%);
+  margin-left: 50%;
+}
+body .index-box .nav a .icon2 {
+  background-position: -93px 0;
+}
+body .index-box .nav a .icon3 {
+  background-position: -180px 0;
+}
+body .index-box .nav a .icon4 {
+  background-position: -260px 0;
+}
+body .index-box .nav a .font {
+  font-size: 28px;
+  line-height: 60px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+body .index-box .apply {
+  min-height: 270px;
+}
+body .index-box .apply .title {
+  display: block;
+  width: 702px;
+  margin: 27px auto 0;
+}
+body .index-box .apply .title h2 {
+  font-size: 28px;
+  height: 28px;
+  border-left: 4px solid #e33021;
+  padding-left: 10px;
+  float: left;
+}
+body .index-box .apply .title p {
+  color: #999999;
+  font-size: 28px;
+  float: right;
+  background: url('/images/back-icon.png') no-repeat right center;
+  padding-right: 30px;
+}
+body .index-box .apply .title_img {
+  position: relative;
+  width: 702px;
+  height: 190px;
+  margin: auto;
+}
+body .index-box .apply .title_img dt {
+  background: #ccc;
+  width: 290px;
+  height: 190px;
+  float: left;
+}
+body .index-box .apply .title_img dt img {
+  width: 100%;
+  height: 100%;
+}
+body .index-box .apply .title_img dd {
+  width: 382px;
+  margin-left: 30px;
+  float: left;
+}
+body .index-box .apply .title_img dd .active-box {
+  width: 385px;
+  height: 70px;
+  overflow: hidden;
+}
+body .index-box .apply .title_img dd .active-box h4 {
+  color: #333333;
+  font-size: 28px;
+  height: 70px;
+  line-height: 35px;
+  display: table-cell;
+  vertical-align: middle;
+  word-break: break-all;
+}
+body .index-box .apply .title_img dd .addre {
+  background: url('/images/address-icon.png') no-repeat left center;
+  font-size: 28px;
+  color: #666666;
+  padding-left: 24px;
+  float: left;
+  line-height: 60px;
+}
+body .index-box .apply .title_img dd .date {
+  color: #666666;
+  font-size: 24px;
+  float: right;
+  line-height: 60px;
+  background: url('/images/date-icon.png') no-repeat left center;
+  padding-left: 32px;
+  margin-top: 10px;
+}
+body .index-box .apply .title_img dd .address .btn {
+  width: 178px;
+  height: 40px;
+  display: inline-block;
+  background: #e33021;
+  color: white;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+body .index-box .apply .title_img dd .dis-addre {
+  width: 280px;
+  height: 40px;
+  color: white;
+  background: #e33021;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 22px;
+  line-height: 40px;
+  margin-top: 10px;
+}
+body .index-box .back .address .addre {
+  float: none!important;
+}
+body .index-box .back .address .date {
+  float: none!important;
+}
+body .index-box .recomm h2 {
+  line-height: 78px;
+  background: #f2f5f5;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+}
+body .index-box .recomm .all {
+  display: block;
+  color: #999999;
+  font-size: 28px;
+  background: url(/images/back-icon.png) no-repeat 58% center;
+  padding-right: 30px;
+  text-align: center;
+  line-height: 88px;
+  border-top: 2px solid #e8e9e9;
+}
+body .index-box .bg {
+  background: #e8e9e9;
+  height: 33px;
+  width: 100%;
+}
+.hint {
+  color: #e43021;
+  font-size: 30px;
+  text-align: center;
+  line-height: 100px;
+}

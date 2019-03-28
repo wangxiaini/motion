@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>选择报名类别</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/css/team.css?v=2018101502">
+    <!--<link rel="stylesheet" href="/common/css/pull-refresh.css">-->
+</head>
+<body >
+    <div id="enroll" :class="isend?'changeheight':''">
+        <div class="fill-wrapper">
+            <div class="fill-content">
+                <div class="content-line">
+                    <label>团队名称</label>
+                    <input type="text" placeholder="必填"  v-model="team_name" @blur="selectText(team_name,'teamFlag')">
+                    <!--<span class="tips" v-cloak v-show="teamFlag">请输入团队名称</span>-->
+                </div>
+                <div class="content-line">
+                    <label>联系人姓名</label>
+                    <input type="text" placeholder="必填" v-model="create_man" @blur="selectText(create_man,'nameFlag')">
+                    <!--<span class="tips" v-cloak v-if="nameFlag">请输入联系人姓名</span>-->
+                </div>
+            </div>
+            <div class="fill-content">
+                <div class="content-line">
+                    <label>选择组别</label>
+                    <span v-show="group_type1 === str">必选</span>
+                    <div class="icon-pos selects">
+                    <select v-model="group_type1">
+                        <option v-for="v,i in group_type" :value="i" :key="i" v-text="v"></option>
+                    </select>
+                    <i class="icon-select"></i>
+                    </div>
+                </div>
+                <div class="content-line">
+                    <label>选择赛制</label>
+                    <span v-show="competition_type1 === str">必选</span>
+                    <div class="icon-pos selects">
+                        <select v-model="competition_type1">
+                            <option v-for="v,i in competition_type" :value="i" :key="i" v-text="v"></option>
+                        </select>
+                        <i class="icon-select"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="fill-state">
+                <div class="fill-btn" @click="creatTeam">创建团队</div>
+                <!--<div v-if="stateFlag">-->
+                    <!--<div class="creat-success">团队创建成功，继续添加队员！</div>-->
+                    <!--<div class="forward-tips">-->
+                        <!--<p>方法一:</p>-->
+                        <!--<p>点击右上角"...",微信转发报名表</p>-->
+                        <!--<p>邀请队友填写,加入团队。</p>-->
+                    <!--</div>-->
+                    <!--<div class="forward-tips">-->
+                        <!--<p>方法二:</p>-->
+                        <!--<p>点击按钮,填写个人及队友报名信息。</p>-->
+                        <!--<div class="add-btn" @click="toAdd">添加个人信息</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div v-cloak>
+            <div class="isRegistered" v-show="infos.length > 0 ? true : false">我已创建的团队</div>
+            <div class="list-wrapper">
+                <!--<my-scroll :on-refresh="onRefresh" :on-infinite="onInfinite" :hasend="noflag" :hasbe="nobe">-->
+                <div class="min-act-content clearfix"  v-for="(item,index) in infos" @click="toWrietInfo(item.active_id, item.team_id)">
+                    <div class="desc-wrap">
+                        <p class="min-tit" v-cloak>团队名称:{{matchNull(item.team_name)}}</p>
+                        <p class="min-tit" v-cloak>创建时间:{{sliceTime(item.create_time)}}</p>
+                    </div>
+                    <div class="enter-icon"></div>
+                </div>
+                <div class="nodate-tips" v-cloak v-show="hasline">已无更多数据</div>
+                <div class="nodate-tips" v-cloak v-show="isload">正在加载中...</div>
+                <div class="nodate-tips minetips" v-cloak v-show="infos.length>0?false:true && noAct">暂未创建过团队~</div>
+                <div class="nodate-tips minetips" v-cloak v-show="error">出错啦!</div>
+                <!--</my-scroll>-->
+            </div>
+        </div>
+        <div class="alert_tips" :class="tips?'alert_sport':''">{{tips}}</div>
+        <div class="mask" v-cloak v-show="isend">
+            <div class="alert_tips2">
+                <p>报名已结束</p>
+                <div class="end-btn" @click="closeMask">确认</div>
+            </div>
+        </div>
+        <div class="alert_tips" :class="tips?'alert_sport':''">{{tips}}</div>
+    </div>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js?v=2018101501"></script>
+<script src="/common/js/vue.js"></script>
+<script src="/js/sign.js?v=2018101502"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/signin/css/product.css">
+</head>
+<body>
+<div id="app">
+    <section v-cloak>
+        <!--茅台酒-->
+        <div v-if="productType" class="alcohol">
+        <div class="pic">
+            <img src="/signin/images/product.jpg" alt="">
+        </div>
+        <!-- 产品信息 -->
+        <div class="info">
+            <p class="title">贵州茅台集团 白金酒业
+                白金酒 53° 白金御酿酒品酒V9 酱香型白酒500ml</p>
+            <div class="price">
+                <!--<em>¥300.00</em>-->
+                <em>¥{{price}}</em>
+                <span>[¥{{oprice}}]</span>
+                <!--<span>[¥813.00]</span>-->
+            </div>
+        </div>
+        <div class="line"></div>
+        <p class="remarks">商品由厂家统一发货，商家承诺12月31日前送达!</p>
+        <div class="line2"></div>
+        <!-- 商品详情 -->
+        <div class="detail">
+            <div class="detail-header">商品信息</div>
+            <img src="/signin/images/product1.png" alt="">
+            <img src="/signin/images/product2.png" alt="">
+            <img src="/signin/images/product3.png" alt="">
+        </div>
+    </div>
+        <!--洗面奶-->
+        <div v-if="!productType" class="wash">
+            <div class="pic">
+                <img src="/signin/images/1.png" alt="">
+            </div>
+            <!-- 产品信息 -->
+            <div class="info">
+                <p class="title">CoCoFAVES小分子玻尿酸洁面乳 洗面奶 温和不刺激 泡沫丰富细腻 补水清新柔滑不紧绷</p>
+                <div class="price">
+                    <!--<em>238.00</em>-->
+                    <em>¥{{price}}</em>
+                    <!--<span>[298.00]</span>-->
+                    <span>[¥{{oprice}}]</span>
+                </div>
+            </div>
+            <div class="line"></div>
+            <p class="remarks">商品由厂家统一发货，商家承诺12月31日前送达!</p>
+            <div class="line2"></div>
+            <!-- 商品详情 -->
+            <div class="detail detail2">
+                <div class="detail-header">商品信息</div>
+                <img src="/signin/images/wash2.jpg" alt="">
+                <img src="/signin/images/wash3.jpg" alt="">
+                <img src="/signin/images/wash4.jpg" alt="">
+                <img src="/signin/images/wash5.jpg" alt="">
+                <img src="/signin/images/wash6.jpg" alt="">
+                <img src="/signin/images/wash7.jpg" alt="">
+                <img src="/signin/images/wash8.jpg" alt="">
+                <img src="/signin/images/wash9.jpg" alt="">
+                <img src="/signin/images/wash10.jpg" alt="">
+                <img src="/signin/images/wash11.jpg" alt="">
+                <img src="/signin/images/wash12.jpg" alt="">
+                <img src="/signin/images/wash13.jpg" alt="">
+                <img src="/signin/images/wash14.jpg" alt="">
+                <img src="/signin/images/wash15.jpg" alt="">
+                <img src="/signin/images/wash18.jpg" alt="">
+                <img src="/signin/images/wash17.jpg" alt="">
+                <img src="/signin/images/wash16.jpg" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- 底部-->
+    <div class="buy">
+        <div class="btn" @click="goPay">购   买</div>
+    </div>
+</div>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js"></script>
+<script src="/signin/js/product.js"></script>
+</body>
+</html>

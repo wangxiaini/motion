@@ -1,0 +1,119 @@
+#app{
+    width: 750px;
+    height: auto;
+    margin: 0 auto;
+}
+/*成功*/
+.tip{
+    padding:30px 30px;
+    border-bottom: 1px solid #9f9f9f;
+    text-align: center;
+}
+.tip p{
+    font-size: 32px;
+    color: #fb0102;
+    line-height: 2;
+    font-weight: 600;
+}
+.tip span{
+    display: block;
+    padding-top: 20px;
+    color: #fb0102;
+    font-size: 28px;
+    font-weight: 600;
+}
+.pro-img{
+    width: 33%;
+    height: 110px;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    float: left;
+    margin-right: 15px;
+}
+.pro-right{
+    padding: 20px 0px;
+    overflow: hidden;
+}
+.pro-right p{
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 2.3;
+    float: right;
+}
+.pro-right span{
+    line-height: 1.5;
+}
+.pro-img img{
+    width: 100%;
+    height: 100%;
+}
+.num{
+    font-size: 28px;
+    margin: 15px 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+.content{
+    padding: 10px 12px 10px 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #f0f0f0;
+}
+.btn{
+    float: right;
+    margin: 30px 40px;
+    font-size: 26px;
+    text-align: center;
+    line-height: 55px;
+    width: 132px;
+    height: 55px;
+    border: 1px solid #bcbcbc;
+    border-radius: 10px;
+}
+.pro-info{
+    padding: 20px;
+    overflow: hidden;
+    height: 208px;
+    /*line-height: 1.5;*/
+}
+.pro-img{
+    width: 186px;
+    height: 186px;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    float: left;
+    margin-right: 15px;
+}
+.pro-right{
+    float: left;
+    padding-top: 20px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    font-size: 28px;
+    width: calc(100% - 210px);
+}
+.pro-right p{
+    float: right;
+    color: #000000;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 34px;
+    line-height: 2.3;
+    overflow: hidden;
+}
+.tips-nodata{
+    color: #999999;
+    margin: 200px auto;
+    font-size: 28px;
+    text-align: center;
+    line-height: 50px;
+    width: 100%;
+    height: 50px;
+}
+.order_cancel{
+    background: #bcbcbc;
+}
+.order_border{
+    border-bottom: 24px solid #f0f0f0;
+}

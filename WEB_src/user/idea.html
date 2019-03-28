@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title>意见反馈</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/css/idea.css?v=2018101501">
+</head>
+<body>
+  <div id="content" v-cloak>
+    <textarea maxlength="100" v-model = 'idea' name="" id="area" cols="30" rows="10" placeholder="请填写您的建议"></textarea>
+    <input @keyup.enter='postClick' v-model ='phone' type="text" id="phone" placeholder="填写您的手机号或邮箱">
+    <div class="alert_tips" :class="tips ? 'alert_sport' :''">{{tips}}</div>
+    <button class="submit" @click='postClick'>提交</button>
+  </div>
+  <script src="/common/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/axios.min.js"></script>
+  <script src="/common/js/common.js?v=2018101501"></script>
+  <script src="/common/js/vue.js"></script>
+  <script src="/js/idea.js?v=2018101501"></script>
+</body>
+</html>

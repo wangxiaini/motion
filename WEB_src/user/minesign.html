@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>我的报名</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/css/minesign.css?v=2018101501">
+</head>
+<body>
+<div id="minesign">
+    <div style="overflow: auto" @touchend="start">
+        <div class="infos" v-for="(item,index) in infos">
+            <div class="mine-activity-wrapper">
+                <div class="min-act-header" v-cloak>
+                    <span v-cloak>报名时间:&nbsp;&nbsp;{{sliceTime2(item.enroll_time)}}</span>
+                    <!--<i class="delete-icon" @click="deletInfo(index)"></i>-->
+                </div>
+                <div class="min-act-content clearfix"  @click="toSignInfo(index,item.active_name,item.car_team_id)" v-cloak>
+                    <img class="min-activity-img" v-cloak :src="splitPath(item.img_path,1)" alt="">
+                    <div class="desc-wrap">
+                        <p class="min-tit" id="mytitle" v-cloak >{{item.active_name}}</p>
+                        <p class="min-type" id="match_type" v-cloak>比赛类型:&nbsp;&nbsp;{{matchNull(activeType[item.active_type])}}</p>
+                        <p class="min-time" id="match_time" v-cloak>比赛时间:&nbsp;&nbsp;{{sliceTime(item.active_begin_time)}}</p>
+                        <p class="min-address" id="match_address" v-cloak>比赛地点:&nbsp;&nbsp;{{matchNull(item.dict_desc)}}</p>
+                    </div>
+                    <div class="enter-icon"></div>
+                </div>
+            </div>
+            <div class="min-info" v-cloak>
+                <p class="min-user" id="user_name" v-cloak>{{item.name}}</p>
+                <!--<p class="min-success" id="user_state">{{enroll_status[item.enroll_status]}}</p>-->
+            </div>
+        </div>
+    </div>
+    <div class="nodate-tips" v-show="hasline" v-cloak>已无更多数据</div>
+    <div class="nodate-tips" v-show="isload" v-cloak>正在加载中...</div>
+    <div class="nodate-tips minetips" v-show="infos.length>0 ? false : true && noAct" v-cloak>暂未报名~</div>
+    <div class="nodate-tips minetips tips-style" v-show="error" v-cloak>出错啦!</div>
+    <!--<div class="popup" v-if="deletFlag">-->
+        <!--<div class="choice-wrap">-->
+            <!--<div class="tips-title">确认删除此订单？</div>-->
+            <!--<div class="select-tips">-->
+                <!--<div class="select-cancel" @click="popupCancel()">取消</div>-->
+                <!--<div class="select-delete active-style" @click="popupDelete()">删除</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js?v=2018101501"></script>
+<script src="/common/js/vue.js"></script>
+<script src="/js/minesign.js?v=2018101501"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title class="tit">--</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/common/css/nav-title.css">
+  <link rel="stylesheet" href="/css/detail.css?v=2018092701">
+  <link rel="stylesheet" href="/common/css/nav-title.css">
+  <link rel="stylesheet" href="/common/css/ac-title-all.css">
+</head>
+  <div id="active">
+    <div class="detail-box overflow-box">
+    <div class="ac-header">
+      <div class="ac-img"><img src="" alt="团队图片" id="img_path"></div>
+      <div class="ac-list clearfix">
+        <div class="detail clearfix">
+          <p>主办方</p> 
+          <span class="per" id="unit_id_list"></span>
+        </div>
+        <div class="detail clearfix" id="timer">
+          <p>报名时间</p> 
+          <span class="date clearfix" id="enroll_begin_time"></span>
+        </div>
+        <div class="detail clearfix">
+          <p>赛事时间</p> 
+          <span class="dateBegin" id="active_begin_time"></span>
+        </div>
+        <div class="detail clearfix">
+          <p>赛事地点</p> 
+          <span class="adre" id="active_place"></span>
+        </div>
+      </div>
+    </div>
+    <!-- 线上活动 -->
+    <div class="action" v-show='actionShow' v-cloak>
+      <h2>线上活动</h2>
+      <div class="nav">
+        <a href="/CESADefault.aspx?signin=index">
+          <p class="icon icon1"></p>
+          <p class="font">签到</p>
+        </a>
+        <a href="/CESADefault.aspx?vote=index"> 
+          <p class="icon icon2"></p>
+          <p class="font">投票</p>
+        </a>
+        <a href="/CESADefault.aspx?live=index">
+          <p class="icon icon3"></p>
+          <p class="font">直播</p>
+        </a>
+      </div>
+    </div>
+    <div class="ac-bg" v-show='getIdArr != ""'></div>
+    <div class="ac-title" v-show='getIdArr != ""' v-cloak>
+      <h2>相关活动</h2>
+      <a :href="v.out_http" class="ac_title_img" v-for='(v,i) in getIdArr'>
+        <img :src="v.img_path==null?v.img_path==null:v.img_path.split(';')[0]" alt="活动入口">
+      </a>
+    </div>
+    <div class="ac-bg"></div>
+
+    <nav-title :count='navFont' @navclick='navFn' :navactive='navActive'></nav-title>
+    <div class="nac-nav-pic clearfix"  v-show='navActive == 0' v-cloak>
+      <div class="hint" v-show='picArr =="" && !isload'>暂无图集~</div>
+        <a :href="'/CESADefault.aspx?imgDetail='+v.datum_id" class="content clearfix" v-show='picArr !== ""' v-for='(v,i) in picArr'>
+            <div class="nav-tit">
+              <span class="nav-icon">图集</span>
+              <span>{{v.title}}</span>
+            </div>
+            <div class="img-pic clearfix">
+              <div class="ac-nav-left">
+                  <img v-lazy="v.title_img_path.split(',')[0]" alt="赛事大图">
+                </div>
+                <div class="ac-nav-right">
+                  <div class="ac-nav-top">
+                      <img v-lazy="v.title_img_path.split(',')[1]" alt="小图">
+                  </div>
+                  <div class="ac-nav-buttom">
+                    <img v-lazy="v.title_img_path.split(',')[2].split('@')[0]" alt="小图">
+                    <div class="ac-nav-count">{{v.title_img_path.split('@')[1]}}</div>
+                  </div>
+                </div>
+            </div>
+            <p class="ac-nav-date">{{mydate(v.last_update_time)}}</p>
+          </a>
+          <div class="getData" v-show='dataObj.list3.flag'>加载中...</div>
+          <div class="nullData" v-show='dataObj.list3.noflag'>已无更多数据</div>
+    </div>
+    <div class="ac-nav-video" v-show='navActive == 1' v-cloak>
+      <div class="hint" v-show='vdoArr == "" && !isload'>暂无视频~</div>
+        <a :href="'/CESADefault.aspx?vidoeDetail='+v.datum_id" v-for='(v,i) in vdoArr' class="content clearfix" v-show='vdoArr !== ""'>
+            <div class="nav-tit">
+              <span class="nav-icon">视频</span>
+              <span>{{v.title}}</span>
+            </div>
+            <div class="video-pic clearfix">
+              <img v-lazy="v.title_img_path"/>
+              <p class="mask">
+                <span class="icon_pause"></span>
+              </p>
+            </div>
+            <p class="ac-nav-date">{{mydate(v.last_update_time)}}</p>
+        </a>
+        <div class="getData" v-show='dataObj.list4.flag'>加载中...</div>
+        <div class="nullData" v-show='dataObj.list4.noflag'>已无更多数据</div>
+    </div>
+    <div class="nac-nav-news" v-show='navActive == 2' v-cloak>
+      <div class="hint" v-show='newsArr == "" && !isload'>暂无新闻~</div>
+      <a :href="'/CESADefault.aspx?newsDetail='+v.datum_id" class="content clearfix" v-show='newsArr.length !== 0' v-for='(v,i) in newsArr'>
+        <div class="nav-tit ac-nav-title">
+          <span class="nav-icon">新闻</span>
+          <span>{{v.title}}</span>
+        </div>
+        <div class="news-pic">
+          <img v-lazy="v.title_img_path==''?'/images/news.png':v.title_img_path" alt="新闻图标">
+        </div>
+        <p class="ac-nav-date">{{mydate(v.last_update_time)}}</p>
+      </a>
+      <div class="getData" v-show='dataObj.list1.flag'>加载中...</div>
+      <div class="nullData" v-show='dataObj.list1.noflag'>已无更多数据</div>
+    </div>
+    <div class="nac-nav-rule" v-show='navActive == 3' v-cloak>
+      <div class="rule" id="rule">        
+      </div>
+      
+    </div>
+    </div>
+    <div class="nodate-tops" v-show="isload">正在加载中...</div>
+    <!-- <div class="footer">
+      <div class="left" @click='coll($event)'>
+        <p class="icon"></p>
+        <p class="font">收藏</p>
+      </div>
+      <div class="right">
+        <p>下载全部</p>
+        <p>无水印图片</p>
+      </div>
+    </div> -->
+    <div class="status">-</div>
+  </div>
+  <script src="/common/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/axios.min.js"></script>
+  <script src="/common/js/vue.js"></script>
+  <script src="/common/js/NavTitle.js"></script>
+  <script src="/common/js/common.js"></script>
+  <script src="/common/js/jquery-1.8.3.min.js"></script>
+  <script src="/common/js/vue-lazyload.js"></script>
+  <script src="/js/detail.js?v=2018092701"></script>
+</body> 
+</html>

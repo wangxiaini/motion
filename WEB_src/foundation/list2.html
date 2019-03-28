@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title>青少年足球训练营</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/foundation/css/list-all.css">
+  <style>
+    .p1{
+      height: 310px;
+    }
+    .p2{
+      height: 180px;
+    }
+    .header{
+      height: 522px;
+      background: url('/foundation/images/list2.jpg');
+    }
+  </style>
+</head>
+<body>
+  <div id="list2">
+    <header class="header">
+      <div class="btn">筹款中</div>
+    </header>
+    <h1>青少年足球训练营</h1>
+    <div class="ac-bg"></div>
+    <div class="intro">
+      <div class="title">项目介绍</div>
+      <p class="p1">
+          为加强青训，提高青少年足球运动水平，中国足球发展基金会发起设立青少年足球训练营公益项目（简称足球训练营），以省、直辖市、县为单位，联合体育、教育行政主管部门、地方足球协会、青少年足球训练机构每年举办若干期训练营。邀请国内知名足球教练员执教，采取集中训练的方式，进行足球理论和实践相结合的培训，培养足球后备人才。每期训练营7—15天，营员40人左右，费用25—50万元。
+      </p>
+      <p class="p2">
+          中国足球发展基金会2017年推出足球训练营项目，向社会公开募捐资金。企事业单位、足球俱乐部和个人均可捐资，捐赠数量不限，捐款时请注明足球训练营项目，捐款额达到整营训练的享有冠名权。
+      </p>
+    </div>
+    <div class="ac-bg"></div>
+    <div class="water">
+      <div class="title">爱心流水</div>
+      <div class="hint" v-show='hasShow'>暂无数据~</div>
+    <div class="listbox" ref='listbox'>
+      <ul class="list1" ref='height' v-cloak>
+        <li v-for='(v,i) in list'>
+          <span class="list-name">{{v.u_name}}</span>
+          <span class="list-money">捐了<i>{{Number(v.money)/100}}元</i></span>
+          <span class="list-timer">{{v.donation_time}}</span>
+        </li>
+      </ul>
+      <ul class="list2" v-cloak ref='list2'>
+        <li v-for='(v,i) in list'>
+          <span class="list-name">{{v.u_name}}</span>
+          <span class="list-money">捐了<i>{{Number(v.money)/100}}元</i></span>
+          <span class="list-timer">{{v.donation_time}}</span>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <a href="/CESADefault.aspx?foundation=detail" class="all">查看更多爱心流水</a>
+    <div class="sub" @click='clickShow'>我要捐款</div>
+    <div class="mask" v-show='hasShowMsk' @click.self='maskClick' v-cloak>
+    <div class="mask-box">
+      <div class="mask-header">
+        <span>
+            捐款信息
+        </span>
+      </div>
+      <div class="money-box">
+        <div class="mask-money clearfix">
+          <div class="left"></div>
+          <div class="right">
+            <span id="sp1" @click='totalClick(0)' :class="allShow1?'active':''">{{selectMoney1}}元</span>
+            <span @click='totalClick(1)' :class="allShow2?'active':''">{{selectMoney2}}元</span>
+            <span id="sp3" @click='totalClick(2)' :class="allShow3?'active':''">{{selectMoney3}}元</span>
+          </div>
+        </div>
+        <div class="all-money clearfix">
+          <div class="left">
+            捐款金额：
+          </div>
+          <div class="right">
+            <input type="number" v-model='totalAll' @click='totalClick("all")' placeholder="其他金额">
+            <span>元</span>
+          </div>
+        </div>
+        <div class="mask-name clearfix">
+            <div class="left">
+                姓名：
+            </div>
+            <div class="right">
+              <input type="text" v-model='u_name'>
+            </div>
+        </div>
+        <div class="mask-pro clearfix">
+            <div class="left">
+              项目名称：
+            </div>
+            <div class="right">
+              青少年足球训练营
+            </div>
+        </div>
+        <div class="mask-nimi clearfix">
+          <div class="clearfix">
+              <input type="checkbox" v-model='anmi'>
+              <span>匿名捐款</span>
+          </div>
+          <p>捐款名单中不在显示您的微信头像和昵称</p>
+        </div>
+      </div>
+      <div class="arrow"></div>
+    </div>
+    <div class="alert_tips" :class="tips ? 'alert_sport' :''">{{tips}}</div>
+    <div class="submint" @click='submint'>我要捐款</div>
+  </div>
+  </div>
+  <script src="/common/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/common.js"></script>
+  <script src="/common/js/axios.min.js"></script>
+  <script src="/common/js/vue.js"></script>
+  <script src="/foundation/js/list-all.js"></script>
+  <script>
+  var list1 = new Vue ({
+      el: '#list2',
+      data: {
+        list: [],
+        ulH: 0,
+        ul: null,
+        ul2:null,
+        ulbox: null,
+        hasShowMsk: false,
+        setTips,
+        tips:'',
+        number: 0,
+        u_name: '',
+        total: PRICE_LOVE1,
+        pro_name: '',
+        anmi: 0,
+        totalAll: '',
+        fund: 0,
+        totals: 0,
+        selectMoney1:PRICE_LOVE1,
+        selectMoney2:PRICE_LOVE2,
+        selectMoney3:PRICE_LOVE3,
+        totalShow: false,
+        allShow1: true,
+        allShow2: false,
+        allShow3: false,
+        hasShow: false,
+        setTips,
+        tips:''
+      },
+      created () {
+        GetDonationList(2,1,50)
+      },
+      mounted () {
+        this.ul = this.$refs.height
+        this.ul2 = this.$refs.list2
+        this.ulbox = this.$refs.listbox
+        setInterval (roll,20) 
+      },
+      methods: {
+        totalClick (v) {
+          if(v == 0){
+            this.allShow1 = true
+            this.allShow2 = false
+            this.allShow3 = false
+            this.total = this.selectMoney1
+            this.totalAll = ''
+          }else if(v == 1){
+            this.allShow1 = false
+            this.allShow2 = true
+            this.allShow3 = false
+            this.total = this.selectMoney2
+            this.totalAll = ''
+          }else if(v == 2){
+            this.allShow1 = false
+            this.allShow2 = false
+            this.allShow3 = true
+            this.total = this.selectMoney3
+            this.totalAll = ''
+          } else if(v=='all'){
+            this.totalShow = true
+            this.allShow1 = false
+            this.allShow2 = false
+            this.allShow3 = false
+            this.total = null
+          }
+        },
+        submint() {
+          if(this.anmi == true) this.anmi = 1
+          else this.anmi = 0
+          this.pro_name = '青少年足球训练营'
+          if(this.total===null && (!this.totalAll)){
+            this.setTips('金额不能填写非法字符或为空')    
+            return
+          }
+          if(this.total===null && this.totalAll < 0.01){
+            this.setTips('金额不能小于0.01')    
+            return
+          }
+          if(this.total===null && this.totalAll >= 99999999){
+            this.setTips('金额不能大于8位数')    
+            return
+          }
+          this.totals = !this.total ? this.totalAll : this.total
+          SubmissionDonations(ACTIVE_ID,(this.totals)*100,this.pro_name,this.u_name,2,this.anmi)
+        },
+        maskClick () {
+          this.hasShowMsk = false
+        },
+        clickShow () {
+          this.hasShowMsk = true
+        },
+      }
+    })
+  </script>
+</body>
+</html> 

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>填写报名信息</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/common/css/Mdate.css">
+    <link rel="stylesheet" href="/css/registration.css?v=2018101501">
+    <link rel="stylesheet" href="/css/style.css?v=2018101501">
+</head>
+<body>
+<div id="app">
+    <!--车手-->
+    <div class="match-wrapper">
+        <div class="match-header"><p>请填写车手信息</p></div>
+        <div class="match-wrap">
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    姓名
+                    <br>
+                    Name
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写姓名" v-model="driver.name" maxlength="16">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    血型
+                    <br>
+                    Blood type
+                </p>
+                <span class="input-wrap selects icon-pos">
+                    <select v-model="default_blood">
+                        <option v-for="v,i in blood_type" :value="i" :key="i" v-text="v"></option>
+                    </select>
+                    <i class="check-icon"></i>
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    性别
+                    <br>
+                    Sex
+                </p>
+                <span class="input-wrap selects icon-pos">
+                    <select v-model="default_sex">
+                        <option v-for="v,i in sex_type" :value="i" :key="i" v-text="v"></option>
+                    </select>
+                    <i class="check-icon"></i>
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    出生日期
+                    <br>
+                    Date of birth
+                </p>
+                <span class="input-wrap" id="dateShowBtn">
+                    <input id="dateSelectorTwo" @focus="blur" placeholder="请填写出生日期">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    出生地
+                    <br>
+                    Place of birth
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写出生地" v-model="driver.place_of_birth" maxlength="32">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    健康状况
+                    <br>
+                    Healthy
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写健康状况" v-model="driver.healthy" maxlength="10">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    身份证号码
+                    <br>
+                    ID card No.
+                </p>
+                <span class="input-wrap">
+                    <input type="text" maxlength="18" placeholder="请填写身份证号码" v-model="driver.id_card_no" maxlength="18">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    职业
+                    <br>
+                    Occupation
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写职业" v-model="driver.occupation" maxlength="10">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    护照号码
+                    <br>
+                    Passport No.
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写护照号码" v-model="driver.passport_no" maxlength="12">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    国籍
+                    <br>
+                    Nationalitry
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写国籍" v-model="driver.nationalitry" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    驾驶证号码
+                    <br>
+                    Driver's license
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写驾驶证号码" v-model="driver.driver_license" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    参赛执照
+                    <br>
+                    Racing license
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写参赛执照" v-model="driver.racing_license" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    手机
+                    <br>
+                    Mobile
+                </p>
+                <span class="input-wrap">
+                    <input type="tel" maxlength="11" placeholder="请填写手机" v-model="driver.mobile">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    电子邮件
+                    <br>
+                    E-mail
+                </p>
+                <span class="input-wrap">
+                    <input type="email" placeholder="请填写电子邮件" v-model="driver.email" maxlength="32">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    地址
+                    <br>
+                    Address
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写地址" v-model="driver.address" maxlength="32">
+                </span>
+            </div>
+            <div class="upload-enc match-desc" style="height: auto;">
+                <i></i>上传照片
+                <div class="upload-icon" id="chooseImage"></div>
+
+                <div class="wxapi_container">
+                    <div class="lbox_close wxapi_form">
+                        <!--<h3 id="menu-image">已选择图片</h3>-->
+                        <div id="imgs"></div>
+                        <div style="clear:both"></div>
+                        <button class="btn btn_primary" id="uploadImage">确认并上传</button>
+                        <!--<h3 id="upload-image">已上传图片</h3>-->
+                        <div id="uploadImgs"></div>
+                        <div style="clear:both"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--副驾驶-->
+    <div class="match-wrapper">
+        <div class="match-header"><p>请填写副驾驶信息</p></div>
+        <div class="match-wrap">
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    姓名
+                    <br>
+                    Name
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写姓名" v-model="copilot.name" maxlength="16">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    血型
+                    <br>
+                    Blood type
+                </p>
+                <span class="input-wrap selects icon-pos">
+                    <select v-model="default_blood2">
+                        <option v-for="v,i in blood_type" :value="i" :key="i" v-text="v"></option>
+                    </select>
+                    <i class="check-icon"></i>
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    性别
+                    <br>
+                    Sex
+                </p>
+                <span class="input-wrap selects icon-pos">
+                    <select v-model="default_sex2">
+                        <option v-for="v,i in sex_type" :value="i" :key="i" v-text="v"></option>
+                    </select>
+                    <i class="check-icon"></i>
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    出生日期
+                    <br>
+                    Date of birth
+                </p>
+                <span class="input-wrap" id="dateShowBtn2">
+                    <input id="dateSelectorTwo2" @focus="blur" placeholder="请填写出生日期">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    出生地
+                    <br>
+                    Place of birth
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写出生地" v-model="copilot.place_of_birth" maxlength="32">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    健康状况
+                    <br>
+                    Healthy
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写健康状况" v-model="copilot.healthy" maxlength="10">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    身份证号码
+                    <br>
+                    ID card No.
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写身份证号码" v-model="copilot.id_card_no" maxlength="18">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    职业
+                    <br>
+                    Occupation
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写职业" v-model="copilot.occupation" maxlength="10">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    护照号码
+                    <br>
+                    Passport No.
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写护照号码" v-model="copilot.passport_no" maxlength="12">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    国籍
+                    <br>
+                    Nationalitry
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写国籍" v-model="copilot.nationalitry" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    驾驶证号码
+                    <br>
+                    Driver's license
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写驾驶证号码" v-model="copilot.driver_license" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    参赛执照
+                    <br>
+                    Racing license
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写参赛执照" v-model="copilot.racing_license" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    手机
+                    <br>
+                    Mobile
+                </p>
+                <span class="input-wrap">
+                    <input type="tel" maxlength="11" placeholder="请填写手机" v-model="copilot.mobile">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    电子邮件
+                    <br>
+                    E-mail
+                </p>
+                <span class="input-wrap">
+                    <input type="email" placeholder="请填写电子邮件" v-model="copilot.email" maxlength="32">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    地址
+                    <br>
+                    Address
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="请填写地址" v-model="copilot.address" maxlength="32">
+                </span>
+            </div>
+            <div class="upload-enc match-desc" style="height: auto;">
+                <i></i>上传照片
+                <div class="upload-icon" id="chooseImage2"></div>
+
+                <div class="wxapi_container">
+                    <div class="lbox_close wxapi_form">
+                        <!--<h3 id="menu-image">已选择图片</h3>-->
+                        <div id="imgs2"></div>
+                        <div style="clear:both"></div>
+                        <button class="btn btn_primary" id="uploadImage2">确认并上传</button>
+                        <!--<h3 id="upload-image">已上传图片</h3>-->
+                        <div id="uploadImgs2"></div>
+                        <div style="clear:both"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--报名者信息-->
+    <div class="match-wrapper">
+        <div class="match-header"><p>请填写报名者信息 (选填)</p></div>
+        <div class="match-wrap">
+            <div class="match-desc clearfix">
+                <p>
+                    报名者
+                    <br>
+                    Name
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="报名者" v-model="enrolment.name" maxlength="16">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <p>
+                    所属车队
+                    <br>
+                    Car team
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="所属车队" v-model="enrolment.car_team" maxlength="32">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <p>
+                    联系电话
+                    <br>
+                    Telephone
+                </p>
+                <span class="input-wrap">
+                    <input type="tel" placeholder="联系电话" v-model="enrolment.telephone" maxlength="18">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <p>
+                    电子邮件
+                    <br>
+                    E-mail
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="电子邮件" v-model="enrolment.email" maxlength="32">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <p>
+                    地址
+                    <br>
+                    Address
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="地址" v-model="enrolment.address" maxlength="64">
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--车辆信息-->
+    <div class="match-wrapper">
+        <div class="match-header"><p>请填写报名车辆信息</p></div>
+        <div class="match-wrap">
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    厂牌
+                    <br>
+                    Manufacturer
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="厂牌" v-model="car.manufacturer" maxlength="16">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    车型
+                    <br>
+                    Type
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="车型" v-model="car.type" maxlength="12">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    颜色
+                    <br>
+                    Color
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="颜色" v-model="car.color" maxlength="10">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    发动机号码
+                    <br>
+                    Engine No.
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="发动机号码" v-model="car.engine_no" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    车损险 保险单号
+                    <br>
+                    Insurance of car No.
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="车损险 保险单号" v-model="car.insurance_of_car_no" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    行驶证号
+                    <br>
+                    Drive No.
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="行驶证号" v-model="car.drive_no" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    排气量
+                    <br>
+                    Exhaust capability
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="排气量" v-model="car.exhaust_capability" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    组别
+                    <br>
+                    Group
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="组别" v-model="car.group" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    底盘号码
+                    <br>
+                    Chanssis No.
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="底盘号码" v-model="car.chassis_No" maxlength="20">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <p>
+                    第三者责任保险单号
+                    <br>
+                    Insurance of person No.
+                </p>
+                <span class="input-wrap">
+                    <input type="text" placeholder="第三者责任保险单号" v-model="car.insurance_of_erson_no" maxlength="32">
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--紧急联系人-->
+    <div class="match-wrapper">
+        <div class="match-header"><p>紧急救援联系方式</p></div>
+        <div class="match-wrap">
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <span style="padding-left: 10px">联系人姓名</span>
+                <span class="input-wrap">
+                    <input type="text" placeholder="联系人姓名" v-model="concat.name" maxlength="16">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <span style="padding-left: 10px">与本人关系</span>
+                <span class="input-wrap">
+                    <input type="text" placeholder="与本人关系" v-model="concat.relationship" maxlength="10">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <span style="padding-left: 10px">联系电话</span>
+                <span class="input-wrap">
+                    <input type="tel" placeholder="联系电话" v-model="concat.telephone" maxlength="18">
+                </span>
+            </div>
+            <div class="match-desc clearfix">
+                <i>*</i>
+                <span style="padding-left: 10px">联系手机</span>
+                <span class="input-wrap">
+                    <input type="tel" maxlength="11" placeholder="联系手机" v-model="concat.mobile">
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="statement-title graycolor">免责声明</div>
+    <div class="stat-wrap">
+        <span><i>*</i>&nbsp;我已阅读、理解并同意此<i class="btn-stat" @click="closeStatfn">参赛选手声明</i></span>
+        <input class="switch switch-anim" v-model="switchFlag" type="checkbox" checked="switchFlag">
+    </div>
+    <div class="tips-wrap stat-wrap" style="height: 65px">
+        <!--<p class="graycolor"><i>*</i>&nbsp;温馨提示</p>-->
+        <!--<span class="graycolor">-->
+        <!--本人同意向主办方提供有效的身份证件和资料用于核实本人的身份,并同意承担因身份证件和资料不实所产生的全部责任。-->
+        <!--</span>-->
+    </div>
+    <div class="cost-wrap">
+        <!--<span>费用: 120元</span>-->
+        <div @click="toPayInfo">提交报名</div>
+    </div>
+    <div class="alert_tips" :class="tips?'alert_sport':''">{{tips}}</div>
+    <div class="mask" v-cloak v-show="isend">
+        <div class="alert_tips2">
+            <p>报名已结束</p>
+            <div class="end-btn" @click="closeMask">确认</div>
+        </div>
+    </div>
+    <div class="statement" v-cloak v-show="closeStat">
+        <div class="stat-content">
+            <p>声明:</p>
+            <p> 一、本人自愿参加由云南省体育局、云南省商务厅、云南省东南亚南亚经贸合作发展联合会主办 ，北京高德体育文化股份有限公司承办的2018年（第三届）“一带一路•七彩云南”国际汽车拉力赛活动（以下简称“拉力赛”）。<br>
+                二、本人知晓拉力赛活动是一项重要的政府外事活动，代表国家形象和荣誉。每位参加者都肩负着艰巨而严肃的责任和使命。<br>
+                三、本人承诺在拉力赛活动期间严格遵守拉力赛的相关纪律，听从组委会及工作人员的指挥，积极主动地完成拉力赛的各项工作任务。<br>
+                四、本人身体健康，没有心脏病、高血压、传染性疾病等不适合参加拉力赛活动的疾病。<br>
+                五、<strong>本人已充分了解拉力赛活动带有一定的危险性（并已知晓拉力赛途径国家和地区存在传染病毒疫情和隐患），完整阅读并充分理解了组委会下发的相关须知、纪律、规则和规定，并自愿承诺：</strong>在拉力赛过程中（包括从住地前往拉力赛出发地和从拉力赛结束地返回住地的过程），如发生我本人受伤、生病（包括感染途径地区传染性疾病）、死亡、走失或自带车辆及其他个人财产损坏、损失的情况，均由我本人负责，并由我本人承担因此而产生的相关费用，不会强调任何原因而向拉力赛的相关组织单位或个人（包括但不限于政府、主办方、承办方、协办方、组委会、赞助商、参与组织单位，以及组委会任命的官员、服务人员、代表、代理机构等）追究法律责任或赔偿责任。<br>
+                六、本人将自行管理个人健康。如在拉力赛途中出现受伤、生病等情况需要紧急救治或处置（如送医院救治、采取隔离措施等）时，本人自愿接受组委会和随队医生的救治或处置，并自行承担相应结果。<br>
+                七、本人知悉并认可拉力赛组委会享有本声明及拉力赛相关须知、纪律、规则、规定和参赛者须承担的工作内容的解释权。<br>
+                八、本声明有效期自本人签署本声明时起至拉力赛结束、本人返回住地时止。
+            </p>
+        </div>
+        <div class="statement-bototm" @click="closeStatfn">
+            <div class="close_btn"></div>
+        </div>
+    </div>
+</div>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/jquery-1.8.3.min.js"></script>
+<script src="/common/js/iScroll.js"></script>
+<script src="/common/js/Mdate.js"></script>
+<script src="/js/toUploadImg.js?v=2018101501"></script>
+<script src="/js/registration.js?v=2018101501"></script>
+</body>
+</html>

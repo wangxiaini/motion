@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>我的</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/css/personal.css?v=2018101501">
+    <link rel="stylesheet" href="/common/css/nav-footer.css">
+</head>
+<body>
+<div id="personal">
+    <div class="personal-wrapper">
+        <div class="header">
+            <img class="header-img" id="user_img" alt="暂无图片">
+        </div>
+        <span class="user-name" id="user_name"></span>
+    </div>
+    <div class="fn-wrapper">
+        <div class="fn-wrap line-bottom" @click="toMy">
+            <div class="fn-icon icon-name"></div>
+            <div class="fn-name">我的报名</div>
+            <div class="fn-enter"></div>
+        </div>
+        <div class="fn-wrap line-bottom" @click="toTeam">
+            <div class="fn-icon icon-team"></div>
+            <div class="fn-name">我的团队</div>
+            <div class="fn-enter"></div>
+        </div>
+        <a href="/CESADefault.aspx?signin=orderList">
+        <div class="fn-wrap">
+            <div class="fn-icon icon-order"></div>
+            <div class="fn-name">我的订单</div>
+            <div class="fn-enter"></div>
+        </div>
+        </a>
+    </div>
+        <div class="fn-wrapper">
+            <a href="/CESADefault.aspx?idea=1" class="fn-wrap line-bottom">
+                <div class="fn-icon icon-idea"></div>
+                <div class="fn-name"><span>意见反馈</span></div>
+                <div class="fn-enter"></div>
+            </a>
+            <a href="/CESADefault.aspx?contact=1" class="fn-wrap">
+                <div class="fn-icon icon-concat"></div>
+                <div class="fn-name"><span>联系我们</span></div>
+                <div class="fn-enter"></div>
+            </a>
+        </div>
+    <nav-footer :datas="footIndex"></nav-footer>
+</div>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js?v=2018101501"></script>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/Footer.js"></script>
+<script src="/js/user.js?v=2018101501"></script>
+</body>
+</html>

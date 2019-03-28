@@ -1,0 +1,418 @@
+body {
+  width: 750px;
+  margin: auto;
+}
+.banner {
+  height: 350px;
+}
+.header {
+  width: 695px;
+  margin: auto;
+  height: 110px;
+  line-height: 110px;
+}
+.header .logo {
+  width: 10%;
+  height: 110px;
+  float: left;
+}
+.header .logo .logo-img {
+  width: 53px;
+  height: 54px;
+  background: url(/foundation/images/logo.png) no-repeat center center;
+  background-position: 0px 0px;
+  margin: auto;
+  margin-top: 28px;
+}
+.header .font {
+  width: 20%;
+  height: 110px;
+  float: left;
+  font-size: 30px;
+}
+.header .line {
+  width: 70%;
+  height: 5px;
+  float: left;
+  background: #00a650;
+  margin-top: 52.5px;
+}
+.main {
+  width: 695px;
+  margin: auto;
+}
+.main a {
+  width: 340px;
+  height: 225px;
+  display: inline-block;
+}
+.main a .banner-img {
+  width: 320px;
+  height: 162px;
+  box-sizing: border-box;
+  border: 1px solid #72c336;
+  border-radius: 20px;
+}
+.main a p {
+  font-size: 24px;
+  text-align: center;
+  color: #b5b5b6;
+  line-height: 50px;
+}
+.footer {
+  width: 695px;
+  margin: auto;
+  height: 110px;
+  line-height: 110px;
+}
+.footer .logo {
+  width: 10%;
+  height: 110px;
+  float: left;
+}
+.footer .logo .logo-img {
+  width: 53px;
+  height: 54px;
+  background: url(/foundation/images/logo.png) no-repeat center center;
+  background-position: -53px 0px;
+  margin: auto;
+  margin-top: 28px;
+}
+.footer .font {
+  width: 50%;
+  height: 110px;
+  float: left;
+  font-size: 30px;
+}
+.footer .line {
+  width: 40%;
+  height: 5px;
+  float: left;
+  background: #f97177;
+  margin-top: 52.5px;
+}
+.list-box {
+  width: 695px;
+  margin: auto;
+  overflow: hidden;
+}
+.list-box .list2,
+.list-box .list {
+  width: 695px;
+}
+.list-box .list2 li,
+.list-box .list li {
+  height: 100px;
+  border-bottom: 1px solid #7d7d7d;
+  overflow: hidden;
+  padding: 10px 0;
+}
+.list-box .list2 li .list-img,
+.list-box .list li .list-img {
+  display: inline-block;
+  width: 20%;
+  float: left;
+  height: 90px;
+  line-height: 90px;
+}
+.list-box .list2 li .list-img img,
+.list-box .list li .list-img img {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin-top: 5px;
+}
+.list-box .list2 li .list-font,
+.list-box .list li .list-font {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  float: left;
+}
+.list-box .list2 li .list-font .list-name,
+.list-box .list li .list-font .list-name {
+  font-size: 24px;
+  display: inline-block;
+  padding-bottom: 15px;
+  padding-top: 22px;
+}
+.list-box .list2 li .list-font .list-timer,
+.list-box .list li .list-font .list-timer {
+  font-size: 22px;
+  color: #9e9e9e;
+}
+.list-box .list2 li .list-money,
+.list-box .list li .list-money {
+  display: inline-block;
+  width: 48%;
+  font-size: 24px;
+  text-align: right;
+  float: left;
+}
+.list-box .list2 li .list-money span,
+.list-box .list li .list-money span {
+  font-size: 22px;
+  color: #f97177;
+  font-weight: bold;
+  line-height: 99px;
+}
+.sub,
+.btn {
+  position: fixed;
+  width: 695px;
+  height: 90px;
+  bottom: 10px;
+  border-radius: 15px;
+  left: 50%;
+  transform: translate(-50%);
+  background: #e83820 url(/foundation/images/heart-bg.png);
+  text-align: center;
+  color: white;
+  font-size: 38px;
+  font-weight: bolder;
+  line-height: 90px;
+}
+.box {
+  padding-bottom: 100px;
+}
+.box .all {
+  font-size: 28px;
+  text-align: center;
+  color: #5d5d5d;
+  display: block;
+  line-height: 100px;
+  background: url('/images/back-icon.png') no-repeat 67% center;
+}
+.mask {
+  position: fixed;
+  z-index: 90;
+  background: rgba(0, 0, 0, 0.5);
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+}
+.mask .mask-box {
+  width: 695px;
+  margin: auto;
+  height: 481px;
+  border: 3px solid #e73b23;
+  background: white;
+  position: fixed;
+  bottom: 119px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.mask .mask-box .mask-header {
+  height: 73px;
+  width: 670px;
+  margin: auto;
+  border-bottom: 2px solid #dddddd;
+}
+.mask .mask-box .mask-header span {
+  font-size: 26px;
+  color: #5d5d5d;
+  display: inline-block;
+  height: 43px;
+  line-height: 43px;
+  margin-top: 15px;
+  border-left: 8px solid #e30707;
+  padding-left: 15px;
+  margin-left: 10px;
+}
+.mask .mask-box .money-box {
+  width: 650px;
+  margin: auto;
+}
+.mask .mask-box .money-box .mask-money .left {
+  width: 30%;
+  height: 10px;
+  float: left;
+}
+.mask .mask-box .money-box .mask-money .right {
+  width: 70%;
+  float: left;
+}
+.mask .mask-box .money-box .mask-money .right span {
+  display: inline-block;
+  width: 25%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 32px;
+  border: 2px solid #dbdbdb;
+  margin: 10px 5.1%;
+}
+.mask .mask-box .money-box .mask-money .right #sp1 {
+  margin-left: 0;
+}
+.mask .mask-box .money-box .mask-money .right #sp3 {
+  margin-right: 0;
+}
+.mask .mask-box .money-box .all-money {
+  width: 100%;
+  font-size: 26px;
+  color: #656565;
+  letter-spacing: 4px;
+}
+.mask .mask-box .money-box .all-money .left {
+  width: 30%;
+  float: left;
+}
+.mask .mask-box .money-box .all-money .right {
+  width: 70%;
+  box-sizing: border-box;
+  float: left;
+}
+.mask .mask-box .money-box .all-money .right input {
+  display: block;
+  width: 80%;
+  border: none;
+  border: 2px solid #dbdbdb;
+  box-sizing: border-box;
+  height: 56px;
+  line-height: 56px;
+  float: left;
+  font-size: 30px;
+  padding: 13px 10px 13px;
+}
+.mask .mask-box .money-box .all-money .right span {
+  display: block;
+  width: 20%;
+  font-size: 30px;
+  float: left;
+  line-height: 56px;
+  text-align: center;
+}
+.mask .mask-box .money-box .mask-name {
+  letter-spacing: 4px;
+  font-size: 26px;
+  color: #656565;
+  margin-top: 10px;
+}
+.mask .mask-box .money-box .mask-name .left {
+  width: 30%;
+  float: left;
+  line-height: 56px;
+}
+.mask .mask-box .money-box .mask-name .right {
+  width: 70%;
+  float: left;
+}
+.mask .mask-box .money-box .mask-name .right input {
+  display: block;
+  width: 100%;
+  border: none;
+  border: 2px solid #dbdbdb;
+  height: 56px;
+  line-height: 56px;
+  float: left;
+  font-size: 30px;
+  box-sizing: border-box;
+  padding: 13px 10px 13px;
+}
+.mask .mask-box .money-box .mask-pro {
+  letter-spacing: 4px;
+  font-size: 26px;
+  color: #656565;
+  margin-top: 10px;
+}
+.mask .mask-box .money-box .mask-pro .left {
+  width: 30%;
+  float: left;
+  line-height: 56px;
+}
+.mask .mask-box .money-box .mask-pro .right {
+  width: 70%;
+  float: left;
+}
+.mask .mask-box .money-box .mask-pro .right select {
+  display: inline-block;
+  width: 100%;
+  border: none;
+  border: 2px solid #dbdbdb;
+  height: 56px;
+  line-height: 56px;
+  float: left;
+  font-size: 30px;
+}
+.mask .mask-box .money-box .mask-pro .right select {
+  position: relative;
+  width: 100%;
+  height: 56px;
+  border-radius: 6px;
+  border: 2px solid #dbdbdb;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding: 0 10px;
+  margin-right: 10px;
+  background: url(/foundation/images/arr.png) no-repeat 98% center;
+}
+.mask .mask-box .money-box .mask-nimi {
+  margin-top: 10px;
+}
+.mask .mask-box .money-box .mask-nimi input {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #dbdbdb;
+  float: left;
+  padding: 13px 10px 13px;
+}
+.mask .mask-box .money-box .mask-nimi span {
+  display: inline-block;
+  font-size: 30px;
+  line-height: 40px;
+  color: #656565;
+  margin-left: 10px;
+}
+.mask .mask-box .money-box .mask-nimi p {
+  font-size: 30px;
+  color: #656565;
+  padding-left: 58px;
+}
+.mask .mask-box .arrow {
+  width: 26px;
+  height: 17px;
+  background: url(/foundation/images/arr.png);
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.home {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: #57b61c;
+  overflow: auto;
+}
+.home .rule {
+  display: inline-block;
+  width: 152px;
+  height: 50px;
+  background: rgba(0, 133, 200, 0.5);
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  border-radius: 26px;
+  line-height: 50px;
+  text-align: center;
+  z-index: 99;
+}
+.active {
+  border: 2px solid #e73b23 !important;
+  color: white !important;
+  background-color: #e73b23;
+}
+.hint {
+  text-align: center;
+  color: #e33021;
+  font-size: 28px;
+  line-height: 70px;
+}

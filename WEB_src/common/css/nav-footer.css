@@ -1,0 +1,55 @@
+.ser-footer {
+  position: fixed;
+  bottom: 0;
+  height: 99px;
+  width: 750px;
+  border-top: 2px solid #cdcdcd;
+  background: white;
+  display: flex;
+}
+.ser-footer a {
+  display: block;
+  flex: 1;
+  margin-top: 10px;
+}
+.ser-footer a .icon {
+  display: inline-block;
+  width: 60px;
+  height: 44px;
+  background: url('/images/menus.png') no-repeat;
+  transform: translate(-50%);
+  margin-left: 50%;
+}
+.ser-footer a .font {
+  display: block;
+  line-height: 40px;
+  font-size: 26px;
+  text-align: center;
+}
+.ser-footer a span {
+  color: #bbbbbb;
+}
+.ser-footer a.active span {
+  color: black;
+}
+.ser-footer a:nth-child(1) i {
+  background-position: -60px 0;
+}
+.ser-footer a:nth-child(1).active i {
+  background-position: 2px 0;
+}
+.ser-footer a:nth-child(2) i {
+  background-position: -180px 0;
+}
+.ser-footer a:nth-child(2).active i {
+  background-position: -119px 0;
+}
+.ser-footer a:nth-child(3) i {
+  background-position: -300px 0;
+}
+.ser-footer a:nth-child(3).active i {
+  background-position: -244px 0;
+}
+.ser-footer a.active span {
+  color: black;
+}

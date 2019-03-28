@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>团队详情</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/css/minesign.css?v=2018101501">
+</head>
+<body>
+<div id="minesign">
+    <div class="infos">
+        <div class="mine-activity-wrapper" v-for="(item,index) in infos">
+            <div class="min-act-header" style="height: 37px">
+            </div>
+            <div class="min-act-content clearfix" style="border-bottom: 37px solid #f3f5f4;">
+                <img class="min-activity-img" id="team_url" :src="splitPath(item.img_path,1)" alt="">
+                <div class="desc-wrap">
+                    <p class="min-tit" v-cloak>{{matchNull(item.team_name)}}</p>
+                    <p class="min-type" id="team_match_type" v-cloak>比赛类型: &nbsp;&nbsp;{{matchNull(activeType[item.active_type])}}</p>
+                    <p class="min-time" id="team_match_time" v-cloak>比赛时间: &nbsp;&nbsp;{{sliceTime(item.active_begin_time)}}</p>
+                    <p class="min-address" id="team_match_address" v-cloak>比赛地点: &nbsp;&nbsp;{{matchNull(item.active_place)}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="member-wrapper">
+        <div class="member-wrap"  v-for="(item,index) in UserList">
+            <div  class="img-icon img-name" >
+                <img src="" alt="" class="icon-member" :src="item.headimgurl ? item.headimgurl : '/images/defaultImg.png' ">
+            </div>
+            <div class="img-name names" v-cloak>{{item.name}}</div>
+            <div class="member-img">成员</div>
+        </div>
+    </div>
+    <div class="nodate-tips minetips tips-style" v-show="error" v-cloak>出错啦!</div>
+</div>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js?v=2018101501"></script>
+<script src="/common/js/vue.js"></script>
+<script src="/js/teamInfo.js?v=2018101501"></script>
+</body>
+</html>

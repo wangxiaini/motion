@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title>合作</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/css/apply.css?v=2018101501">
+  <link rel="stylesheet" href="/common/css/nav-footer.css?v=2018101501">
+</head>
+<body>
+  <div id="apply">
+     <div class="img-box" v-show='!hasShow'>
+      <img src="/images/cooprtDesc.jpg" alt="合作">
+      <section class="submit" @click='submitClick'>申请合作</section>
+    </div>
+    <div class="form" v-show='hasShow' v-cloak>
+        <div class="formGroup">
+          <div class="formfont">
+            <span class="mustWrite">*</span>
+            <label><span class="required"></span>姓名:</label>
+          </div>
+          <input v-model = 'name' type="text" id="name" placeholder="请填写姓名"> 
+      </div>
+      <div class="formGroup">
+          <div class="formfont">
+              <span class="mustWrite">&nbsp;&nbsp;</span>
+            <label><span class="required"></span>邮箱:</label>
+          </div>
+          <input v-model = 'email' type="text" id="email" placeholder="请填写常用邮箱"> 
+      </div>
+      <div class="formGroup">
+          <div class="formfont">
+            <span class="mustWrite">*</span>
+            <label><span class="required"></span>手机号:</label>
+          </div>
+          <input v-model = 'phone' type="text" id="phone" placeholder="请填写常用手机号"> 
+      </div>
+      <div class="formGroup">
+          <div class="formfont">
+            <span class="mustWrite">*</span>
+            <label><span class="required"></span>合作内容:</label>
+          </div>
+          <textarea @keyup.enter='postClick' maxlength="200" v-model = 'applyCon' type="text" id="superiority" placeholder="填写合作内容..."></textarea>
+      </div>
+      <div class="submitBg" @click='postClick'>提&nbsp;&nbsp;交</div>
+    </div>
+    <div class="alert_tips" :class="tips ? 'alert_sport' :''">{{tips}}</div>
+    <nav-footer :datas="footIndex"></nav-footer>
+  </div>
+  <script src="/common/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/axios.min.js"></script>
+  <script src="/common/js/vue.js"></script>
+  <script src="/common/js/common.js?v=2018101501"></script>
+  <script src="/common/js/Footer.js"></script>
+  <script src="/js/apply.js?v=2018101501"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title>爱心捐款</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <style>
+    .main{width: 100%;background: url('/foundation/images/bg.png') no-repeat;background-size: 100% 100%;}
+    .main_img{width: 100%; overflow: hidden;}
+    .main_img .header{margin: 6% auto 3%; border-radius: 50%;display: block;}
+    .main_img .name {text-align: center; font-size: 28px; margin-bottom: 1%;}
+    .main_img .heart { text-align: center; color: #e83820; font-size: 36px; line-height: 60px;}
+    .main_img .chance { display: none; width: 190px; height: 46px; line-height: 46px; text-align: center; font-size: 30px; 
+       border: 2px solid #a8791a; border-radius: 20px;
+      margin: auto; 
+      }
+    .main_img .chance a{color: #a8791a; display: block;}
+    .heart_img{
+      width: 468px; height:427px;
+      background: url('/foundation/images/Sheart.png') no-repeat; margin: auto;
+    }
+    img{background: none}
+    .code{bottom: 166px; width: 468px; height: 260px; margin: 10px auto 0;}
+    .code img {float: left;}
+    .font{width: 192px; height: 80px; float: right; margin-top: 90px;}
+    .font p,span{font-size: 24px; line-height: 44px;text-decoration:underline}
+    .font i{font-size: 24px;color: #e83820;text-decoration:underline}
+    .footer{ width: 750px; height: 254px;
+      background: url('/foundation/images/footer.png') no-repeat;bottom: 0;}
+  </style>
+</head>
+<body>
+  <main class="main">
+    <div class="main_img">
+      <img class="header" src="" alt="头像">
+      <p class="name">-</p>
+      <p class="heart">感谢您为中国足球发展基金会</p>
+      <p class="heart">奉献一份爱心</p>
+      <div class="chance">
+        <a href="/CESADefault.aspx?signin=index" >去抽奖</a>
+      </div>
+      <div class="heart_img">
+      </div>
+      <div class="code">
+        <img src="/foundation/images/code.png" alt="二维码">
+        <div class="font">
+          <p>长按或扫描二维码</p>
+          <span>奉献一份</span><i>爱心</i>
+        </div>
+      </div>
+      <div class="footer"></div>
+    </div>
+  </main>
+  <script src="/common/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/common.js"></script>
+  <script src="/common/js/jquery-1.8.3.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      let nickname = $('#nickname').text();
+      let headimgurl = $('#headimgurl').text();
+      let totalFee = $('#totalFee').text();
+      headimgurl ? $('.header').attr("src", headimgurl) : $('.header').attr("src", '/images/defaultImg.png')
+      $('.name').html(nickname)
+      if(Number(totalFee)/100 >= 1){
+        $('.chance').show();
+      }else{
+        $('.chance').hide();
+      }
+    setShare('我正在参与2018年中国足球发展基金会杯 中国足球职工联赛总决赛活动','参与募捐即可抽奖，邀您一起 助力中国足球基础事业发展 献一份您的爱心','https://gd.cesa.org.cn/CESADefault.aspx?foundation=index')
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+#app{
+    width: 750px;
+    height: auto;
+    margin: 0 auto;
+}
+.pro-info{
+    padding: 20px;
+    border-bottom:5px solid #f1f2f6;
+    overflow: hidden;
+    height: 208px;
+    /*line-height: 1.5;*/
+}
+.pro-right p{
+    float: left;
+    color: #ff0000;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 34px;
+    overflow: hidden;
+}
+.pro-img{
+    width: 186px;
+    height: 186px;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    float: left;
+    margin-right: 15px;
+}
+.pro-right{
+    float: left;
+    padding-top: 20px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    font-size: 28px;
+    width: calc(100% - 210px);
+}
+.pro-right p{
+    float: left;
+    color: #ff0000;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 34px;
+    line-height: 2.3;
+    overflow: hidden;
+}
+.pro-info img{
+    width: 100%;
+    height: 100%;
+}
+.pro-right >span{
+    line-height: 35px;
+}
+.item{
+    height: 60px;
+    line-height: 60px;
+    padding-left: 24px;
+    border-bottom:1px solid #e4e4e4;
+}
+.home{
+    float: left;
+}
+.one{
+    float:right;
+    width: 15px;
+    height: 15px;
+    background: url(/signin/images/2.png) no-repeat;
+    margin:20px 15px;
+}
+.buttom{
+    height: 208px;
+    background: #efeff7;
+    color: #939391;
+    margin:35px 0px;
+    text-align: center;
+    overflow: hidden;
+}
+.buttom span{
+    display: block;
+    margin-top: 20px;
+    font-size: 26px;
+}
+.submit{
+    width: 362px;
+    height: 75px;
+    border-radius: 5px;
+    background: #f23030;
+    color: white;
+    text-align: center;
+    line-height: 75px;
+    font-size: 32px;
+    cursor: pointer;
+    margin:58px auto 0;
+}
+.selects{
+    position: relative;
+    display: inline-block;
+    text-align: right;
+    float: right;
+    height: 78px;
+    margin-right: 65px;
+    width: 328px;
+}
+select{
+    width: 100%;
+    padding: 0 2%;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 78px;
+    line-height: 78px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-left: 60px;
+    font-size: 26px;
+    text-align: center;
+    direction: rtl;
+}
+.item >input{
+    width: 480px;
+    font-size: 26px;
+    border: none;
+    outline: none;
+    text-indent: 0;
+    background-color:transparent;
+}
+.item{
+    height: 106px;
+    line-height: 106px;
+    padding-left: 24px;
+    border-bottom:1px solid #e4e4e4;
+}
+.item>span{
+    font-size: 28px;
+}
+.icon-select{
+    position: absolute;
+    right: -41px;
+    bottom: 20px;
+    display: block;
+    width: 21px;
+    height: 21px;
+    background: url(/images/back-icon.png) no-repeat;
+}
+.alert_tips2 >p{
+    padding: 0 76px;
+}
+.success{
+    font-size: 60px;
+    color: #ff6c00;
+    font-weight: bold;
+    padding: 70px 0 20px;
+}

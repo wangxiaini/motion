@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title>爱心流水</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/foundation/css/detail.css">
+</head>
+<body>
+  <div id="detail">
+    <header class="header">
+      <ul class="money clearfix">
+        <li>
+          <p>累计捐款金额</p>
+          <p class="per" v-cloak>{{Number(sumMoney)/100}}元</p>
+        </li>
+        <li id="border">
+          <p>捐款人次</p>
+          <p class="per" v-cloak>{{number}}</p>
+        </li>
+      </ul>
+      <ul class="title clearfix">
+        <li class="heart" @click='clickTitle(0)'><span :class="index===0?'active':''">公示名单</span></li>
+        <li class="detail" @click='clickTitle(1)'><span :class="index===1?'active':''">爱心排行榜</span></li>
+      </ul>
+    </header>
+    <ul class="heart-list1" v-show='index === 0' v-cloak>
+      <div class="hint" v-show='arr1.length === 0 && !isload'>暂无数据~</div>
+      <li v-for='(v,i) in arr1' class="clearfix">
+        <p class="img"><img :src="v.headimgurl?v.headimgurl:'/images/defaultImg.png'" alt="头像"></p>
+        <p class="name">{{v.u_name}}</p>
+        <p class="money">累计捐款{{Number(v.money)/100}}元</p>
+      </li>
+      <div class="getData" v-show='dataObj.list1.flag'>加载中...</div>
+      <div class="nullData" v-show='dataObj.list1.noflag'>已无更多数据</div>
+    </ul>
+    <ul class="heart-list2 heart-list1" v-show='index === 1' v-cloak>
+      <h2>所有爱心善款都捐赠至中国足球发展基金会</h2>
+      <div class="hint" v-show='arr2.length === 0 && !isload'>暂无数据~</div>
+      <li class="clearfix" v-for='(v,i) in arr2'>
+        <p class="img"><img :src="v.headimgurl?v.headimgurl:'/images/defaultImg.png'" alt="头像"></p>
+        <p class="name">{{v.u_name}}</p>
+        <p class="rank">第{{v.rownum}}名</p>
+        <p class="money">累计捐款{{Number(v.sumMoney)/100}}元</p>
+      </li>
+      <div class="getData" v-show='dataObj.list2.flag'>加载中...</div>
+      <div class="nullData" v-show='dataObj.list2.noflag'>已无更多数据</div>
+    </ul>
+    <div class="nodate-tops" v-show="isload">正在加载中...</div> 
+  </div>
+  <script src="/common/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/common.js"></script>
+  <script src="/common/js/axios.min.js"></script>
+  <script src="/common/js/vue.js"></script>
+  <script src="/foundation/js/detail.js"></script>
+</body>
+</html>

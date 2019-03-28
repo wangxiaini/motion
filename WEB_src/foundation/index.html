@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title>爱心捐款</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/foundation/css/index.css">
+</head>
+<body>
+  <div class="box">
+    <div class="home" v-show='!isShow'>
+      <img src="/foundation/images/home.jpg" alt="爱心捐赠">
+      <div class="rule" @click='ClickisShow'>
+          跳过
+        <span class="sps_item" v-cloak>{{num}}</span>
+      </div>
+    </div>
+    <div class="home-box" v-show='isShow'>
+    <div class="banner">
+        <img src="/foundation/images/banner.png" alt="基金会">
+      </div>
+      <div class="header clearfix">
+        <div class="logo">
+          <div class="logo-img"></div>
+        </div>
+        <div class="font">公益项目</div>
+        <div class="line"></div>
+      </div>
+      <div class="main" v-cloak>
+        <a href="/CESADefault.aspx?foundation=list1">
+          <div class="banner-img">
+            <img src="/foundation/images/3.png" alt="阳光足球场地建设">
+          </div>
+          <p>阳光足球场地建设</p>
+        </a>
+        <a href="/CESADefault.aspx?foundation=list2">
+          <div class="banner-img">
+            <img src="/foundation/images/4.png" alt="青少年足球训练营">
+          </div>
+          <p>青少年足球训练营</p>
+        </a>
+        <a href="/CESADefault.aspx?foundation=list3">
+            <div class="banner-img">
+              <img src="/foundation/images/5.png" alt="青少年足球关爱计划">
+            </div>
+            <p>青少年足球关爱计划</p>
+          </a>
+          <a href="/CESADefault.aspx?foundation=list4">
+              <div class="banner-img">
+                <img src="/foundation/images/6.png" alt="青少年足球危困帮扶">
+              </div>
+              <p>青少年足球危困帮扶</p>
+            </a>
+      </div>
+      <div class="footer clearfix">
+        <div class="logo">
+          <div class="logo-img"></div>
+        </div>
+        <div class="font" v-cloak>爱心捐款公示</div>
+        <div class="line"></div>
+      </div>
+      <div class="hint" v-show='list.length===0?true:false'>暂无数据~</div>
+      <div class="list-box" ref='listbox' style="height:280px">
+        <ul class="list" ref='height' >
+          <li v-for='(v,i) in list' v-cloak>
+            <span class="list-img">
+              <img :src="v.headimgurl?v.headimgurl:'/images/defaultImg.png'" alt="头像">
+            </span>
+            <span class="list-font">
+              <span class="list-name">{{v.u_name}}</span><br>
+              <span class="list-timer">{{v.donation_time}}</span>
+            </span>
+            <span class="list-money">支持了<span>{{Number(v.money)/100}}元</span></span>
+            </li>
+        </ul>
+        <ul class="list2" ref='list2'>
+          <li v-for='(v,i) in list' v-cloak>
+            <span class="list-img">
+              <img :src="v.headimgurl?v.headimgurl:'/images/defaultImg.png'" alt="头像">
+            </span>
+            <span class="list-font">
+              <span class="list-name">{{v.u_name}}</span><br>
+              <span class="list-timer">{{v.donation_time}}</span>
+            </span>
+            <span class="list-money">支持了<span>{{Number(v.money)/100}}元</span></span>
+          </li>
+        </ul>
+      </div>
+      <a href="/CESADefault.aspx?foundation=detail" class="all" v-show='list.length===0?false:true'>查看更多爱心流水</a>
+      <div class="btn" @click='clickShow'>我要捐款</div>
+    </div>
+  <div class="mask" v-show='hasShow' @click.self='maskClick' v-cloak>
+    <div class="mask-box">
+      <div class="mask-header">
+        <span>
+            捐款信息
+        </span>
+      </div>
+      <div class="money-box">
+        <div class="mask-money clearfix">
+          <div class="left"></div>
+          <div class="right">
+            <span id="sp1" @click='totalClick(0)' :class="allShow1?'active':''">{{selectMoney1}}元</span>
+            <span @click='totalClick(1)' :class="allShow2?'active':''">{{selectMoney2}}元</span>
+            <span id="sp3" @click='totalClick(2)' :class="allShow3?'active':''">{{selectMoney3}}元</span>
+          </div>
+        </div>
+        <div class="all-money clearfix">
+          <div class="left">
+            捐款金额：
+          </div>
+          <div class="right">
+            <input type="number" v-model='totalAll' @click='totalClick("all")' placeholder="其他金额">
+            <span>元</span>
+          </div>
+        </div>
+        <div class="mask-name clearfix">
+            <div class="left">
+                姓名：
+            </div>
+            <div class="right">
+              <input type="text" v-model='u_name'>
+            </div>
+        </div>
+        <div class="mask-pro clearfix">
+            <div class="left">
+              项目名称：
+            </div>
+            <div class="right">
+              <select v-model="fund">
+                <option :value="i" v-for='(v,i) in changeArr'>{{v}}</option>
+              </select>
+            </div>
+        </div>
+        <div class="mask-nimi clearfix">
+          <div class="clearfix">
+              <input type="checkbox" v-model='anmi'>
+              <span>匿名捐款</span>
+          </div>
+          <p>捐款名单中不在显示您的微信头像和昵称</p>
+        </div>
+      </div>
+      <div class="arrow"></div>
+    </div>
+    <div class="alert_tips" :class="tips ? 'alert_sport' :''">{{tips}}</div>
+    <div class="sub" @click='submint'>我要捐款</div>
+  </div>
+</div>
+  <script src="/common/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/common.js"></script>
+  <script src="/common/js/axios.min.js"></script>
+  <script src="/common/js/vue.js"></script>
+  <script src="/foundation/js/index.js"></script>
+  <script src="/common/js/jquery-1.8.3.min.js"></script>
+</body>
+</html>

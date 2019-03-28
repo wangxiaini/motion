@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>我的订单</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/signin/css/success.css">
+</head>
+<body>
+<div id="app">
+    <!--提交成功-->
+    <div class="order_border clearfix" v-cloak v-for="v,i in product_List">
+        <div class="content"  @click="refundOrOrder(v.out_trade_no, '/CESADefault.aspx?signin=success',v.trade_pay_status)">
+            <p class="num" v-cloak>订单编号：{{v.out_trade_no}}</p>
+            <div class="pro-info">
+                <div class="clearfix">
+                    <div class="pro-img">
+                        <img :src="v.product_name.indexOf('贵州茅台酒')>-1 ? '/signin/images/product.jpg' : '/signin/images/1.png'" alt="">
+                    </div>
+                    <div class="pro-right">
+                    <span v-cloak>{{v.product_name}}</span>
+                        <div>
+                            <p v-cloak>¥{{v.total_fee / 100}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+                class="btn"
+                v-cloak
+                :class="{ order_cancel : v.trade_pay_status!=1 }"
+                @click="refundOrOrder(v.out_trade_no, '/CESADefault.aspx?signin=orderCancel', v.trade_pay_status)">{{caseTips(v.trade_pay_status)}}</div>
+    </div>
+    <p class="tips-nodata" v-cloak v-if="!product_List">暂无订单</p>
+</div>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js"></script>
+<script src="/signin/js/orderList.js"></script>
+</body>
+</html>

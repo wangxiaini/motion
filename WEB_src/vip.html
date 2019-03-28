@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>中企会员</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/common/css/nav-footer.css">
+</head>
+<style>
+  html{
+    line-height: 60px;
+    font-size: 24px;
+  }
+  .page-content{
+    width: 750px;
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+  }
+  section{
+    padding: 20px 16px 12px;
+    border-width: 0px;
+    border-style: none;
+    border-color: initial;
+    max-width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  table{
+    border-collapse: collapse;
+    display: table;
+    width: 100%!important;
+  }
+  table tr:nth-child(1) {
+    background-color: rgb(112, 173, 71);
+    color: #ffffff;
+  }
+  tr th{font-weight: bold;}
+  tr td, tr th{
+    text-align: center;
+    border: 1px solid #000;
+    vertical-align: middle;
+    height: 60px;
+    line-height: 60px;
+    padding: 1px;
+  }
+  .tit-content{
+    width: 718px;
+    height: 89px;
+    margin: 20px auto;
+    border-top: 2px solid rgb(128, 177, 53);
+    border-bottom: 2px solid rgb(128, 177, 53);
+  }
+  .tit{
+    width: 100%;
+    height: 84px;
+    margin-top: 2px;
+    background: rgb(128, 177, 53);
+    text-align: center;
+    line-height: 84px;
+    color: #ffffff;
+  }
+</style>
+<body>
+<div class="page-content" id="app">
+  <section>
+    <table>
+      <tbody>
+      <tr>
+        <th width="1">会员号</th>
+        <th width="70">单位名称</th>
+        <th width="24">单位性质</th>
+      </tr>
+      <tr v-for="v,i in arr">
+        <td width="1">
+          <p>
+            <span v-text="i + 1"></span>
+          </p>
+        </td>
+        <td width="70">
+          <p style="line-height: 2;text-align: left;">
+            <span v-text="v.n"></span>
+          </p>
+        </td>
+        
+        <td width="24">
+          <p>
+            <span v-text="type[v.t]"></span>
+          </p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  
+  <div class="tit-content">
+    <div class="tit">
+        协会会员名录（更新至2018年3月27日）
+    </div>
+  </div>
+  <nav-footer :datas="footIndex"></nav-footer>
+</div>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js?v=2018101501"></script>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/Footer.js"></script>
+<script src="/js/vip.js?v=2018101501"></script>
+</body>
+</html>

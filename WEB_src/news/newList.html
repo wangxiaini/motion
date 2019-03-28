@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title>新闻列表</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/common/css/nav-title.css">
+  <link rel="stylesheet" href="/css/newList.css?v=2018101501">
+  <link rel="stylesheet" href="/common/css/ac-title-all.css">
+  <link rel="stylesheet" href="/common/css/nav-footer.css">
+</head>
+<body>
+  <div id="newList" v-cloak>
+    <div class="list-box">
+    <nav-title :count='navFont' @navclick='navFn' :navactive='navActive'></nav-title>
+    <div class="nac-nav-news overflow-box" v-show ='navActive == 0' v-cloak>
+      <div class="hint" v-show='newsArr == "" && !isload'>未搜索到新闻数据~</div>
+        <a :href="'/CESADefault.aspx?newsDetail='+v.datum_id" class="content clearfix" v-for='(v,i) in newsArr'>
+          <div class="nav-tit ac-nav-title">
+            <span class="nav-icon">新闻</span>
+            <span>{{v.title}}</span>
+          </div>
+          <div class="news-pic">
+            <img v-lazy="v.title_img_path==''?'/images/news.png':v.title_img_path" alt="新闻图标">
+          </div>
+          <p class="ac-nav-date">{{mydate(v.last_update_time)}}</p>
+        </a>
+        <div class="getData" v-show='dataObj.list2.flag'>加载中...</div>
+        <div class="nullData" v-show='dataObj.list2.noflag'>已无更多数据</div>
+    </div>
+    <div class="nac-nav-pic overflow-box" v-show='navActive == 1' v-cloak>
+      <div class="hint" v-show='picArr == "" && !isload'>未搜索到图片数据~</div>
+        <a :href="'/CESADefault.aspx?imgDetail='+v.datum_id" class="content clearfix" v-for='(v,i) in picArr'>
+        <div class="nav-tit">
+          <span class="nav-icon">图集</span>
+          <span>{{v.title}}</span>
+        </div>
+        <div class="img-pic clearfix">
+          <div class="ac-nav-left">
+              <img v-lazy="v.title_img_path.split(',')[0]" alt="赛事大图">
+            </div>
+            <div class="ac-nav-right">
+              <div class="ac-nav-top">
+                  <img v-lazy="v.title_img_path.split(',')[1]" alt="小图">
+              </div>
+              <div class="ac-nav-buttom">
+                <img v-lazy="v.title_img_path.split(',')[2].split('@')[0]" alt="小图">
+                <div class="ac-nav-count">{{v.title_img_path.split('@')[1]}}</div>
+            </div>
+          </div>
+          </div>
+        <p class="ac-nav-date">{{mydate(v.last_update_time)}}</p>
+      </a>
+      <div class="getData" v-show='dataObj.list3.flag'>加载中...</div>
+      <div class="nullData" v-show='dataObj.list3.noflag'>已无更多数据</div>
+    </div>
+    <div class="ac-nav-video overflow-box" v-show='navActive == 2' v-cloak>
+      <div class="hint" v-show='vdoArr == "" && !isload'>未搜索到视频数据~</div>
+      <a :href="'/CESADefault.aspx?vidoeDetail='+v.datum_id" class="content clearfix" v-for='(v,i) in vdoArr'>
+        <div class="nav-tit">
+          <span class="nav-icon">视频</span>
+          <span>{{v.title}}</span>
+        </div>
+        <div class="video-pic clearfix">
+            <img v-lazy="v.title_img_path"/>
+            <p class="mask">
+              <span class="icon_pause"></span>
+            </p>
+        </div>
+        <p class="ac-nav-date">{{mydate(v.last_update_time)}}</p>
+      </a>
+      <div class="getData" v-show='dataObj.list4.flag'>加载中...</div>
+      <div class="nullData" v-show='dataObj.list4.noflag'>已无更多数据</div>
+    </div>
+    <div class="nodate-tops" v-show="isload">正在加载中...</div>
+  </div>
+  </div>
+</div>
+</body>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/common.js?v=2018101501"></script>
+<script src="/common/js/NavTitle.js"></script>
+<script src="/common/js/Footer.js"></script>
+<script src="/common/js/vue-lazyload.js"></script>
+<script src="/js/newList.js?v=2018101501"></script>
+</html>

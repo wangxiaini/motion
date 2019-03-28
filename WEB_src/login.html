@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html style="font-size:30px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no" />
+    <title>中企体育统一平台手机认证</title>
+    <link href="/common/css/alert.css?v=2018101501" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        body { background:#f0f0f0;width: 750px;margin: 0 auto;}
+        input[type="submit"],
+        input[type="button"],
+        button { -webkit-appearance: none; }
+        .login{width: 680px;margin: 0 auto;}
+        .login form { background:#fff; margin:10px 0 50px; padding:0 6px; border-top:1px solid #dadada; border-bottom:1px solid #dadada;}
+        .login form label{margin: 0 12px;}
+        .login form div{line-height: 90px;margin: 0 10px}
+        .login p{text-align: center;}
+        .login form div input{height:50px;border:none;font-family:inherit;font-size:1rem;padding:0 6px;width: 390px;}
+        .login input#getCodeBtn{float:right;margin:10px 0;background: #ddd;font-size:0.8rem;}
+        .login input#submit{width:94%;margin:10px 0 0
+        3%;font-family:inherit;font-size:1rem;color:#fff;background:#ea0001;border:none;border-radius:6px;height:90px;}
+        .login input::-webkit-outer-spin-button,
+        .login input::-webkit-inner-spin-button {
+            -webkit-appearance: none !important;
+            margin: 0;
+        }
+        .login input[type="number"]{-moz-appearance:textfield;}
+        /*.login span#getCodeBtn {float:right;padding: 3px;background: #ddd;line-height: 24px;margin:10px 0;}*/
+    </style>
+    <script>
+        var DEFAULT_WIDTH = 750, // 页面的默认宽度
+            ua = navigator.userAgent.toLowerCase(), // 根据 user agent 的信息获取浏览器信息
+            deviceWidth = window.screen.width, // 设备的宽度
+            devicePixelRatio = window.devicePixelRatio || 1, // 物理像素和设备独立像素的比例，默认为1
+            targetDensitydpi;
+        if (ua.indexOf("android") !== -1 && parseFloat(ua.slice(ua.indexOf("android") + 8)) < 4) {
+            targetDensitydpi = DEFAULT_WIDTH / deviceWidth * devicePixelRatio * 160;
+            $('meta[name="viewport"]').attr('content', 'target-densitydpi=' + targetDensitydpi +
+                ', width=device-width, user-scalable=no');
+        }
+    </script>
+</head>
+<body>
+    <style type="text/css">
+        .ln2{height: 100px;}
+        ._nc .stage1 .slider{height: 90px;}
+        ._nc .stage1 .track div, ._nc .stage1 .label{font-size: 26px;height: 90px;line-height: 90px;}
+        ._nc .stage1 .button{width: 90px;height: 90px;}
+        .nc-h5-overlay{font-size: 30px;}
+        ._nc .stage2 .textbox{height: 80px;}
+        ._nc .stage2 .btn-ok, ._nc .stage2 .tips{height: 90px;margin-top: 30px;font-size: 30px;}
+        ._nc .stage2 .textbox .input{height: 90px;font-size: 50px;left: 90px;width: 190px;}
+        ._nc .stage2 .textbox .placeholder{font-size: 50px;left: 90px;}
+        ._nc .stage2 .icon{font-size: 50px;margin: 10px 10px 0;}
+        ._nc .stage1 .icon{bottom: 0;width: 50px;height: 50px;font-size: 50px;}
+        ._nc .stage2 .icon.clear{left: 200px;}
+        ._nc .stage2 .textbox .code{top: 10px;width: 180px;height: 90px;}
+        ._nc .stage1 .slider{right: 50px;left: 50px;}
+    </style>
+
+<!-- 此段必须要引入 -->
+<div id="_umfp" style="display:inline;width:1px;height:1px;overflow:hidden"></div>
+<!-- 引入结束 -->
+<header  style="text-align: center;margin: 30px auto 20px; ">
+    <span style="font-size: 40px;">手机号验证</span>
+    <!-- <a href="/WXDefault.aspx?myCenter=1" class="back">返回</a> -->
+</header>
+<div class="login">
+    <form>
+        <div style="border-bottom: 1px solid #dadada;">
+            <label>手机号</label>
+            <input type="tel" id="phone" name="phone" placeholder="请输入手机号" maxlength="11">
+            <!--<input type="button" id="getCodeBtn" value="获取验证码">-->
+        </div>
+
+        <div id='In3' style='display:none;'>
+            <label>验证码</label>
+            <input type="tel" id="code" name="code" maxlength="6" placeholder="请输入手机验证码">
+        </div>
+
+        <input type='hidden' id='csessionid' name='csessionid'/>
+        <input type='hidden' id='sig' name='sig'/>
+        <input type='hidden' id='token' name='token'/>
+        <input type='hidden' id='scene' name='scene'/>
+    </form>
+    <div class="ln2">
+        <div id="dom_id"></div>
+    </div>
+    <p>手机号码验证成功后自动录入个人账户</p>
+    <div id="In4" style="display: none">
+        <input type="button" id="submit" value="登录">
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="/common/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/common/js/alert.js"></script>
+<!-- 此段必须要引入 t为小时级别的时间戳 -->
+<script type="text/javascript" charset="utf‐8" src="https://g.alicdn.com/sd/nch5/index.js?t=1503543380476"></script>
+<!-- 引入结束 -->
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        var phoneReg = /^1(3|4|5|6|7|8|9)\d{9}$/;
+        var codeReg = /^[0-9]{6}$/;
+        var getCodeFlag = true;
+        var getBindFlag = true;
+        var nc_appkey =  'FFFF0000000001774F56'; // 应用标识,不可更改
+        var nc_scene = 'login_h5';  //场景,不可更改
+        var nc_token = [nc_appkey, (new Date()).getTime(), Math.random()].join(':');
+        var nc_option = {
+            renderTo: '#dom_id',//渲染到该DOM ID指定的Div位置
+            appkey: nc_appkey,
+            scene: nc_scene,
+            token: nc_token,
+            callback: function (data) {// 校验成功回调
+                document.getElementById('csessionid').value = data.csessionid;
+                document.getElementById('sig').value = data.sig;
+                document.getElementById('token').value = nc_token;
+                document.getElementById('scene').value = nc_scene;
+                var phone = $("#phone").val();
+                if (!phone) {
+                    alert_h("手机号不能为空", function () {
+                        setTimeout(function () {
+                            NoCaptcha.init(nc_option);
+                            NoCaptcha.setEnabled(true);
+                        }, 500)
+                    });
+
+                    return;
+                } else if(!phoneReg.test(phone)) {
+                    alert_h("请输入正确的手机号",function(){
+                        setTimeout(function () {
+                            NoCaptcha.init(nc_option);
+                            NoCaptcha.setEnabled(true);
+                        }, 500)
+                    });
+                    return;
+                }
+                $(this).val("正在发送");
+                getCodeFlag = false;
+                $.ajax({
+                    beforeSend: function(){},
+                    cache: false, // 默认true,设置为 false 将不会从浏览器缓存中加载请求信息。
+                    url: "/Action.aspx",
+                    type: "POST",
+                    dataType: "text",
+                    data: {"Action": "GetVerificationCode",
+                        "phone": phone ,
+                        "sig":$('#sig').val(),
+                        "csessionid":$('#csessionid').val(),
+                        "token": $('#token').val(),
+                        "scene":  $('#scene').val()
+                    },
+                    error: function() {
+                       alert_h('网络异常,请重试!',function () {
+                           NoCaptcha.init(nc_option);
+                           NoCaptcha.setEnabled(true);
+                           $('#In3').attr('style','display:none');
+                           $('#In4').attr('style','display:none');
+                       })
+                    },
+                    success: function(data) {
+                        //console.log(data)
+                        getCodeFlag = true;
+                        if (data == 1) {
+                            //countdown($("#getCodeBtn"),90);
+                            $('#In3').attr('style','display:block');
+                            $('#In4').attr('style','display:block');
+                            $("#code").focus();
+                        } else if(data == -1) {
+                            $("#getCodeBtn").val("获取验证码");
+                            alert_h("发送验证码过于频繁，请稍后再试",function () {
+                                NoCaptcha.init(nc_option);
+                                NoCaptcha.setEnabled(true);
+                                $('#In3').attr('style','display:none');
+                                $('#In4').attr('style','display:none');
+                            });
+                        } else {
+                            $("#getCodeBtn").val("获取验证码");
+                            alert_h("验证码获取失败",function () {
+                                NoCaptcha.init(nc_option);
+                                NoCaptcha.setEnabled(true);
+                                $('#In3').attr('style','display:none');
+                                $('#In4').attr('style','display:none');
+                            });
+                        }
+                    },
+                    complete: function(){}
+                });
+            },
+            error: function (s) {
+            },
+            verifycallback: function (data) {
+                if (data.code == "200") {
+                }
+            }
+        };
+        NoCaptcha.init(nc_option);
+        NoCaptcha.setEnabled(true);
+
+        $("#getCodeBtn").on("click",function() {
+            if(!getCodeFlag) {
+                return;
+            }
+        });
+        $("#submit").on('click', function() {
+            if(!getBindFlag) {
+                return;
+            }
+            var phone = $("#phone").val();
+            var code = $("#code").val();
+            var chnl_id = $("#chnl_id").text();
+            if (!phone) {
+                alert_h("手机号不能为空", function() {});
+                return;
+            }
+            if(!phoneReg.test(phone)) {
+                alert_h("请输入正确的手机号");
+                return;
+            }
+            if($('#sig').val()==''){
+                alert_h("请滑动验证获取手机验证码", function() {});
+                return;
+            }
+            if (!code) {
+                alert_h("验证码不能为空");
+                return;
+            }
+            if(!codeReg.test(code)) {
+                alert_h("请输入正确的验证码");
+                return;
+            }
+            $(this).val("登录中...");
+            getBindFlag = false;
+            $.ajax({
+                beforeSend: function(){},
+                cache: false, // 默认true,设置为 false 将不会从浏览器缓存中加载请求信息。
+                url: "/Action.aspx",
+                type: "POST",
+                dataType: "text",
+                data: {"Action": "SendMsgByNet",
+                    "phone": phone,
+                    "validateCode": code,
+                    "chnl_id": chnl_id},
+                error: function() {
+                    getBindFlag = true;
+                    $("#submit").val("登录");
+                    alert_h("服务器异常",function () {
+//                        NoCaptcha.init(nc_option);
+//                        NoCaptcha.setEnabled(true);
+                    });
+                },
+                success: function(data) {
+                    getBindFlag = true;
+                    $("#submit").val("登录");
+                    if (data == 1) {
+						window.location.reload();
+                       
+                    }else if(data == -1) {
+                        alert_h("验证码无效，请重新获取",function () {
+                            NoCaptcha.init(nc_option);
+                            NoCaptcha.setEnabled(true);
+                            $('#In3').attr('style','display:none');
+                            $('#In4').attr('style','display:none');
+                        });
+                    } else {
+                        alert_h("验证码错误",function () {
+                        });
+                    }
+                },
+                complete: function(){}
+            });
+        });
+    });
+    function countdown(o,time) {
+        if (time == 0) {
+            o.removeAttr("disabled");
+            o.val("获取验证码");
+            time = 60;
+        } else {
+            o.attr("disabled", "disabled");
+            o.val("重新发送(" + time + ")");
+            time--;
+            setTimeout(function() {
+                        countdown(o,time)
+                    },
+                    1000)
+        }
+    }
+</script>
+</html>

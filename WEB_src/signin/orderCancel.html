@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>申请退货</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/signin/css/orderCancel.css">
+</head>
+<body>
+<div id="app">
+    <!--退款-->
+    <div >
+        <div class="pro-info">
+            <div class="clearfix">
+                <div class="pro-img">
+                    <img :src="product_img" alt="">
+                </div>
+                <div class="pro-right">
+                    <span v-cloak>{{product_desc}}</span>
+                    <div>
+                        <p v-cloak>¥{{price}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--</div>-->
+    <ul class="list">
+        <li class="item">
+            <span>您的姓名：</span>
+            <input type="text" v-model="user" maxlength="32">
+        </li>
+        <li class="item">
+            <span>联系方式：</span>
+            <input type="text" v-model="phone" maxlength="32">
+        </li>
+    </ul>
+    <div class="buttom">
+        <span>提交服务单后，售后专员可能与您电话沟通，请保持手机畅通</span>
+        <div class="submit" @click="submit">提交</div>
+    </div>
+    <div class="alert_tips" :class="tips?'alert_sport':''">{{tips}}</div>
+    <div class="mask" v-cloak v-show="isActivity">
+        <div class="alert_tips2">
+            <div class="success" v-if="tips2 === '售后专员可能与您电话沟通，请保持手机畅通'">提交成功</div>
+            <p>{{tips2}}</p>
+            <div class="end-btn" @click="closeMask">确认</div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js"></script>
+<script src="/signin/js/orderCancel.js"></script>
+</body>
+</html>

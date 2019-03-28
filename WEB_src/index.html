@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/css/index.css?v=2018101501">
+  <link rel="stylesheet" href="/common/css/swiper-4.3.5.min.css">
+  <link rel="stylesheet" href="/common/css/ac-title-all.css">
+  <link rel="stylesheet" href="/common/css/nav-footer.css?v=2018101501">
+  <title>中企体育</title>
+</head>
+<body>
+  <div id="index">
+    <div class="index-box">
+    <div class="ser-header clearfix">
+      <div class="ser-header-int">
+        <input type="search" placeholder="请输入关键字搜索" v-model='searchVal' @search='searchClick'>
+      </div>
+    </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper" id="rollImgs">
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="nav">
+      <!-- <a href="/CESADefault.aspx?signin=index">
+        <p class="icon icon1"></p>
+        <p class="font">签到</p>
+      </a> -->
+      <a href="/CESADefault.aspx?actList=1&id=1">
+        <p class="icon icon1"></p>
+        <p class="font">活动</p>
+      </a>
+      <a href="/CESADefault.aspx?newList=1&id=1">
+        <p class="icon icon2"></p>
+        <p class="font">图片</p>
+      </a>
+      <a href="/CESADefault.aspx?newList=1&id=2"> 
+        <p class="icon icon3"></p>
+        <p class="font">视频</p>
+      </a>
+      <a href="/CESADefault.aspx?apply=1">
+        <p class="icon icon4"></p>
+        <p class="font">合作</p>
+      </a>
+    </div>
+    <!-- 正在进行的活动 -->
+    <div class="apply back" v-show='actIng != ""' v-cloak>
+        <a :href="'/CESADefault.aspx?activeDetail='+ v.active_id" class="content" v-for='(v,i) in actIng'>
+        <!-- <dl>
+          <dt><img v-lazy="v.img_path==null?v.img_path==null:v.img_path.split(';')[0]" alt="活动图"></dt>
+          <dd class="clearfix">
+            <span class="font">{{v.active_name}}</span>
+            <span class="btn">正在进行</span>
+          </dd>
+        </dl> -->
+        <dl class="title_img clearfix">
+          <dt>
+            <img v-lazy="v.img_path==null?v.img_path:v.img_path.split(';')[1]" alt="活动图">
+          </dt>
+          <dd>
+            <div class="active-box">
+              <h4>{{v.active_name}}</h4>
+            </div>
+            <div class="address clearfix">
+              <p class="addre">{{v.dict_desc}}</p>
+              <span class="btn">活动正在进行</span>
+            </div>
+          </dd>
+        </dl>
+      </a>
+    </div>
+    
+    <!-- 报名通道  -->
+    <div class="apply" v-show='actBegin != ""' v-cloak>
+      <div class="ac-bg"></div>
+      <a href="/CESADefault.aspx?actList=1&id=1" class="title clearfix">
+        <h2>报名通道</h2>
+        <p>查看全部</p>
+      </a>
+      <a :href="'/CESADefault.aspx?activeDetail='+ v.active_id" class="content" v-for='(v,i) in actBegin'>
+      <dl class="title_img clearfix">
+        <dt>
+          <img v-lazy="v.img_path==null?v.img_path==null:v.img_path.split(';')[1]" alt="报名通道">
+        </dt>
+        <dd>
+          <div class="active-box">
+             <h4>{{v.active_name}}</h4>
+            </div>
+          <div class="address clearfix">
+            <p class="addre">{{v.dict_desc}}</p>
+            <p class="date">赛事日期:{{mydate(v.active_begin_time)}}</p>
+          </div>
+          <p class="dis-addre" v-show='v.day < 0 && v.actStatus == "-55"'>距报名结束还剩 {{v.day.toString().split('-')[1]}} 天</p>
+          <p class="dis-addre" v-show='v.day > 0 && v.actStatus == "-55"'>报名结束,敬请期待活动开始</p>
+          <p class="dis-addre" v-show='v.actStatus == "55"'>报名未开始,敬请期待</p>
+        </dd>
+      </dl>
+    </a>
+    </div>
+    <!-- 赛事回顾  :src="v.img_path==null?v.img_path:v.img_path.split(';')[1]"-->
+    <div class="apply back" v-show='actEnd != ""' v-cloak>
+        <div class="ac-bg"></div>
+        <a href="/CESADefault.aspx?actList=1&id=2" class="title clearfix">
+          <h2>赛事回顾</h2>
+          <p>查看全部</p>
+        </a>
+        <a :href="'/CESADefault.aspx?activeDetail='+ v.active_id" class="content" v-for='(v,i) in actEnd'>
+        <dl class="title_img clearfix back_border">
+          <dt>
+            <img v-lazy="v.img_path==null?v.img_path:v.img_path.split(';')[1]" alt="报名通道">
+          </dt>
+          <dd>
+            <div class="active-box">
+              <h4>{{v.active_name}}</h4>
+            </div>
+            <div class="address clearfix">
+              <p class="addre">{{v.dict_desc}}</p>
+              <p class="date">赛事日期:{{mydate(v.active_begin_time)}}</p>
+            </div>
+          </dd>
+        </dl>
+      </a>
+    </div>
+
+      <div class="recomm" v-cloak>
+        <h2>精选推荐</h2>
+      <div class="nac-nav-news">
+        <div class="hint" v-show='newArr == "" && !isload'>暂无推荐~</div>
+          <a :href="'/CESADefault.aspx?newsDetail='+v.datum_id" class="content clearfix" v-for='(v,i) in newArr'>
+            <div class="nav-tit ac-nav-title">
+              <span class="nav-icon">新闻</span>
+              <span>{{v.title}}</span>
+            </div>
+            <div class="news-pic">
+              <img v-lazy="v.title_img_path==''?'/images/news.png':v.title_img_path" alt="新闻图标">
+            </div>
+            <p class="ac-nav-date">{{mydate(v.last_update_time)}}</p>
+          </a>
+        </div>
+        <a v-show='newArr != ""' href="/CESADefault.aspx?newList=1&id=0" class="all">查看全部</a>
+        <div class="bg"></div>
+      </div>
+    </div>
+    <nav-footer :datas="footIndex"></nav-footer>
+  </div>
+  <script src="/common/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/axios.min.js"></script>
+  <script src="/common/js/common.js"></script>
+  <script src="/common/js/vue.js"></script>
+  <script src="/common/js/swiper-4.3.5.min.js"></script>
+  <script src="/common/js/Footer.js"></script>
+  <script src="/common/js/jquery-1.8.3.min.js"></script> 
+  <script src="/common/js/vue-lazyload.js"></script>
+  <script src="/js/index.js?v=2018092701"></script>
+</body>
+</html>

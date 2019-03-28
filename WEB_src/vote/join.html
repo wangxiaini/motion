@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover"/>
+    <title>报名页</title>
+    <style>
+      *{margin: 0;padding: 0; font-family:'Helvetica', 'Tahoma', 'Arial', 'microsoft yahei', 'SimSun';font-size: 28px;}
+        body{width: 100%;height: 100%;background-color: white;}
+        .container{width: 100%;overflow: hidden;background-color: white;}
+        .headPic{width: 160px;height: 160px;border-radius: 50%;border:3px solid #2e5b0a;margin: 40px auto;}
+        .headPic img{border-radius: 50%;}
+        .headLine{width: 90%;height: 2px;margin: 30px auto;background: #2e5b0a;}
+        form{width: 90%;margin:20px auto;}
+        form .formGroup{line-height: 70px;padding:20px 0;color:#2e5b0a; }
+        form .formGroup5 p{width: 30%;}
+        form .formGroup1{border-bottom: 1px solid #2e5b0a;}
+        form .uploading{padding-bottom: 0;}
+        form .uploading label{vertical-align: 45px;}
+        form .uploading .uploadingImg{position:relative;display:inline-block;width: 118px;height: 118px;background: url("/images/upload.png") no-repeat;vertical-align: 70px;}
+        form .uploading .uploadingImg>input{position:relative;opacity: 0;width: 100%;height: 100%;display:inline-block;z-index: 10}
+        form .uploading .uploadingImg>img{width: 100%;height: 100%;position: absolute;top: 0;left: 0;z-index: 9}
+        form .formGroup label{width: 30%;display: inline-block;}
+        form .formGroup>input{width: 45%;height: 60px;display: inline-block;border-radius: 6px;border: 2px solid #2e5b0a;padding-left: 10px;margin-right: 10px;background-color: #f4ffeb;color: #2e5a0a;}
+        form .formGroup textarea{width: 100%;height: 200px;display: inline-block;border-radius: 6px;border: 2px solid #2e5b0a;padding:10px 0 0 10px;vertical-align: top;background-color: #f4ffeb;color: #2e5a0a;}
+        form .formGroup .required{color: #2e5b0a;}
+        form .formGroup .shopId{width:45%;}
+        form .formGroup select{display:inline-block;width:47%;
+            height: 60px;border-radius: 6px;border: 2px solid #2e5b0a;
+            appearance:none;
+            -moz-appearance:none;
+            -webkit-appearance:none;
+            padding-left: 10px;margin-right: 10px;color: white;
+            background:#54981f url("/images/1.png") no-repeat scroll right center;
+        }
+        .submitBg{width: 220px;line-height: 80px; border-radius: 20px; margin: 50px auto;background: #2e5b0a;}
+        .submitBg span{display: block;text-align: center;line-height: 58px;font-size: 30px;color: white;}
+        .modal{height: 250px;}
+        .modal-footer, .btn-primary{height: 60px;bottom: 0;}
+        .modal-footer{bottom: 10px;}
+        .modal-body{width: 90%;margin: 0 5%;line-height: 50px;}
+
+        .mustWrite{color: #da8a00;}
+        .mustWrite2{color: #da8a00;vertical-align: 45px;margin-left: 30px;}
+        .formGroupAdd{text-align: center;}
+        .alertContent{width: 100%;text-align: center;margin-top: 10px;color: red;}
+    </style>
+</head>
+<body>
+<div class="container"> 
+    <form>
+        <div class="formGroup uploading formGroup1">
+            <label><span class="required"></span>上传图片:</label>
+            <span class="uploadingImg"><input id="chooseImage" type="file" accept="image/*" onchange="loginApp.filechange(event)" /><img id="img-change" value='custom' data-address=''></span><span class="mustWrite2">必选</span>
+        </div>
+        <div class="formGroup">
+            <label><span class="required"></span>个人姓名:</label>
+            <input type="text" id="author_name"> <span class="mustWrite">必填</span>
+        </div>
+        <div class="formGroup formGroup1">
+            <label><span class="required"></span>所在单位:</label>
+            <input type="text" id="company"> <span class="mustWrite">必填</span>
+        </div>
+        <div class="formGroup formGroup1">
+          <label><span class="required"></span>参赛者类型:</label>
+          <select id="work">
+          </select> <span class="mustWrite">必填</span>
+      </div>
+      <div class="formGroup formGroup1">
+        <label><span class="required"></span>组别赛制:</label>
+        <select id="work1">
+        </select> <span class="mustWrite">必填</span>
+      </div>
+        <div class="formGroup formGroup5">
+            <p>上传文字:</p>
+            <textarea type="text" id="superiority" placeholder="  请输入个人介绍 (必填)"></textarea>
+        </div>
+        <div class="alertContent" style="display: none;"><span id="alertContent"></span></div>
+        <div class="submitBg"><span id="submit">提交</span></div>
+    </form>
+</div>
+<script src="/common/js/jquery-1.8.3.min.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script type="text/javascript" src="/vote/js/exif.js"></script>
+<script type="text/javascript" src="/vote/js/MegaPixImage.js"></script>
+<script src="/vote/js/join.js"></script>
+</body>
+</html>

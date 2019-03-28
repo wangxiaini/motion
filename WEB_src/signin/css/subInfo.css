@@ -1,0 +1,42 @@
+#app{
+    margin: 0 auto;
+    width: 750px;
+    height: auto;
+}
+.content{
+    padding: 0 50px;
+}
+label >span{
+    font-size: 32px;
+    padding-right: 10px;
+}
+input{
+    width: 300px;
+    height: 50px;
+    border: 1px solid #666;
+    text-indent: 10px;
+    font-size: 28px;
+    background-color:transparent;
+}
+.item{
+    padding-top: 40px;
+}
+.textarea{
+    margin-top: 40px;
+    font-size: 28px;
+    border: 1px solid #666666;
+    width: 100%;
+    height: 300px;
+    background-color: transparent;
+}
+.sub-btn{
+    color: #ffffff;
+    text-align: center;
+    line-height: 87px;
+    font-size: 38px;
+    border-radius: 10px;
+    margin: 50px auto 0;
+    height: 87px;
+    width: 320px;
+    background: red;
+}

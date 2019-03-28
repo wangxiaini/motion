@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover" />
+  <title>投票</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <style>
+    body{height: auto;}
+    .h1,.h2 {width: 213px; height: 34px; background: url('/vote/images/h1.png') no-repeat; margin: 67px auto 45px;}
+    .h2{background: url('/vote/images/h2.png') no-repeat;}
+    .list1{width: 521px; margin: auto;}
+    .box{ display: inline-block; width: 521px; height: 216px; background: url('/vote/images/h1.jpg') no-repeat; margin: 14px auto 14px;}
+    .box p{ color: #144d16;font-size: 32px; font-weight: bold; margin: 34px auto 16px; text-align: center;}
+    .box .btn1 {width: 153px; height: 49px; color: #e76801; font-size: 22px; text-align: center; line-height: 49px; background: url('/vote/images/btn1.png') no-repeat; transform: translate(-50%);margin-left: 50%;}
+.mask_rule {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.mask_rule .hint_bg {
+  position: relative;
+  width: 560px;
+  height: 456px;
+  background: white;
+  left: 50%;
+  top: 50%;
+  margin-top: -228px;
+  margin-left: -280px;
+  border-radius: 10px;
+}
+.mask_rule .hint_bg p {
+  text-align: center;
+}
+.mask_rule .hint_bg .hint {
+  font-size: 56px;
+  color: #ff6c00;
+  margin: 20px 0 25px 0;
+}
+.mask_rule .hint_bg .num {
+  font-size: 28px;
+}
+.mask_rule .hint_bg .hintimg {
+  width: 245px;
+  height: 211px;
+  background: url('/vote/images/complate.png') no-repeat;
+  margin-left: 26%;
+  padding-top: 8%;
+}
+.mask_rule .close {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  background: white;
+  border-radius: 50%;
+  bottom: 28%;
+  transform: translate(-50%);
+  left: 50%;
+}
+.mask_rule .hint_bg .close_btn {
+  position:absolute;
+  width: 94px;
+  height: 94px;
+  background: url('/images/close2.png') no-repeat;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: -35%;
+}
+  </style>
+</head>
+<body>
+  <section class="bg">
+    <h2 class="h1"></h2>
+    <section class="list1">
+      <a href="/CESADefault.aspx?vote=home&id=1" class="box">
+        <p>行业组11人制</p>
+        <div class="btn1">点击进入</div>
+      </a>
+      <a href="/CESADefault.aspx?vote=home&id=2" class="box">
+        <p>行业组室外5人制</p> 
+        <div class="btn1">点击进入</div>
+      </a>
+      <a href="/CESADefault.aspx?vote=home&id=3" class="box">
+        <p>社会组11人制</p>
+        <div class="btn1">点击进入</div>
+      </a>
+      <a href="/CESADefault.aspx?vote=home&id=4" class="box">
+        <p>社会组室外5人制</p>
+        <div class="btn1">点击进入</div>
+      </a>
+    </section>
+    <section class="mask_rule">
+        <section class="hint_bg">
+          <div class="hintimg"></div>
+            <p class="hint">-</p>
+            <p class="num">-</p>
+            <section class="close_btn"></section>
+        </section>
+    </section>
+
+  </section>
+  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/common.js"></script>
+  <script src="/common/js/jquery-1.8.3.min.js"></script>
+  <script src="/vote/js/share.js"></script>
+  <script>
+    var title ='我正在参与2018年中国足球发展基金会杯 中国足球职工联赛总决赛投票活动';
+    var imgUrl = 'https://gd.cesa.org.cn/images/share.png';
+    var desc = '投票即可抽奖赢好礼，助力中国足球事业发展';
+    share(title,imgUrl,desc,ACTIVE_ID);
+    $('.close_btn').click(function () {
+        $('.mask_rule').hide();
+    });
+  </script>
+</body>
+</html>

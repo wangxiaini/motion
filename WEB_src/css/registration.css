@@ -1,0 +1,372 @@
+#app{
+    margin: 0 auto;
+    width: 750px;
+    background: #ffffff;
+}
+#app .match-wrapper .match-header{
+    overflow: hidden;
+    font-size: 28px;
+    box-sizing: border-box;
+    padding: 0 25px;
+    height: 76px;
+    border-bottom: 2px solid #e8e9e9;
+}
+#app .match-wrapper .match-header>p{
+    margin-top: 24px;
+    border-left: 4px solid #e33021;
+    padding-left: 10px;
+    height: 28px;
+    line-height: 28px;
+}
+.btn-stat{
+    color: #0297ce !important;
+}
+#app .match-wrapper .match-wrap{
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0 25px;
+}
+#app .match-wrapper .match-wrap .match-desc{
+    height: 100px;
+    font-size: 28px;
+    line-height: 100px;
+    border-bottom: 2px solid #e8e9e9;
+}
+#app .match-wrapper .match-wrap .match-desc:last-child{
+    border-bottom: none;
+}
+#app .match-wrap .match-desc .input-wrap {
+    display: inline-block;
+    text-align: right;
+    float: right;
+    height: 78px;
+    margin-right: 40px;
+    width: 328px;
+}
+#app .match-wrapper .match-wrap .match-desc >i{
+    float: left;
+    font-style: normal;
+    padding-right: 10px;
+    color: #e33021;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+#app .match-wrapper .match-wrap .match-desc >p{
+    float: left;
+    line-height: 50px;
+    padding-left: 10px;
+}
+input{
+    text-indent:10px;
+    width: 100%;
+    font-size: 26px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+::-webkit-input-placeholder
+{
+    text-align: right;
+}
+#app .match-desc >span >i{
+    position: absolute;
+    right: -41px;
+    bottom: 28px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(/images/back-icon.png) no-repeat;
+}
+#app .match-wrapper .match-wrap .upload-enc{
+    line-height: 120px;
+    height: 120px;
+    position: relative;
+}
+#app .match-wrapper .upload-enc .upload-icon{
+    position: absolute;
+    top: 30px;
+    left: 210px;
+    background: url("/images/icon-upload.png") no-repeat;
+    width: 80px;
+    height: 60px;
+}
+#app .match-wrapper {
+    border-bottom: none;
+    border-top: 20px solid #e8e9e9;
+}
+#app .service-select-wrapper .desc{
+    font-size: 28px;
+    margin-left: 26px;
+    margin-top: 31px;
+}
+#app .statement-title{
+    font-size: 28px;
+    line-height: 70px;
+    padding: 0 25px;
+    background: #e8e9e9;
+}
+#app .stat-wrap{
+    box-sizing: border-box;
+    padding: 0 25px;
+    width: 100%;
+    height: 104px;
+}
+#app .stat-wrap span{
+    font-size: 28px;
+    line-height: 100px;
+}
+#app .stat-wrap span i{
+    color: #e33021;
+}
+#app .stat-wrap p{
+    font-size: 28px;
+    line-height: 104px;
+}
+#app .stat-wrap p i{
+    color: #e33021;
+}
+#app .tips-wrap{
+    height: 258px;
+    background: #e8e9e9;
+}
+#app .tips-wrap>span:last-child{
+    line-height: 40px;
+}
+.graycolor{
+    color: #666666;
+}
+#app .cost-wrap{
+    box-sizing: border-box;
+    padding: 0 25px;
+    border-top: 1px solid #cdcdcd;
+    width: 100%;
+    height: 98px;
+}
+#app .cost-wrap span{
+    font-size: 26px;
+    line-height: 98px;
+    color: #e33021;
+    float: left;
+}
+#app .cost-wrap div{
+    float: right;
+    text-align: center;
+    line-height: 72px;
+    font-size: 32px;
+    margin-top: 13px;
+    border-radius: 10px;
+    background: #e33021;
+    color: #ffffff;
+    width: 298px;
+    height: 72px;
+}
+.switch {
+    float: right;
+    margin-top: 25px;
+    width: 108px;
+    height: 55px;
+    position: relative;
+    border: 1px solid #dfdfdf;
+    background-color: #fdfdfd;
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    border-radius: 30px;
+    background-clip: content-box;
+    display: inline-block;
+    -webkit-appearance: none;
+    user-select: none;
+    outline: none;
+}
+img{
+    background: #e8e9e9;
+}
+.switch:before {
+    content: '';
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.switch:checked {
+    border-color: #64bd63;
+    box-shadow: #64bd63 0 0 0 32px inset;
+    background-color: #64bd63;
+}
+.switch:checked:before {
+    left: 60px;
+}
+.switch.switch-anim {
+    transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+}
+.switch.switch-anim:before {
+    transition: left 0.3s;
+}
+.switch.switch-anim:checked {
+    box-shadow: #64bd63 0 0 0 32px inset;
+    background-color: #64bd63;
+    transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+}
+.switch.switch-anim:checked:before {
+    transition: left 0.3s;
+}
+.check-icon{
+    position: absolute;
+    right: -41px;
+    bottom: 28px;
+    display: block;
+    width: 20px;
+    height: 24px;
+    background: url(/images/back-icon.png) no-repeat;
+}
+.icon-pos{
+    height: 40px;
+    border-radius: 5px;
+    position: relative;
+}
+.alert_tips{
+    width: 500px;
+    height: 70px;
+    background: rgba(0,0,0,.9);
+    margin-left: -250px;
+    position: fixed;
+    border-radius: 21px;
+    color: #fff;
+    left: 50%;
+    font-size: 28px;
+    bottom: 120px;
+    text-align: center;
+    line-height: 70px;
+    opacity: 0;
+}
+.alert_sport{
+    animation:move 2s;
+    -moz-animation:move 2s; /* Firefox */
+    -webkit-animation:move 2s; /* Safari and Chrome */
+    -o-animation:move 2s; /* Opera */
+}
+@keyframes move
+{
+    0%{
+        bottom:0px;
+        opacity: 0;
+
+    }
+    30%{
+        bottom:120px;
+        opacity: 1;
+    }
+    100%{
+        bottom:120px;
+        opacity: 1;
+    }
+}
+.statement{
+    font-size: 28px;
+    background: #ffffff;
+    box-sizing: border-box;
+    padding: 55px 80px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* display: none; */
+    height: 100%;
+    overflow: scroll;
+}
+.stat-content{
+    padding-bottom: 100px;
+}
+strong{
+    font-weight: bold;
+}
+.statement-bototm{
+    width: 100%;
+    height: 96px;
+    border-top: 2px solid #ededed;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+.close_btn{
+    width: 50px;
+    height: 50px;
+    background: url("/images/icon-cancel.png") no-repeat;
+    background-size: cover;
+}
+/*@-moz-keyframes mymove !* Firefox *!*/
+/*{*/
+/*from {*/
+/*-webkit-transform: translateY(0px);*/
+/*-moz-transform: translateY(0px);*/
+/*-ms-transform: translateY(0px);*/
+/*-o-transform: translateY(0px);*/
+/*transform: translateY(0px)}*/
+/*to {-webkit-transform: translateY(-120px);*/
+/*-moz-transform: translateY(-120px);*/
+/*-ms-transform: translateY(-120px);*/
+/*-o-transform: translateY(-120px);*/
+/*transform: translateY(-120px);}*/
+/*}*/
+
+/*@-webkit-keyframes mymove !* Safari 和 Chrome *!*/
+/*{*/
+/*from {*/
+/*-webkit-transform: translateY(0px);*/
+/*-moz-transform: translateY(0px);*/
+/*-ms-transform: translateY(0px);*/
+/*-o-transform: translateY(0px);*/
+/*transform: translateY(0px)}*/
+/*to {-webkit-transform: translateY(-120px);*/
+/*-moz-transform: translateY(-120px);*/
+/*-ms-transform: translateY(-120px);*/
+/*-o-transform: translateY(-120px);*/
+/*transform: translateY(-120px);}*/
+/*}*/
+
+/*@-o-keyframes mymove !* Opera *!*/
+/*{*/
+/*from {*/
+/*-webkit-transform: translateY(0px);*/
+/*-moz-transform: translateY(0px);*/
+/*-ms-transform: translateY(0px);*/
+/*-o-transform: translateY(0px);*/
+/*transform: translateY(0px);}*/
+/*to {-webkit-transform: translateY(-120px);*/
+/*-moz-transform: translateY(-120px);*/
+/*-ms-transform: translateY(-120px);*/
+/*-o-transform: translateY(-120px);*/
+/*transform: translateY(-120px);}*/
+/*}*/
+select{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-left: 60px;
+    font-size: 26px;
+    text-align: center;
+}
+select{
+    padding: 0 2%;
+
+}
+option{
+    text-align:center;
+}
+.icon-pos{
+    height: 40px;
+    border-radius: 5px;
+    position: relative;
+}

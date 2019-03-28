@@ -1,0 +1,226 @@
+#app{
+    width: 750px;
+    height: auto;
+    margin: 0 auto;
+}
+.item{
+    height: 100px;
+    line-height: 100px;
+    padding-left: 24px;
+    border-bottom:1px solid #e4e4e4;
+}
+.item>span{
+    display: block;
+    float: left;
+    font-size: 28px;
+    width: 140px;
+    height: 100%;
+    line-height: 100px;
+}
+.selects{
+    position: relative;
+    display: inline-block;
+    text-align: right;
+    float: right;
+    height: 78px;
+    margin-right: 65px;
+    width: calc(100% - 220px);
+}
+select{
+    width: 100%;
+    padding: 0 2%;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 78px;
+    line-height: 100px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 26px;
+    /*direction: rtl;*/
+}
+.item >input{
+    padding-right: 70px;
+    width: 480px;
+    text-indent: 28px;
+    margin-top: 28px;
+    font-size: 26px;
+    border: none;
+    outline: none;
+    height: 36px;
+    line-height: 36px;
+    background-color: transparent;
+}
+.pro-info{
+    border-bottom:5px solid #f1f2f6;
+    overflow: hidden;
+    line-height: 1.5;
+}
+.pro-img{
+    width: 186px;
+    height: 186px;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    float: left;
+    margin-right: 15px;
+}
+.pro-right{
+    float: left;
+    padding-left: 5px;
+    box-sizing: border-box;
+    font-size: 28px;
+    width: calc(100% - 210px);
+}
+.pro-right >span{
+    display: block;
+    height: 115px;
+}
+.pro-right p{
+    float: left;
+    color: #ff0000;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 34px;
+    line-height: 2.3;
+    overflow: hidden;
+}
+.btn{
+    float: right;
+    margin-right: 40px;
+    height: 73px;
+    display: flex;
+    align-items: center;
+}
+.btn span{
+    width: 52px;
+    height: 48px;
+}
+.pro-info img{
+    width: 100%;
+    height: 100%;
+}
+.buybtn{
+    width: 300px;
+    height: 100px;
+    background: #f23030;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    font-size: 28px;
+    cursor: pointer;
+    float: right;
+}
+.home{
+    float: left;
+}
+.icon-select{
+    position: absolute;
+    right: -41px;
+    bottom: 20px;
+    display: block;
+    width: 21px;
+    height: 21px;
+    background: url(/images/back-icon.png) no-repeat;
+}
+.bottom{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    background: #ffffff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.btn span{
+    display: inline-block;
+    width: 50px;
+    height: 46px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    line-height: 46px;
+    font-size: 32px;
+}
+.btn span:nth-child(2){
+    width: 69px;
+    height: 46px;
+}
+.bottom span{
+    float: left;
+    width: calc(100% - 300px);
+    height: 100%;
+    text-align: center;
+    line-height: 100px;
+    font-weight: 500;
+    font-size: 30px;
+}
+.count{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: 0;
+    font-size: 32px;
+    text-align: center;
+    padding: 2px 0;
+}
+.gray_Active{
+    color: #cccccc;
+}
+/*选择商品类型*/
+.goods-border{
+    border-color: #f5874c !important;
+}
+.goods-desc{
+    border-bottom: 5px solid #f1f2f6;
+}
+.classify{
+    margin: 20px 20px;
+}
+.tit-style{
+    line-height: 50px;
+    font-size: 28px;
+}
+.classify .size-check:nth-child(1),
+.classify .color-check:nth-child(4n+1){
+    margin-left: 0;
+}
+.classify .size-check,
+.classify .color-check{
+    float: left;
+    margin: 0 0 10px 15px;
+    border-radius: 12px;
+    border: 2px solid #f5f5f5;
+    background: #f5f5f5;
+    box-sizing: border-box;
+}
+.color-check{
+    width: 155px;
+    height: 78px;
+}
+.size-check{
+    width: 78px;
+    height: 78px;
+    line-height: 78px;
+}
+.size-check >p{
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+}
+.classify .size-check > *,
+.classify .color-check > *{
+    float: left;
+}
+.color-classify .color-check > img{
+    background: none;
+    padding: 9px;
+    width: 62px;
+    height: 62px;
+}
+.color-classify .color-check > p{
+    width: 68px;
+    line-height: 80px;
+    color: #111111;
+    font-size: 26px;
+}

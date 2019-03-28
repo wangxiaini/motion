@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title>中国职工足球联赛</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/common/css/nav-title.css">
+  <link rel="stylesheet" href="/live/css/live.css?v=2018092701">
+  <link rel="stylesheet" href="/common/css/nav-title.css">
+  <link rel="stylesheet" href="/common/css/ac-title-all.css">
+  <link rel="stylesheet" href="/common/css/nav-footer.css?v=2018101501">
+</head>
+<body>
+  <!-- 赛事 -->
+  <div v-show='hasCompet' id="live">
+    <div class="banner">
+      <img src="/images/banner.png" alt="赛事">
+    </div>
+    <!-- <nav-title :count='navFont1' @navclick='navFn1' :navactive='navActive1'></nav-title> -->
+    <div class="nav-agen clearfix" v-show='navActive1 == 0' v-cloak>
+      <div class="tab">
+        <div class="one">
+            <ul class="navs navss clearfix">
+              <li v-for="(v,i) in navFont2" :class="{active1:navActive2 == i}" @click="navFn2(i)" v-text="v"  :key="i">
+              </li>
+            </ul>
+          <div class="day1 day" v-show='navActive2 == 0' v-for='(v,i) in agenArr1'>
+            <div class="title clearfix">
+              <h2>{{v.group}}</h2>
+              <p>{{v.addr}}</p>
+            </div>
+            <div class="day-box clearfix">
+              <div class="day-left">
+                <p class="p1">直播时间</p>
+                <div class="day-time clearfix">
+                  <div class="timer">
+                    <p>{{v.timer1}}</p>
+                    <p>{{v.timer2}}</p>
+                    <p>{{v.timer3}}</p>
+                    <p>{{v.timer4}}</p>
+                  </div>
+                  <div class="pk">
+                    <p v-html='v.PK1'></p>
+                    <p v-html='v.PK2'></p>
+                    <p v-html='v.PK3'></p>
+                    <p v-html='v.PK4'></p>
+                  </div>
+                </div>
+              </div>
+              <div class="day-right">
+                <a :href= "'/CESADefault.aspx?live=video&id='+v.id">
+                  <div class="icon"></div>
+                  <div class="btn">观看直播</div>
+                </a>
+              </div>
+            </div>
+            <div class="ac-bg"></div>
+          </div>
+          <div class="day1 day" v-show='navActive2 == 1' v-for='(v,i) in agenArr2'>
+              <div class="title clearfix">
+                <h2>{{v.group}}</h2>
+                <p>{{v.addr}}  {{v.final}}</p>
+              </div>
+              <div class="day-box clearfix">
+                <div class="day-left">
+                  <p class="p1">直播时间</p>
+                  <div class="day-time clearfix">
+                    <div class="timer">
+                      <p>{{v.timer1}}</p>
+                      <p>{{v.timer2}}</p>
+                      <p>{{v.timer3}}</p>
+                      <p>{{v.timer4}}</p>
+                    </div>
+                    <div class="pk">
+                      <p v-html='v.PK1'></p>
+                      <p v-html='v.PK2'></p>
+                      <p v-html='v.PK3'></p>
+                      <p v-html='v.PK4'></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="day-right">
+                  <a :href= "'/CESADefault.aspx?live=video&id='+v.id">
+                    <div class="icon"></div>
+                    <div class="btn">观看直播</div>
+                  </a>
+                </div>
+              </div>
+              <div class="ac-bg"></div>
+            </div>
+            <div class="day1 day" v-show='navActive2 == 2' v-for='(v,i) in agenArr3'>
+                <div class="title clearfix">
+                  <h2>{{v.group}}</h2>
+                  <p>{{v.addr}}  {{v.final}}</p>
+                </div>
+                <div class="day-box clearfix">
+                  <div class="day-left">
+                    <p class="p1">直播时间</p>
+                    <div class="day-time clearfix">
+                      <div class="timer">
+                        <p>{{v.timer1}}</p>
+                        <p>{{v.timer2}}</p>
+                        <p>{{v.timer3}}</p>
+                        <p>{{v.timer4}}</p>
+                      </div>
+                      <div class="pk">
+                        <p v-html='v.PK1'></p>
+                        <p v-html='v.PK2'></p>
+                        <p v-html='v.PK3'></p>
+                        <p v-html='v.PK4'></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="day-right">
+                    <a :href= "'/CESADefault.aspx?live=video&id='+v.id">
+                      <div class="icon"></div>
+                      <div class="btn">观看直播</div>
+                    </a>
+                  </div>
+                </div>
+              <div class="ac-bg"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-shoot clearfix" v-show='navActive1 == 1' v-cloak>
+      <ul class="thead">
+        <li>排名</li>
+        <li>球员</li>
+        <li>球队</li>
+        <li>进(点)</li>
+      </ul>
+      <div class="hint" v-show='shootArr.length == 0 && hasHint == true'>暂无数据~</div>
+      <ul class="tbody clearfix" v-for='(v,i) in shootArr'>
+        <li>{{i+1}}</li>
+        <li>{{v.name}}</li>
+        <li>{{v.ro_name}}</li>
+        <li>{{v.count}}</li>
+      </ul>
+    </div>
+
+    <div class="nav-card clearfix" v-show='navActive1 == 2' v-cloak>
+      <ul class="thead">
+        <li>排名</li>
+        <li>球队</li>
+        <li>姓名</li>
+        <li>号码</li>
+        <li>黄牌</li>
+        <li>红牌</li>
+      </ul>
+      <div class="hint" v-show='cardArr.length == 0 && hasHint == true'>暂无数据~</div>
+      <ul class="tbody clearfix" v-for='(v,i) in cardArr'>
+        <li>{{i+1}}</li>
+        <li>{{v.ro_name}}</li>
+        <li>{{v.name}}</li>
+        <li>{{v.num}}</li>
+        <li>{{v.y_card}}</li>
+        <li>{{v.r_card}}</li>
+      </ul>
+    </div>
+    <nav-footer :datas="footIndex"></nav-footer>
+  </div>
+</body>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/NavTitle.js"></script>
+<script src="/common/js/Footer.js"></script>
+<script src="/common/js/common.js"></script>
+<script src="/common/js/vue-lazyload.js"></script>
+<script src="/live/js/live.js?v=2018092701"></script>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>填写报名信息</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/css/writeInfo.css?v=2018101501">
+    <link rel="stylesheet" href="/css/style.css?v=2018101501">
+</head>
+<body>
+<div id="perInfo" :class="isend?'hidperInfo' : 'perInfo'">
+    <div class="forward">
+        <p><span v-cloak v-if="created">团队创建成功!</span>点击右上角发送给朋友,<br>邀请队友填写个人资料，加入团队</p>
+    </div>
+    <div class="match-wrapper">
+        <div class="match-header"><p>赛事类型</p></div>
+        <div class="match-wrap">
+            <div class="match-desc">赛事项目: <span id="match_project" v-text="active_name"></span></div>
+            <div class="match-desc">团队名称:<span class="match_name" v-text="team_name"></span></div>
+            <div class="match-desc"><small class="group_desc">组别:</small><span v-text="group_type1"></span></div>
+            <div class="match-desc"><small class="group_desc">赛制:</small><span v-text="competition_type1"></span></div>
+            <!--<div class="match-desc">参赛费用: <span id="match_money"></span></div>-->
+        </div>
+    </div>
+    <div class="match-wrapper" style="border-top: 20px solid #e8e9e9;">
+        <div class="match-header"><p>报名信息</p></div>
+        <div class="match-wrap">
+            <div class="match-desc">
+                <i>*</i>姓名
+                <span>
+                    <input type="text" placeholder="与报名证件一致" v-model="user_name">
+                </span>
+            </div>
+            <div class="match-desc">
+                <i>*</i>性别
+                <span style="width: 276px">
+                    <div class="select"  v-for="item,index in sexType" @click="selectSex(index)" :class="index == sex?'sexbg':''" v-text="item"></div>
+                </span>
+            </div>
+            <!--<div class="match-desc">-->
+                <!--<i>*</i>国家与地区-->
+                <!--<span>中国</span>-->
+            <!--</div>-->
+            <div class="match-desc">
+                <i>*</i>证件类型
+                <span class="icon-pos selects">
+                    <select v-model="identity_type">
+                        <option v-for="v,i in identityType" :value="i" :key="i" v-text="v"></option>
+                    </select>
+                    <i></i>
+                </span>
+            </div>
+            <div class="match-desc">
+                <i>*</i>证件号
+                <span>
+                    <input type="text" placeholder="证件号" v-model="identity_no">
+                </span>
+            </div>
+            <!--<div class="match-desc">-->
+                <!--<i>*</i>生日-->
+                <!--<span class="icon-pos"><i></i></span>-->
+            <!--</div>-->
+            <!--<div class="match-desc">-->
+                <!--<i></i>民族-->
+                <!--<span class="icon-pos">汉族<i></i></span>-->
+            <!--</div>-->
+            <div class="match-desc">
+                <i>*</i>手机号码
+                <span>
+                    <input type="tel" maxlength="11"  placeholder="手机号" v-model="phone">
+                </span>
+            </div>
+            <!--<div class="match-desc">-->
+                <!--<i></i>邮箱-->
+                <!--<span>-->
+                    <!--<input type="text" placeholder="选填" v-model="email">-->
+                <!--</span>-->
+            <!--</div>-->
+            <!--<div class="match-desc">-->
+                <!--<i>*</i>血型-->
+                <!--<span class="icon-pos">A<i></i></span>-->
+            <!--</div>-->
+            <div class="match-desc">
+                <i>*</i>省
+                <span class="icon-pos">
+                     <select v-model="selectProv">
+                        <option v-for="(item,index) in provs"
+                                 :value="item" :key="index" v-text="item">
+                        </option>
+                    </select>
+                    <i></i>
+                </span>
+            </div>
+            <!--<div class="match-desc">-->
+                <!--<i>*</i>居住市-->
+                <!--<span class="icon-pos">-->
+                     <!--<select-->
+                              <!--v-model="selectCity"-->
+                              <!--placeholder="请选择城市">-->
+                        <!--<option v-cloak v-for="(item,index) in citys"-->
+                                <!--:value="item.label" :key="index">-->
+                            <!--{{item.label}}-->
+                        <!--</option>-->
+                    <!--</select>-->
+                    <!--<i></i>-->
+                <!--</span>-->
+            <!--</div>-->
+            <!--<div class="match-desc">-->
+                <!--<i>*</i>居住地址-->
+                <!--<span>-->
+                    <!--<input type="text" placeholder="填写详细地址" v-model="address">-->
+                <!--</span>-->
+            <!--</div>-->
+            <div class="match-desc">
+                <i>*</i>衣服尺寸
+                <span class="icon-pos">
+                     <select  v-model="clothSize">
+                        <option v-for="(item,index) in cloth_size" :value="item" :key="index" v-text="item"></option>
+                    </select>
+                    <i></i>
+                </span>
+            </div>
+            <!--<div class="match-desc">-->
+                <!--<i>*</i>紧急联系人-->
+                <!--<span>刘在石</span>-->
+            <!--</div>-->
+            <!--<div class="match-desc">-->
+                <!--<i>*</i>紧急联系人电话-->
+                <!--<span>13780886666</span>-->
+            <!--</div>-->
+            <!--<div class="match-desc">-->
+                <!--<i></i>职业-->
+                <!--<span class="icon-pos"><i></i></span>-->
+            <!--</div>-->
+            <!--<div class="match-desc">-->
+                <!--<i></i>教育程度-->
+                <!--<span class="icon-pos"><i></i></span>-->
+            <!--</div>-->
+            <div class="upload-enc match-desc" style="height: auto;">
+                <i></i>上传附件
+                <div class="upload-icon" id="chooseImage"></div>
+
+                <div class="wxapi_container">
+                    <div class="lbox_close wxapi_form">
+                        <!--<h3 id="menu-image">已选择图片</h3>-->
+                        <div id="imgs"></div>
+                        <div style="clear:both"></div>
+						<button class="btn btn_primary" id="uploadImage">确认并上传</button>
+                        <!--<h3 id="upload-image">已上传图片</h3>-->
+                        <div id="uploadImgs"></div>
+                        <div style="clear:both"></div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div style="padding: 25px 40px;font-size: 26px;">
+        <p>上传内容:</p>
+        <p>
+        （1）球队全体成员1寸免冠证件照（彩色，白底或蓝底）;<br/>
+        （2）最近两年（2016年11月1日至2018年10月31日），球队所属
+            单位为球队成员缴纳社保的凭证照片或扫描件（加盖球队所属
+            单位人事章或工会章）;<br/>
+        （3）球队成员个人医务健康证明照片或扫描件（2018年1月1日之后，
+            由当地二甲及以上医院开具，加盖医院章）;<br/>
+        （4）由全部球队成员本人亲笔签署的《免责承诺书》照片或扫描件
+            （加盖所属单位工会章或人事章）。
+    </div>
+    <div class="perInfo-title">是否有购买增值服务需求</div>
+    <div class="service-select-wrapper">
+        <div class="service-select-wrap">
+            <i class="select-icon-wrap" @click="selectService"><span class="check-icon" v-if="select"></span></i>
+            <span>视频锦集: &nbsp;专业级别的设置</span>&nbsp;<span class="ex"><a href="/CESADefault.aspx?collection=1">查看示例</a></span>
+        </div>
+        <div class="service-select-wrap">
+            <i class="select-icon-wrap" @click="selectService2"><span class="check-icon" v-if="select2"></span></i>
+            <span>图片服务: &nbsp;</span><span class="service-desc">专业摄影师随队拍摄,并按照要求提供照片挑选服务</span>
+        </div>
+        <p class="desc">勾选增值服务,相关人员会与您联系</p>
+    </div>
+    <div class="statement-title graycolor">免责声明</div>
+    <div class="stat-wrap">
+        <span><i>*</i>&nbsp;我已阅读、理解并同意此<i class="btn-stat" @click="closeStatfn">参赛选手声明</i></span>
+        <input class="switch switch-anim" v-model="switchFlag" type="checkbox" checked="switchFlag">
+    </div>
+    <div class="tips-wrap stat-wrap" style="height: 65px">
+        <!--<p class="graycolor"><i>*</i>&nbsp;温馨提示</p>-->
+        <!--<span class="graycolor">-->
+           <!--本人同意向主办方提供有效的身份证件和资料用于核实本人的身份,并同意承担因身份证件和资料不实所产生的全部责任。-->
+        <!--</span>-->
+    </div>
+    <div class="cost-wrap">
+        <!--<span>费用: 120元</span>-->
+        <div @click="toPayInfo">提交报名</div>
+    </div>
+    <div class="alert_tips" :class="tips?'alert_sport':''">{{tips}}</div>
+    <div class="mask" v-cloak v-show="isend">
+        <div class="alert_tips2">
+            <p>报名已结束</p>
+            <div class="end-btn" @click="closeMask">确认</div>
+        </div>
+    </div>
+    <div class="statement" v-cloak v-show="closeStat">
+        <div class="stat-content">
+            <p>声明:</p>
+            <p> 本人清楚地知晓：比赛属于对抗性运动，参加比赛具有一定的风险性，且该风险性无法彻底消除。<br>
+                本人在清楚地知晓上述情况的前提下，做出如下承诺：<br>
+                一、本人是自愿参加本次比赛。<br>
+                二、本人身体健康，具有完全民事行为能力，不存在隐瞒自己真实身体状况的情形。<br>
+                三、参赛期间如遇身体不适状况，本人将及时停止有关活动，积极寻求治疗。<br>
+                四、本人自愿承担因为参加比赛而产生的各种可能的风险，包括但不限于遭受可能的身体伤害、精神伤害、财物和／或财产损害损失等。<br>
+                五、面对本人因参加比赛而产生的各种可能的风险，本人完全放弃向赛事主办单位、支持单位、承办单位、协办单位、运营单位、赛事组委会、各行业体育协会、各省市，自治区，市职工足球联赛组委会、本人所属单位请求赔偿和提起诉讼的权利；永远免除上述机构的赔偿及法律连带责任。<br>
+                六、对于参赛中可能出现的意外事故，可由承保的保险公司承担相应的赔偿责任。本人同意，在已承保的保险公司赔偿额度范围内接受赔偿。<br>
+                本人已经仔细阅读本承诺书的全部内容，并完全理解与全部接受。<br>
+            </p>
+        </div>
+        <div class="statement-bototm" @click="closeStatfn">
+            <div class="close_btn"></div>
+        </div>
+    </div>
+</div>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/jquery-1.8.3.min.js"></script>
+<script src="/js/writeInfo.js?v=2018101501"></script>
+<script src="/js/toUpload.js?v=2018101501"></script>
+</body>
+</html>

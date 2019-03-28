@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <title>联系我们</title>
+  <style>
+    body{background: #e8e9e9; height: 90%; overflow: hidden;}
+    .cont-text {width: 86%;height: 4rem;margin:2% auto;border: 1px solid #dfdfdf;background: #fff;padding: 1rem 4%;}
+    .cont-text p {line-height: 2rem;font-size: 1rem;color: #000;}
+    .cont-text p i {display: inline-block;width: 1.1rem;height: 1.1rem;background: url(/images/callus_icon.png) no-repeat;margin: -0.2rem .6rem 0 0;vertical-align: middle;}
+    .cont-text p i.phone {background-position: 0 0;background-size: 100%;}
+    .cont-text p i.email {background-position: 0 -1.14rem;background-size: 100%;}
+    .cont-img {width: 46%;margin: 3rem auto 0;}
+    .cont-img img{width: 100%;margin: 1rem auto;}
+    img{background: #e8e9e9}
+  </style>
+</head>
+<body>
+  <div class="cont-text">
+      <p><i class="phone"></i>电话号码：<a href="tel:010-59762989-302">010-59762989-302</a></p>
+      <p><i class="email"></i>邮箱：wangxiaoze@cesa.org.cn</p>
+  </div>
+  <div class="cont-img">
+      <img src="/images/2code_ddjc.jpg" alt="扫码投二维码">
+      <!-- <img src="/images/callus_text.png" alt="关注扫码投"> -->
+  </div>
+  <script src="/common/js/jweixin-1.2.0.js"></script>
+  <script src="/common/js/common.js?v=2018101501"></script>
+  <script>
+    setShare('','',ReviseURL("user=1"))
+  </script>
+</body>
+</html>

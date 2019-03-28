@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>报名详情</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/css/sign-info.css?v=2018101501">
+</head>
+<body>
+<div id="signInfo">
+   <!--<div class="is-submit"  v-if="showState==0">-->
+       <!--<div class="count-wrapper">-->
+           <!--<p>名额已锁定,请在<span class="time-color">{{minute}}</span>分<span class="time-color">{{second}}</span>秒内完成支付</p>-->
+       <!--</div>-->
+       <!--<div class="payment-tips">-->
+           <!--<p>报名已提交,待支付</p>-->
+       <!--</div>-->
+   <!--</div>-->
+    <!--<div class="is-cancel"  v-if="showState==1">-->
+        <!--<div class="count-wrapper">-->
+        <!--</div>-->
+        <!--<div class="payment-tips">-->
+            <!--<div class="cancel"></div>-->
+            <!--<p class="sign-cancel">报名已取消</p>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="is-submit" v-if="showState==2">
+        <div class="count-wrapper">
+        </div>
+        <div class="payment-tips">
+            <p>报名成功，感谢您的参与</p>
+        </div>
+    </div>
+    <div class="box" v-for="(item,index) in infos" >
+    <div class="project-desc clearfix">
+        <!--<div class="enter-icon"></div>-->
+        <img class="pro-img" v-cloak :src="splitPath(item.img_path,1)" alt="">
+        <div class="pro-desc">
+            <p id="par_name p-graycolor" v-cloak>{{matchNull(item.active_name)}}</p>
+            <p v-cloak >比赛时间:&nbsp;&nbsp;{{sliceTime(item.active_begin_time,1)}}</p>
+            <p id="par_address" v-cloak v-if="item.active_place">比赛城市: {{matchNull(item.active_place)}}</p>
+        </div>
+    </div>
+    <div class="pro-details">
+        <!--<div class="det-p">-->
+            <!--&lt;!&ndash;{{matchNull(item.enroll_amt)}}元&ndash;&gt;-->
+            <!--<p>项目:<span id="par_type"> &nbsp;{{matchNull(item.active_name)}}</span><span class="payment" id="par_money"></span></p>-->
+        <!--</div>-->
+        <!--<div class="det-p">-->
+            <!--<p>报名金额<span class="payment" id="par_pay">{{matchNull(item.enroll_amt)}}元</span></p>-->
+        <!--</div>-->
+    </div>
+    <div class="team-info" v-cloak v-if="!isRally">
+        <div class="team-title">团队信息</div>
+        <div class="team-desc clearfix">
+            <p>团队名称: </p><p id="team_name" v-cloak>{{matchNull(item.team_name)}}</p>
+            <p>团队联系人: </p><p id="team_man" v-cloak>{{matchNull(item.create_man)}}</p>
+            <p>电话: </p><p id="team_telephone" v-cloak>{{matchNull(item.phone)}}</p>
+        </div>
+    </div>
+    <div class="team-info" v-cloak v-if="!isRally">
+        <div class="team-title">选手信息</div>
+        <div class="team-desc clearfix">
+            <p>姓名: </p><p id="name" v-cloak>{{matchNull(item.user_name)}}</p>
+            <p>性别: </p><p id="sex" v-cloak>{{sexType[item.sex]}}</p>
+            <p>证件号码: </p><p id="id_num" v-cloak>{{matchNull(item.identity_no)}}</p>
+            <p>手机号码: </p><p id="telephone" v-cloak>{{matchNull(item.userPhone)}}</p>
+        </div>
+    </div>
+        <div class="team-info" v-cloak v-if="isRally">
+            <div class="team-title">选手信息</div>
+            <div class="team-desc clearfix">
+                <div class="item-group">
+                    <p>车手姓名: </p><p v-cloak>{{matchNull(item.name1)}}</p>
+                    <p>手机号: </p><p v-cloak>{{matchNull(item.mobile1)}}</p>
+                </div>
+                <div class="item-group">
+                    <p>副驾驶姓名: </p><p v-cloak>{{matchNull(item.name2)}}</p>
+                    <p>手机号: </p><p v-cloak>{{matchNull(item.mobile2)}}</p>
+                </div>
+                <div class="item-group">
+                    <p>乘客姓名: </p><p v-cloak>{{matchNull(item.user_name)}}</p>
+                    <p>手机号: </p><p v-cloak>{{matchNull(item.telephone)}}</p>
+                </div>
+                <div class="item-group">
+                    <p>紧急联系人姓名: </p><p v-cloak>{{matchNull(item.name3)}}</p>
+                    <p>手机号: </p><p v-cloak>{{matchNull(item.mobile3)}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-cloak class="choice-btn-wrap" v-if="showState==0" >
+        <div class="choice-btn pay-btn" @click="fnCancel">取消</div>
+        <div class="choice-btn cancel-btn" @click="fnPay">立即支付</div>
+    </div>
+    <div style="width: 100%;height: 200px;"  v-if="showState==1"></div>
+    <!--<div class="choice-btn-wrap"  v-if="showState==2">-->
+        <!--<div class="choice-btn download-btn">下载报销凭证</div>-->
+    <!--</div>-->
+</div>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js?v=2018101501"></script>
+<script src="/common/js/vue.js"></script>
+<script src="/js/signInfo.js?v=2018101501"></script>
+</body>
+</html>

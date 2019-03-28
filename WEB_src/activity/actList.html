@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+    <title>活动列表页</title>
+    <link rel="stylesheet" href="/common/css/reset.css">
+    <link rel="stylesheet" href="/common/css/nav-title.css?v=2018101501">
+    <link rel="stylesheet" href="/css/act-list.css?v=2018101501">
+    <link rel="stylesheet" href="/common/css/swiper-4.3.5.min.css">
+</head>
+<body>
+<div id="actList">
+    <div class="hidedoc" :class="navActive == 2 ?'height1':'height2'"></div>
+    <div class="header-style fixed">
+        <nav-title :count='navFont' @navclick='navFn' :navactive='navActive'></nav-title>
+        <div style="padding: 15px 25px;border-bottom: 2px solid #e8e9e9" v-cloak>
+            <section class="swiper-container" style="transform:translateZ(0)">
+                <div class="swiper-wrapper" style="transform:translateZ(0)">
+                    <div style="transform:translateZ(0);padding-right: 0" class="swiper-slide"   v-for="(item,index) in allType" @click="activeStyle(item.dict_value,index)" :class="[index == typeIndex ? 'active-style' :'']">{{item.dict_desc}}</div>
+                </div>
+            </section>
+            <section class="swiper-container" style="transform:translateZ(0)">
+                <div class="swiper-wrapper" style="transform:translateZ(0)">
+                    <div style="transform:translateZ(0);" class="swiper-slide"  v-for="(item,index) in allTime" @click="activeStyle2(index)" :class="[index == timeIndex ? 'active-style' :'']"  v-show="showtype">{{item}}</div>
+                </div>
+            </section>
+            <section class="swiper-container" style="transform:translateZ(0)">
+                <div class="swiper-wrapper" style="transform:translateZ(0)">
+                    <div style="transform:translateZ(0);" class="swiper-slide"  v-for="(item,index) in allAddress" @click="activeStyle3(index)" :class="[index == addressIndex ? 'active-style' :'']">{{item}}</div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="activity-wrapper" v-cloak>
+         <div class="activity-wrap" v-for="(item,index) in activeList" @click="goActiveList(index)">
+             <img class="activity-img" class="act_url" v-lazy="splitPath(item.img_path,0)" alt="">
+             <p v-cloak class="activity-desc" class="act_title">{{item.active_name}}</p>
+             <div class="activity-info">
+                 <i></i>
+                 <span v-cloak class="address" class="act_address">{{allAddress[item.active_place]}}</span>
+                 <span v-cloak class="time" class="act_time">赛事日期: &nbsp;&nbsp;{{(item.active_begin_time).slice(0,(item.active_begin_time).indexOf('T'))}}</span>
+             </div>
+         </div>
+    </div>
+
+    <div class="nodate-tips" v-cloak v-show="hasline">已无更多数据</div>
+    <div class="nodate-tips" v-cloak v-show="isload">正在加载中...</div>
+    <div class="nodate-tips nodate-pos" v-cloak v-show="activeList.length>0 ? false : true && noAct">暂时没有活动~</div>
+    <div class="nodate-tips nodate-pos" v-cloak v-show="error">报错啦,请刷新一下~</div>
+</div>
+<script src="/common/js/vue-lazyload.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js?v=2018101501"></script>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/NavTitle.js"></script>
+<script src="/common/js/swiper-4.3.5.min.js"></script>
+<script src="/common/js/Footer.js"></script>
+<script src="/js/actList.js?v=2018101502"></script>
+</body>
+</html>

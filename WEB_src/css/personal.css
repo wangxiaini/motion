@@ -1,0 +1,85 @@
+html{
+    background: #f3f5f4;
+}
+#personal{
+    width: 750px;
+    height: auto;
+    margin: 0 auto;
+}
+#personal .personal-wrapper{
+    padding: 0 25px;
+    border-top: 25px solid #e8e9e9;
+    background: #ffffff;
+    height: 220px;
+}
+#personal .personal-wrapper .header{
+    float: left;
+    margin-top: 52px;
+    width: 140px;
+    height: 140px;
+    border-radius: 140px;
+    overflow: hidden;
+}
+.header-img{
+    width: 100%;
+    height: 100%;
+}
+#personal .personal-wrapper .user-name{
+    line-height:245px;
+    font-size: 34px;
+    margin-left: 15px;
+}
+#personal .fn-wrapper{
+    background: #ffffff;
+    border-top: 35px solid #e8e9e9;
+}
+#personal .fn-wrapper .fn-wrap{
+    display: block;
+    box-sizing: border-box;
+    padding: 0 25px;
+    width: 100%;
+    height: 100px;
+}
+.line-bottom{
+    border-bottom: 2px solid #f3f5f4;
+}
+#personal .fn-wrapper .fn-icon{
+    float: left;
+    margin-top: 15px;
+    background: url("/images/user-icon.png") no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+.icon-order{
+    background-position: -327px 0px !important;
+}
+.icon-name{
+    background-position: 0px 0px !important;
+}
+.icon-team{
+     background-position: -94px 0px !important;
+ }
+.icon-idea{
+    background-position: -188px 0px !important;
+}
+img{
+    background: #e8e9e9;
+}
+.icon-concat{
+    background-position: -255px 0px !important;
+}
+#personal .fn-wrapper .fn-name{
+    float: left;
+    line-height:100px;
+    font-size: 34px;
+    margin-left: 15px;
+}
+#personal .fn-wrapper .fn-enter{
+    float: right;
+    margin-top: 32px;
+    width: 25px;
+    height: 36px;
+    background: url("/images/icon-more.png") no-repeat;
+}

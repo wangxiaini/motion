@@ -1,0 +1,74 @@
+body {
+  width: 750px;
+  margin: auto;
+  overflow-x: hidden;
+}
+.search-box .ser-header {
+  height: 100px;
+  background: #f2f5f5;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  top: 0;
+}
+.search-box .ser-header .ser-header-int {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-box .ser-header .ser-header-int input[type="search"] {
+  margin-top: 19px;
+  width: 560px;
+  display: inline-block;
+  height: 62px;
+  border-radius: 31px;
+  border: 1px solid #e8eae9;
+  border-left: none;
+  -webkit-appearance: none;
+  /*清除ios默认圆角*/
+  padding-left: 120px;
+  outline: none;
+  font-size: 28px;
+  background: white url('/images/ser-search-icon.png') no-repeat 80px center;
+}
+.search-box .ser-header .ser-header-int input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+.search-box .ser-header .ser-header-int input[type=search]::-webkit-search-cancel-button:after {
+  position: absolute;
+  content: 'x';
+  left: 25%;
+  top: -12%;
+  font-size: 20px;
+  color: white;
+}
+.search-box .hint {
+  color: #e43021;
+  font-size: 30px;
+  text-align: center;
+  line-height: 100px;
+}
+.search-box .ac-pic {
+  height: 256px;
+  width: 700px;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.search-box .nav-tit span {
+  display: inline-block;
+}
+.navs {
+  position: fixed;
+  width: 100%;
+  padding: 0 !important;
+  z-index: 99;
+  background-color: white;
+  top: 98px;
+}
+.navs li {
+  width: 25%;
+}
+.overflow-box {
+  padding-top: 190px;
+}

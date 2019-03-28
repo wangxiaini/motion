@@ -1,0 +1,440 @@
+html,
+body {
+    width: 750px;
+    margin: auto;
+}
+body .header .font{
+  width: 415px;
+  height: 73px;
+  background: rgba(218, 223, 219, .5);
+  text-align: center;
+  line-height: 73px;
+  color: #192981;
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 40px;
+  position: absolute;
+  transform: translate(-50%);
+  left: 50%;
+  top: 58%;
+}
+body .main1 .main_top {
+    height: 108px;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 108px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+html .main1 .main_top span {
+    display: inline-block;
+    width: 54px;
+    height: 54px;
+    background-color: white;
+    text-align: center;
+    line-height: 54px;
+    color: #331c02;
+    box-shadow: 4px -4px 4px #d9ddd6 inset, -4px 4px 4px #d9ddd6 inset;
+}
+body .main1 .hint_my {
+    display: none;
+    color: #2e5b0a;
+    line-height: 40px;
+    font-size: 30px;
+    text-align: center;
+}
+body .main1 .main_user .infos .center {
+    margin-left: 18px;
+    display: inline-block;
+    margin-top: 18px;
+    height: 300px;
+    width: 345px;
+    border: 2px solid #7ab451;
+    background-color: #fffdf2;
+    overflow: hidden;
+}
+body .main1 .main_user .infos .center figure {
+    width: 345px;
+    height: 220px;
+    position: relative;
+}
+body .main1 .main_user .infos .center figure img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+body .main1 .main_user .infos .center figure .bg {
+    position: absolute;
+    width: 104px;
+    height: 57px;
+    background: url('/sharePoint/images/ticket_titleBg.png') no-repeat;
+    background-size: 100% 100%;
+    top: 0;
+}
+body .main1 .main_user .infos .center figure .bg p {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+    font-size: 24px;
+    line-height: 57px;
+}
+body .main1 .main_user .infos .center .bottom_title {
+    width: 345px;
+}
+body .main1 .main_user .infos .center .bottom_title .left_title {
+    width: 70%;
+    float: left;
+}
+body .main1 .main_user .infos .center .bottom_title .left_title p {
+    font-size: 22px;
+    margin-left: 13px;
+}
+body .main1 .main_user .infos .center .bottom_title .left_title p:nth-child(1) {
+    margin-top: 15px;
+}
+body .main1 .main_user .infos .center .bottom_title .left_title p:nth-child(2) {
+    margin: 10px 0 0 15px;
+    color: #cf1f55;
+}
+body .main1 .main_user .infos .center .bottom_title .right_title {
+    width: 30%;
+    float: right;
+}
+body .main1 .main_user .infos .center .bottom_title .right_title .btn_icon {
+    margin: 10px 0 0 -34px;
+    width: 130px;
+    height: 53px;
+    background-color:#cf1f55 !important;
+    box-shadow: inset -5px -5px 20px #cf1f55 !important;
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 53px;
+    letter-spacing: 4px;
+    border-radius: 10px;
+}
+.mask{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 99;
+    display: none;
+}
+.mask .mask_img{
+    position: absolute;
+    width: 554px;
+    height: 774px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    margin-top: -387px;
+    
+}
+.mask_img img{
+  border-radius: 53px;
+}
+.mask .close{
+    width: 94px;
+    height: 94px;
+    position: absolute;
+    background: url('/images/close2.png') no-repeat;
+    background-size: 100% 100%;
+    bottom: -17%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.mask .ticket{
+    color: #f70000;
+    font-size: 36px;
+    position: absolute;
+    top: 85px;
+    left: 190px;
+}
+.mask .ticket span{
+    font-weight: bold;
+}
+body .main .hint_my {
+    display: none;
+    color: white;
+    line-height: 40px;
+    font-size: 30px;
+    text-align: center;
+}
+.mask_rule {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+.mask_rule .hint_bg {
+  position: relative;
+  width: 560px;
+  height: 456px;
+  background: white;
+  left: 50%;
+  top: 50%;
+  margin-top: -228px;
+  margin-left: -280px;
+  border-radius: 10px;
+}
+.mask_rule .hint_bg p {
+  text-align: center;
+}
+.mask_rule .hint_bg .hint {
+  font-size: 56px;
+  color: #ff6c00;
+  margin: 20px 0 25px 0;
+}
+.mask_rule .hint_bg .num {
+  font-size: 28px;
+}
+.mask_rule .hint_bg .hintimg {
+  width: 245px;
+  height: 211px;
+  background: url('/vote/images/complate.png') no-repeat;
+  margin-left: 26%;
+  padding-top: 8%;
+}
+.mask_rule .close {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  background: white;
+  border-radius: 50%;
+  bottom: 28%;
+  transform: translate(-50%);
+  left: 50%;
+}
+.mask_rule .hint_bg .close_btn {
+  position:absolute;
+  width: 94px;
+  height: 94px;
+  background: url('/images/close2.png') no-repeat;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: -35%;
+}
+body .header {
+    width: 100%;
+    height: 706px;
+    background: url('/vote/images/banner.jpg') no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    display: none;
+}
+body .header .rule_btn {
+    position: absolute;
+    width: 170px;
+    height: 56px;
+    background:white;
+    top: 33px;
+    right: 0px;
+    text-align: center;
+    color: #114a28;
+    line-height: 56px;
+    box-sizing: border-box;
+    font-size: 28px;
+    box-shadow: inset 0 -5px 6px #bfcabc;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.rule_box{
+  height: 660px;
+  overflow: auto;
+}
+body .main1 {
+  display: none;
+}
+body .main1 .hint_my {
+    color: #bf3d12;
+}
+body .main1 .main_user .infos .center{
+    border: 2px solid #031763;
+}
+body .main1 .main_user .infos .center figure .bg {
+    background: url('/vote/images/ticket_titleBg.png') no-repeat;
+}
+body .main1 .main_user .infos .center .bottom_title .left_title p:nth-child(2){
+    color: #cf1f55;
+}
+body .main1 .main_user .infos .center .bottom_title .right_title .btn_icon{
+    background-color: #bf3d12;
+    box-shadow: inset -5px -5px 20px #bf3d12;
+}
+body .main1 .main_user .infos .center .bottom_title .left_title{
+  width: 52%;
+  float: left;
+  
+}
+body .main1 .main_user .infos .center .bottom_title .left_title p:nth-child(1){
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow: hidden;
+  margin-top: 7px;
+  line-height: 30px;
+}
+.mask_rule .hint_bg .hint{
+  color: #ff8300;
+}
+.mask_bg{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 99999;
+    display: none;
+}
+.mask_bg .container{
+    width: 556px;
+    height: 775px;
+    background: url("/vote/images/mask_bg.png");
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 50%;
+    margin-top: -387px;
+}
+.mask_bg .container .title{
+    font-size: 30px;
+    color: #2c0c1d;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+}
+.mask_bg .container .title_h2{
+    font-size: 26px;
+    color: #2c0c1d;
+    margin: 0 43px 0;
+}
+.mask_bg .container  p{
+    line-height: 50px;
+    font-size: 24px;
+    color: #2c0c1d;
+    text-align: center;
+}
+.mask_bg .container ul{
+  padding-bottom: 20px;
+}
+.mask_bg .container ul li{
+    line-height: 44px;
+    font-size: 24px;
+    margin: 0 43px 0;
+    color: #2c0c1d;
+}
+.mask_bg .container ul li:first-child{
+    margin-top: 10px;
+}
+.mask_bg .container ul li {
+  margin: 0px 42px 0;
+}
+.mask .ticket {
+  font-size: 40px;
+  top: 174px;
+  left: 220px;
+}
+.aimi{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: url(/vote/images/before1.jpg) no-repeat;
+  background-size: 100% 100%;
+  z-index: 99999999;
+}
+.item{
+  display: inline-block;
+  width: 152px;
+  height: 50px;
+  background: rgba(228,228,229,.5);
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  border-radius: 26px;
+  line-height: 50px;
+  text-align: center;
+  letter-spacing: 10px;
+}
+.aimi_title{
+  width: 596px;
+  height: 298px;
+  position: relative;
+  background: url(/vote/images/before2.png) no-repeat;
+  margin: auto;
+  top: 10%;
+}
+.car {
+  width: 750px;
+  height: 559px;
+  position: relative;
+  background: url(/vote/images/before3.png) no-repeat;
+  top:15%;
+  margin: auto;
+  transform: scale(1);
+  display: none;
+}
+.bright {
+  width: 750px;
+  height: 133px;
+  position: absolute;
+  background: url(/vote/images/before4.png) no-repeat;
+  top:37%;
+  margin: auto;
+  opacity: 1;
+}
+@keyframes car {
+  0% {
+      transform:scale(0.5);
+  }
+  100% {
+      transform:scale(1);
+  }
+}
+.car {
+  animation: car 1s;
+}
+
+@keyframes aimi_title {
+  0% {
+    top: -24%;
+  }
+  100% {
+    top: 10%;
+  }
+}
+.aimi_title {
+  animation: aimi_title 1s;
+}
+
+@keyframes bright {
+  0%{
+    opacity: 0;
+  }
+  75%{
+    opacity: 1;
+  }
+  85%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.bright {
+  animation: bright 2s;
+}

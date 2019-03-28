@@ -1,0 +1,308 @@
+#live {
+  width: 750px;
+  margin: auto;
+}
+.nav-agen .title-btn {
+  height: 100px;
+}
+.nav-agen .title-btn span {
+  display: inline-block;
+  width: 80%;
+  height: 44px;
+  border-radius: 10px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 44px;
+  margin-top: 28px;
+  margin-left: 10%;
+}
+.nav-agen .title-btn .active {
+  background: #e33021;
+  color: white;
+}
+.nav-agen .title-btn .btn11 {
+  width: 50%;
+  height: 100px;
+  float: left;
+}
+.nav-agen .title-btn .btn5 {
+  width: 50%;
+  height: 100px;
+  float: left;
+}
+.nav-agen .tab {
+  height: 90px;
+  border-top: none;
+  font-size: 22px;
+  color: #999999;
+  line-height: 56px;
+}
+.nav-agen .tab .one {
+  padding-bottom: 101px;
+}
+.nav-agen .tab .day .title {
+  display: block;
+  width: 750px;
+  height: 78px;
+  line-height: 78px;
+  border-bottom: 2px solid #ededed;
+}
+.nav-agen .tab .day .title h2 {
+  font-size: 32px;
+  height: 32px;
+  border-left: 11px solid #ff6a28;
+  padding-left: 10px;
+  float: left;
+  line-height: 32px;
+  color: #ff6a28;
+  margin-top: 23px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+.nav-agen .tab .day .title p {
+  color: #999999;
+  font-size: 30px;
+  float: right;
+  padding-right: 30px;
+}
+.nav-agen .tab .day .day-box {
+  height: 280px;
+}
+.nav-agen .tab .day .day-box .day-left {
+  width: 75%;
+  float: left;
+  height: 280px;
+  box-sizing: border-box;
+  border-right: 2px solid #ededed;
+}
+.nav-agen .tab .day .day-box .day-left .p1 {
+  width: 121px;
+  height: 37px;
+  background: #5ec143;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  line-height: 37px;
+  border-radius: 4px;
+  margin: 17px 0 0 28px;
+}
+.nav-agen .tab .day .day-box .day-left .day-time {
+  width: 550px;
+  height: 195px;
+  float: right;
+  margin-top: 10px;
+}
+.nav-agen .tab .day .day-box .day-left .day-time .timer {
+  width: 20%;
+  float: left;
+  text-align: center;
+}
+.nav-agen .tab .day .day-box .day-left .day-time .timer p {
+  color: black;
+  line-height: 50px;
+  font-size: 30px;
+}
+.nav-agen .tab .day .day-box .day-left .day-time .pk {
+  width: 80%;
+  float: left;
+}
+.nav-agen .tab .day .day-box .day-left .day-time .pk P {
+  color: black;
+  line-height: 50px;
+  font-size: 30px;
+}
+.nav-agen .tab .day .day-box .day-left .day-time .pk P .left {
+  display: block;
+  width: 42%;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav-agen .tab .day .day-box .day-left .day-time .pk P .red {
+  display: block;
+  width: 16%;
+  color: #e91200;
+  float: left;
+  text-align: center;
+}
+.nav-agen .tab .day .day-box .day-left .day-time .pk P .right {
+  display: block;
+  width: 42%;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav-agen .tab .day .day-box .day-right {
+  width: 25%;
+  float: right;
+  height: 280px;
+}
+.nav-agen .tab .day .day-box .day-right a {
+  display: block;
+  width: 140px;
+  height: 140px;
+  color: white;
+  background: #4bafed;
+  margin-top: 70px;
+  border-radius: 10px;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+.nav-agen .tab .day .day-box .day-right a .icon {
+  height: 60px;
+  background: url(/images/video1.png) no-repeat center bottom;
+}
+.nav-agen .tab .day .day-box .day-right a .btn {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+.nav-agen .list {
+  width: 98%;
+  margin: auto;
+}
+.nav-agen .list .list-box {
+  display: flex;
+  text-align: center;
+  font-size: 30px;
+  height: 100px;
+  line-height: 100px;
+  border: 1px solid #e9e9e9;
+  background-color: #f7f7f7;
+  margin-top: 20px;
+}
+.nav-agen .list .list-box p:nth-child(1),
+.nav-agen .list .list-box p:nth-child(3) {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav-agen .list .list-box .result {
+  width: 10%;
+}
+.nav-agen .list .list-box .btn {
+  width: 20%;
+  height: 80px;
+  line-height: 80px;
+  background: #ff8d84;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.nav-agen .list .address {
+  border-bottom: 1px solid #e9e9e9;
+  border-left: 1px solid #e9e9e9;
+  border-right: 1px solid #e9e9e9;
+}
+.nav-agen .list .address span {
+  color: #999999;
+  font-size: 22px;
+  display: inline-block;
+  line-height: 50px;
+}
+.nav-shoot {
+  width: 100%;
+  margin: auto;
+}
+.nav-shoot .thead {
+  background-color: #f7f7f7;
+  height: 80px;
+  line-height: 80px;
+  padding: 0 10px;
+}
+.nav-shoot .thead li {
+  font-size: 24px;
+  float: left;
+  width: 11%;
+  text-align: center;
+}
+.nav-shoot .thead li:nth-child(2),
+.nav-shoot .thead li:nth-child(3) {
+  width: 39%;
+}
+.nav-shoot .tbody {
+  height: 100px;
+  line-height: 100px;
+}
+.nav-shoot .tbody li {
+  font-size: 24px;
+  float: left;
+  width: 11%;
+  text-align: center;
+}
+.nav-shoot .tbody li:nth-child(2),
+.nav-shoot .tbody li:nth-child(3) {
+  width: 39%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav-card {
+  width: 100%;
+  margin: auto;
+}
+.nav-card .thead {
+  background-color: #f7f7f7;
+  height: 80px;
+  line-height: 80px;
+  padding: 0 10px;
+}
+.nav-card .thead li {
+  font-size: 24px;
+  float: left;
+  width: 11%;
+  text-align: center;
+}
+.nav-card .thead li:nth-child(2),
+.nav-card .thead li:nth-child(3) {
+  width: 28%;
+}
+.nav-card .tbody {
+  height: 100px;
+  line-height: 100px;
+}
+.nav-card .tbody li {
+  font-size: 24px;
+  float: left;
+  width: 11%;
+  text-align: center;
+}
+.nav-card .tbody li:nth-child(2),
+.nav-card .tbody li:nth-child(3) {
+  width: 28%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+html body .navs {
+  padding: 0 ;
+  background: #eeeded;
+  border-bottom: 2px solid #d7d7d7;
+}
+html body .navss {
+  height: 142px;
+  background: #fbfbfb;
+  border-bottom: none;
+  color: black;
+  width: 730px;
+  margin: auto;
+}
+html body .navss li {
+  height: 48px;
+  line-height: 48px;
+  margin-top: 47px;
+  border-radius: 24px;
+}
+.hint {
+  text-align: center;
+  color: #e33021;
+  font-size: 28px;
+  line-height: 70px;
+}
+html body .active1 {
+  color: white;
+  background: #e91200;
+}

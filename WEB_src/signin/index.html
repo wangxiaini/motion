@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no,viewport-fit=cover">
+  <title>签到</title>
+  <link rel="stylesheet" href="/common/css/reset.css">
+  <link rel="stylesheet" href="/signin/css/signin.css">
+</head>
+<body>
+<div id="app" class="app">
+    <div class="aimi">
+      <div class="skip">跳过<span class="sps_item">7</span></div>
+      <div class="aimi1"></div>
+      <div class="aimi2">
+        <p class="header1 header"></p>
+        <p class="header2 header"></p>
+        <p class="header3 header"></p>
+        <p class="header4 header"></p>
+        <p class="header5 header"></p>
+        <p class="header6 header"></p>
+        <p class="header7 header"></p>
+        <div class="title">
+          
+        </div>
+      </div>
+      <div class="aimi3"></div>
+      <div class="aimifooter"></div>
+    </div>
+    <div class="main1">
+      <!--头部banner-->
+    <header>
+        <div class="banner-wrap"></div>
+    </header>
+    <!--主体部分-->
+    <section>
+    <!--签到-->
+        <div class="signin-wrap">
+            <ul class="date-wrap" v-cloak>
+                <li  v-for="v,i in date.list" :class="!v.record_type ? '' : 'active-dateli' ">
+                    <p class="date" :class="!v.record_type ? '' : 'active-date' ">{{i + 1}}</p>
+                    <p class="day" :class="!v.record_type ? '' : 'active-day' " >day</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="signin-wrap luck-wrap">
+            <div class="luck-tit" @click="closeStatfn">抽奖规则</div>
+            <div class="lottery-wrap">
+                <!--<div class="title" style="text-align: center;height:70px;line-height:70px;">-->
+                    <!--<img src="/awardRotate/img/tt.png" width="180" height="50">-->
+                <!--</div>-->
+                <!--<img src="/awardRotate/img/1.png" id="shan-img" style="display:none;" />-->
+                <!--<img src="/awardRotate/img/2.png" id="sorry-img" style="display:none;" />-->
+                <div class="banner">
+                    <div class="turnplate">
+                        <canvas class="item" id="wheelcanvas" width="475px" height="475px"></canvas>
+                        <img class="pointer" src="/signin/images/turnplate-pointer.png"/>
+                    </div>
+                    <!--<div class="dizuo">-->
+                        <!--<img src="/awardRotate/img/d.png" width="100%" height="100">-->
+                        <!--<p class="w-white frequency">剩<span class="w-yellow" id="lottery_times">-</span>次抽奖-->
+                            <!--&nbsp;&nbsp;-->
+                            <!--账户积分：<span class="w-yellow" id="curr_points">-</span></p>-->
+                        <!--&lt;!&ndash;<p class="w-yellow residualTime">距离抽奖结束还有：78天14小时58分钟05秒</p>&ndash;&gt;-->
+                    <!--</div>-->
+                </div>
+                <div class="shadow"></div>
+            </div>
+            <div class="count-lottery">
+                <img src="/signin/images/conduct.png" alt="">
+                <span v-cloak> {{date.LotteryCount}} </span>
+                <img src="/signin/images/lottery.png" alt="">
+            </div>
+            <!--捐款-->
+            <!-- <div class="contribution-wrap">
+                <ul class="clearfix">
+                    <li class="contribution-btn"><a href="/CESADefault.aspx?foundation=index">我要捐款</a></li>
+                    <li class="contribution-btn"><a href="/CESADefault.aspx?foundation=detail">捐款公示</a></li>
+                </ul>
+                <ul>
+                    <li class="notice">
+                        <span>
+                            所有爱心善款都将捐赠至中国足球发展基金会， <br>并向社会公示。
+                        </span>
+                    </li>
+                </ul>
+            </div> -->
+            <br/>
+            <br/>
+        </div>
+    </section>
+    <footer>
+        <div class="footer"></div>
+    </footer>
+    <!--<div class="alert_mask" v-cloak v-if="true">-->
+    <div class="alert_mask" v-cloak v-if="close_flag">
+        <div class="signin-tips" v-show="mask_type == 1">
+            <div class="tips-wrap clearfix">
+                <div class="success-logo"></div>
+                <div class="success"></div>
+                <p class="chance">获得1次抽奖机会</p>
+                <div class="close" @click="closeMask"></div>
+            </div>
+        </div>
+        <!--<div class="signin-tips2" v-show="true">-->
+        <div class="signin-tips2" v-show="mask_type == 0">
+            <!--福利购-->
+            <div class="tips-wrap2" v-show="buy == 0">
+            <!--<div class="tips-wrap2" v-show="true">-->
+                <div class="prize-bg"></div>
+                <div class="prize-content clearfix">
+                    <img :src="img_src" alt="" class="prize-img">
+                    <div class="prize-desc">
+                        <p class="commodity-desc">厂家发货<br>{{txt}}</p>
+                        <p class="mall-price">原价¥{{oprice}}</p>
+                        <p class="commodity-price">¥<span>{{price}}</span></p>
+                        <p class="active_time">活动倒计时:</p>
+                        <div class="commodity-tips">{{day}}天{{hours}}时{{minutes}}分{{seconds}}秒</div>
+                    </div>
+                </div>
+                <div class="buy-btn" @click="goProduct">立即抢购</div>
+                <div class="close" @click="closeMask"></div>
+            </div>
+            <!--其他奖品-->
+            <div class="tips-wrap2" v-show="buy == 1">
+                <div class="prize-bg" id="prize-bg"></div>
+                <div class="prize-content2 clearfix">
+                    <img :src="img_src" alt="" class="prize-img2">
+                    <p class="prize-desc2">{{txt}}</p>
+                </div>
+                <div class="buy-btn" @click="toWriteInfo">填写邮寄地址</div>
+                <div class="close" @click="closeMask"></div>
+            </div>
+            <!--未中奖-->
+            <div class="tips-wrap2"  id="lose" v-show="buy == 2">
+                <div class="close" @click="closeMask"></div>
+            </div>
+        </div>
+    </div>
+    <!--是否在活动时间内-->
+    <div class="mask" v-cloak v-show="!active_time">
+        <div class="alert_tips2">
+            <p>{{tips2}}</p>
+            <div class="end-btn" @click="isActivity">确认</div>
+        </div>
+    </div>
+    <!--规则-->
+    <div class="statement" v-cloak v-show="ruleState">
+        <div class="stat-content">
+            <p> 活动规则：<br>
+                1，活动日期：2018年11月23日至12月2日<br>
+                2，每日参与签到可获得一次抽奖机会<br>
+                3，奖品设置：<br>
+                活动期间随机抽取贵州茅台集团 53°白金酒共6瓶；<br>
+                活动期间随机抽取CoCoFAVES护肤套装每天3套；<br>
+                活动期间随机抽取CoCoFAVES洗面奶每天3套；<br>
+                活动期间随机抽取CoCoFAVES补水面膜每天3套；<br>
+                活动期间随机抽取签名足球每天3个；<br>
+                活动期间随机抽取宝骏车汽车模型每天3个；<br>
+                活动期间随机抽取贵州茅台集团 53°白金酒限时福利购机会每天2000次；<br>
+                4，获奖后请按照指定格式填写个人信息表格。<br>
+                5，工作人员会及时与中奖用户取得联络完成奖品兑换。<br>
+
+            </p>
+        </div>
+        <div class="statement-bototm" @click="closeStatfn">
+            <div class="close_btn"></div>
+        </div>
+    </div>
+    </div>
+</div>
+<script src="/common/js/jweixin-1.2.0.js"></script>
+<script src="/common/js/common.js"></script>
+<script src="/common/js/vue.js"></script>
+<script src="/common/js/axios.min.js"></script>
+<script src="/common/js/jquery-1.8.3.min.js"></script>
+<script src="/signin/js/awardRotate.js"></script>
+<script src="/signin/js/turnTable.js"></script>
+<script src="/signin/js/countDown.js?v=2018111401"></script>
+<script src="/signin/js/signin.js?v=2018111402"></script>
+</body>
+</html>
